@@ -1,6 +1,6 @@
 namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 {
-    public class UnitTest1
+    public class LampTest
     {
         [Fact]
         public void Test1()
