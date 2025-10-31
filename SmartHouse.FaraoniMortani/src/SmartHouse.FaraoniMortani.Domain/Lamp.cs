@@ -2,34 +2,45 @@
 {
     public class Lamp
     {
-
-        // Mode can be: normal, focused and flashing
-        public string? _mode;
-        public bool IsOn { get; private set; }
-
-
-        public void TurnOn()
-        {
-            IsOn = true;
-            _mode = "Normal";
-        }
+        public int BrightnessLevel { get; private set; }
+        private bool IsOn { get; set; }
         
 
-        public void TurnOff()
-        { 
+
+        public Lamp()
+        {
             IsOn = false;
+            BrightnessLevel = 50;
         }
 
 
-        public void ChangeMode(string newMode)
+        public void Switch()
         {
-            // Accepts only the three modes
-            // Can be done different
-            if (newMode == "Normal" || newMode == "Focused" || newMode == "Flashing")
+            if (IsOn)
             {
-                _mode = newMode;
+                IsOn = false;
             }
+            else
+            {
+                IsOn = true;
+            }
+
         }
-        
+
+
+        public void ChangeBrightness(int newBrightnessLevel)
+        {
+            if(newBrightnessLevel <= 0 && newBrightnessLevel > 100)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else
+            {
+                BrightnessLevel = newBrightnessLevel;
+            }
+                
+        }
+
     }
+
 }
