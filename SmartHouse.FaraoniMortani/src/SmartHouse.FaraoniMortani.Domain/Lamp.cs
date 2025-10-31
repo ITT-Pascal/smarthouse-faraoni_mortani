@@ -1,9 +1,9 @@
 ﻿namespace SmartHouse.FaraoniMortani.Domain
 {
-    public class Lamp
+    public class Lamp : AbstractLamp 
     {
         public int BrightnessLevel { get; private set; }
-        private bool IsOn { get; set; }
+        public bool IsOn { get; private set; }
         
 
 
@@ -14,29 +14,29 @@
         }
 
 
-        public void Switch()
+        public override void Switch()
         {
-            if (IsOn)
-            {
-                IsOn = false;
-            }
-            else
-            {
-                IsOn = true;
-            }
-
+            IsOn = !IsOn;
         }
 
 
-        public void ChangeBrightness(int newBrightnessLevel)
+        public override void ChangeBrightness(int newBrightnessLevel)
         {
-            if(newBrightnessLevel <= 0 && newBrightnessLevel > 100)
+
+            if(IsOn)
             {
-                throw new ArgumentOutOfRangeException();
-            }
-            else
-            {
-                BrightnessLevel = newBrightnessLevel;
+                if (newBrightnessLevel < 0 && newBrightnessLevel > 100)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                else if (newBrightnessLevel == 0)
+                {
+                    IsOn = false;
+                } else
+                {
+                    BrightnessLevel = newBrightnessLevel;
+                }
+
             }
                 
         }
