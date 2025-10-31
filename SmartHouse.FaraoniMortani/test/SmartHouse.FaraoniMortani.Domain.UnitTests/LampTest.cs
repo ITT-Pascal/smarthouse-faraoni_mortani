@@ -5,99 +5,59 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
     public class LampTest
     {
         [Fact]
-        public void LampTurnOn_WhenIsTurnedOn_IsOnIsTrue()
+        public void Switch_WhenSwitchIsUsedAndLampIsTurnedOff_IsOnIsTrue()
         {
             // Arrange
             Lamp lamp = new Lamp();
 
             // Act
-            lamp.TurnOn();
+            lamp.Switch();
 
             // Assert
-            Assert.Equal(true, lamp.IsOn);
+            Assert.True(lamp.IsOn);
         }
 
         [Fact]
-        public void LampTurnOn_WhenIsTurnedOn_ModeIsNormal()
+        public void Switch_WhenSwitchIsUsedAndLampIsTurnedOn_IsOnIsFalse()
         {
             // Arrange
             Lamp lamp = new Lamp();
 
             // Act
-            lamp.TurnOn();
+            lamp.Switch();
+            lamp.Switch();
 
             // Assert
-            Assert.Equal("Normal", lamp._mode);
-        }
-
-        [Fact]
-        public void LampTurnOff_WhenIsTurnedOff_IsOnIsFalse()
-        {
-            // Arrange
-            Lamp lamp = new Lamp();
-
-            // Act
-            lamp.TurnOff();
-
-            // Assert
-            Assert.Equal(false, lamp.IsOn);
+            Assert.False(lamp.IsOn);
 
         }
 
         [Fact]
-        public void LampChangeMode_WhenTheNewModeIsFocused_ItBecomesFocused()
+        public void ChangeBrightness_WhenBrightnessLevelIsSetTo100AssignBrightnessValue()
         {
-            // Arrange
             Lamp lamp = new Lamp();
+            lamp.Switch();
+            lamp.ChangeBrightness(100);
 
-            // Act
-            lamp.TurnOn();
-            lamp.ChangeMode("Focused");
-
-            //Assert
-            Assert.Equal("Focused", lamp._mode);
+            Assert.Equal(100, lamp.BrightnessLevel);
         }
 
         [Fact]
-        public void LampChangeMode_WhenTheNewModeIsFlashing_ItBecomesFlashing()
+        public void ChangeBrightness_WhenBrightnessLevelIsSetTo0LampGetsTurnedOff()
         {
-            // Arrange
             Lamp lamp = new Lamp();
+            lamp.Switch();
+            lamp.ChangeBrightness(0);
 
-            // Act
-            lamp.TurnOn();
-            lamp.ChangeMode("Flashing");
-
-            // Assert
-            Assert.Equal("Flashing", lamp._mode);
+            Assert.False(lamp.IsOn);
         }
 
         [Fact]
-        public void LampChangeMode_WhenTheNewModeIsNormal_ItBecomesNormal()
+        public void ChangeBrightness_WhenBrightnessLevelIsSetToANegativeNumberSelectionIsNot()
         {
-            // Arrange
             Lamp lamp = new Lamp();
-
-            // Act
-            lamp.TurnOn();
-            lamp.ChangeMode("Normal");
-
-            // Assert
-            Assert.Equal("Normal", lamp._mode);
-        }
-
-        [Fact]
-        public void LampChangeMode_WhenTheNewModeIsNotBetweenNormalFocusedAndFlashing_ItIsNotAssigned()
-        {
-            // Arrange
-            Lamp lamp = new Lamp();
-
-            // Act
-            lamp.ChangeMode("Stefano");
-
-            // Assert
-            Assert.Null(lamp._mode);
-
+            lamp.Switch();
+            Assert.Throws<ArgumentOutOfRangeException>(() => lamp.ChangeBrightness(-1));
         }
     }
 }
