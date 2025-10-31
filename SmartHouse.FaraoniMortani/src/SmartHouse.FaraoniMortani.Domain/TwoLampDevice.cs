@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    internal class TwoLampDevice
+    public class TwoLampDevice
     {
+        // TODO: Complete TwoLampDevice
     }
 }

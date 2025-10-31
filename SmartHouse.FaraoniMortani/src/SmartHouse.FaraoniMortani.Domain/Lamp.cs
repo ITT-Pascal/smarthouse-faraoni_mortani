@@ -25,7 +25,7 @@
 
             if(IsOn)
             {
-                if (newBrightnessLevel < 0 && newBrightnessLevel > 100)
+                if (newBrightnessLevel < 0 || newBrightnessLevel > 100)
                 {
                     throw new ArgumentOutOfRangeException();
                 }

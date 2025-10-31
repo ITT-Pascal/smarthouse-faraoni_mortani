@@ -29,7 +29,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 
             if (IsOn)
             {
-                if (newBrightnessLevel < 0 && newBrightnessLevel > 100)
+                if (newBrightnessLevel < 0 || newBrightnessLevel > 100)
                 {
                     throw new ArgumentOutOfRangeException();
                 }
@@ -48,8 +48,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         public void TurnOffAfterTime(DateTime initialTime, int minutes)
         {
-            if (IsOn)
-                if (CurrentTime - initialTime > TimeSpan.FromMinutes(minutes))
+            if (IsOn)                if (CurrentTime - initialTime > TimeSpan.FromMinutes(minutes))
                 {
                     Switch();
                 }
