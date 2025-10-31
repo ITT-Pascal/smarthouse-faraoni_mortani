@@ -48,7 +48,8 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         public void TurnOffAfterTime(DateTime initialTime, int minutes)
         {
-            if (IsOn)                if (CurrentTime - initialTime > TimeSpan.FromMinutes(minutes))
+            if (IsOn)
+                if (CurrentTime - initialTime > TimeSpan.FromMinutes(minutes))
                 {
                     Switch();
                 }
