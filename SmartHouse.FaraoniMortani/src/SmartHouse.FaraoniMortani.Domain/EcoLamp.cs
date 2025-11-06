@@ -10,12 +10,17 @@ namespace SmartHouse.FaraoniMortani.Domain
     {
         public DateTime CurrentTime = DateTime.UtcNow;
         public int BrightnessLevel { get; private set; }
-        public bool IsOn { get; private set; }
+        private bool IsOn { get; set; }
 
+        public override bool GetIsOn()
+        {
+            return IsOn;
+        }
 
         public EcoLamp()
         {
-
+            IsOn = false;
+            BrightnessLevel = 50;
         }
 
         public override void Switch()
@@ -28,21 +33,12 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
 
             if (IsOn)
-            {
                 if (newBrightnessLevel < 0 || newBrightnessLevel > 100)
-                {
                     throw new ArgumentOutOfRangeException();
-                }
                 else if (newBrightnessLevel == 0)
-                {
                     IsOn = false;
-                }
                 else
-                {
                     BrightnessLevel = newBrightnessLevel;
-                }
-
-            }
 
         }
 
@@ -50,9 +46,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if (IsOn)
                 if (CurrentTime - initialTime > TimeSpan.FromMinutes(minutes))
-                {
                     Switch();
-                }
             
         }
 

@@ -9,41 +9,50 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class TwoLampDevice
     {
-        // TODO: Complete TwoLampDevice
 
         public AbstractLamp Lamp1 { get; private set; } 
         public AbstractLamp Lamp2 { get; private set; } 
 
         public TwoLampDevice(AbstractLamp lamp1, AbstractLamp lamp2)
         {
-            
-
+            Lamp1 = lamp1;
+            Lamp2 = lamp2;
         }
 
-        public void TurnBothOn()
+        public void TurnBothLightsOn()
         {
-            if(Lamp1.IsOn)
-            {
+            if(Lamp1.GetIsOn())
                 Lamp1.Switch();
-            }
 
-            if(Lamp2.IsOn)
-            {
-                Lamp2.Switch();
-            }
+            if(Lamp2.GetIsOn())
+                Lamp2.Switch();    
         }
         
-        public void TurnBothOff()
+        public void TurnBothLightsOff()
         {
-            if(!Lamp1.IsOn)
-            {
+            if(!Lamp1.GetIsOn())
                 Lamp1.Switch();
-            }
+            
+            if(!Lamp2.GetIsOn())
+                Lamp2.Switch();  
+        }
 
-            if(!Lamp2.IsOn)
-            {
-                Lamp2.Switch();
-            }
+        public void TurnOnlyFirstLight()
+        {
+            if(!Lamp1.GetIsOn())
+                Lamp1.Switch() ;
+
+            if(Lamp2.GetIsOn())
+                Lamp2.Switch(); 
+        }
+
+        public void TurnOnlySecondLight()
+        {
+            if (Lamp1.GetIsOn())
+                Lamp1.Switch();
+
+            if (!Lamp2.GetIsOn())
+                Lamp2.Switch(); 
         }
     }
 }

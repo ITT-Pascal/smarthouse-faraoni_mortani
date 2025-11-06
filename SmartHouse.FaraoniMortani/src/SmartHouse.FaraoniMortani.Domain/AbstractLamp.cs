@@ -8,6 +8,8 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public abstract class AbstractLamp
     {
+        public abstract bool GetIsOn();
+
         public abstract void Switch();
 
         public abstract void ChangeBrightness(int newBrightnessLevel);

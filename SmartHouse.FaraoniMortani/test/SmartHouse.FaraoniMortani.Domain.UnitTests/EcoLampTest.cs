@@ -18,7 +18,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             ecoLamp.Switch();
 
             // Assert
-            Assert.True(ecoLamp.IsOn);
+            Assert.True(ecoLamp.GetIsOn());
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             ecoLamp.Switch();
 
             // Assert
-            Assert.False(ecoLamp.IsOn);
+            Assert.False(ecoLamp.GetIsOn());
 
         }
 
@@ -40,6 +40,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         public void ChangeBrightness_WhenBrightnessLevelIsSetTo100AssignBrightnessValue()
         {
             EcoLamp ecoLamp = new EcoLamp();
+
             ecoLamp.Switch();
             ecoLamp.ChangeBrightness(100);
 
@@ -50,10 +51,11 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         public void ChangeBrightness_WhenBrightnessLevelIsSetTo0LampGetsTurnedOff()
         {
             EcoLamp ecoLamp = new EcoLamp();
+
             ecoLamp.Switch();
             ecoLamp.ChangeBrightness(0);
 
-            Assert.False(ecoLamp.IsOn);
+            Assert.False(ecoLamp.GetIsOn());
         }
 
         [Fact]
@@ -65,5 +67,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         //TODO: Test function TurnOffAfterTime
+
+        
     }
 }
