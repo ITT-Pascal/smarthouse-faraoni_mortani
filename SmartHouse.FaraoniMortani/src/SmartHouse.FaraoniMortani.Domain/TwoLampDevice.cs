@@ -13,6 +13,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         public AbstractLamp Lamp1 { get; private set; } 
         public AbstractLamp Lamp2 { get; private set; } 
 
+        // TODO: If there are two ecolamp, can activate TurnOffAfterTime
+
         public TwoLampDevice(AbstractLamp lamp1, AbstractLamp lamp2)
         {
             Lamp1 = lamp1;
@@ -21,37 +23,40 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         public void TurnBothLampsOn()
         {
-            if(!Lamp1.GetIsOn())
+            if(!Lamp1.IsOn)
                 Lamp1.Switch();
 
-            if(!Lamp2.GetIsOn())
+            if(!Lamp2.IsOn)
                 Lamp2.Switch();    
         }
         
         public void TurnBothLampsOff()
         {
-            if(Lamp1.GetIsOn())
+            if(Lamp1.IsOn)
                 Lamp1.Switch();
             
-            if(Lamp2.GetIsOn())
+            if(Lamp2.IsOn)
                 Lamp2.Switch();  
         }
 
         public void TurnOnlyFirstLampOn()
         {
-            if(!Lamp1.GetIsOn())
+            if(!Lamp1.IsOn)
                 Lamp1.Switch() ;
 
-            if(Lamp2.GetIsOn())
+            if(Lamp2.IsOn)
                 Lamp2.Switch(); 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void TurnOnlySecondLampOn()
         {
-            if (Lamp1.GetIsOn())
+            if (Lamp1.IsOn)
                 Lamp1.Switch();
 
-            if (!Lamp2.GetIsOn())
+            if (!Lamp2.IsOn)
                 Lamp2.Switch(); 
         }
     }

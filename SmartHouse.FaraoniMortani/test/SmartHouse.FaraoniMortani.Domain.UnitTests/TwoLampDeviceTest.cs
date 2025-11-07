@@ -23,8 +23,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Assert
 
-            Assert.True(lamp1.GetIsOn());
-            Assert.True(lamp2.GetIsOn());
+            Assert.True(lamp1.IsOn);
+            Assert.True(lamp2.IsOn);
 
         }
 
@@ -41,12 +41,12 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Assert
 
-            Assert.False(lamp1.GetIsOn());
-            Assert.False(lamp2.GetIsOn());
+            Assert.False(lamp1.IsOn);
+            Assert.False(lamp2.IsOn);
 
         }
 
-        [Fact]
+        [Fact
         public void TurnOnlyFirstLampOn_WhenFirstLampGetTurnedOn_OnlyFirstLampHaveGetIsOnTrue()
         {
             // Arrange
@@ -59,8 +59,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Assert
 
-            Assert.True(lamp1.GetIsOn());
-            Assert.False(lamp2.GetIsOn());
+            Assert.True(lamp1.IsOn);
+            Assert.False(lamp2.IsOn);
 
         }
 
@@ -77,8 +77,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Assert
 
-            Assert.False(lamp1.GetIsOn());
-            Assert.True(lamp2.GetIsOn());
+            Assert.False(lamp1.IsOn);
+            Assert.True(lamp2.IsOn);
 
         }
 

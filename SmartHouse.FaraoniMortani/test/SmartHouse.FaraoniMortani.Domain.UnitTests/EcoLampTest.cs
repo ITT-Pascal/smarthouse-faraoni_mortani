@@ -66,7 +66,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.Throws<ArgumentOutOfRangeException>(() => ecoLamp.ChangeBrightness(-1));
         }
 
-        //TODO: Test function TurnOffAfterTime
+        //TODO: Test function TurnOffAfterTime (At least four tests)
 
         
 
