@@ -37,7 +37,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 Lamp2.Switch();  
         }
 
-        public void TurnOnlyFirstLightOn()
+        public void TurnOnlyFirstLampOn()
         {
             if(!Lamp1.GetIsOn())
                 Lamp1.Switch() ;
@@ -46,7 +46,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 Lamp2.Switch(); 
         }
 
-        public void TurnOnlySecondLightOn()
+        public void TurnOnlySecondLampOn()
         {
             if (Lamp1.GetIsOn())
                 Lamp1.Switch();
