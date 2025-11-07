@@ -11,7 +11,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         // Adjust This two tests
 
         [Fact]
-        public void TurnBothOn_WhenBothLampsGetTurnedOn_BothLampsHaveGetIsOnTrue()
+        public void TurnBothLampsOn_WhenBothLampsGetTurnedOn_BothLampsHaveGetIsOnTrue()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -23,13 +23,13 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Assert
 
-            Assert.True(lamp1.GetIsOn());
-            Assert.True(lamp2.GetIsOn());
+            Assert.True(lamp1.IsOn);
+            Assert.True(lamp2.IsOn);
 
         }
 
         [Fact]
-        public void TurnBothOff_WhenBothLampsGetTurnedOff_BothLampsHaveGetIsOnFalse()
+        public void TurnBothLampsOff_WhenBothLampsGetTurnedOff_BothLampsHaveGetIsOnFalse()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -41,13 +41,13 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Assert
 
-            Assert.False(lamp1.GetIsOn());
-            Assert.False(lamp2.GetIsOn());
+            Assert.False(lamp1.IsOn);
+            Assert.False(lamp2.IsOn);
 
         }
 
-        [Fact]
-        public void TurnOnlyFirst_WhenFirstLampGetTurnedOn_OnlyFirstLampHaveGetIsOnTrue()
+        [Fact
+        public void TurnOnlyFirstLampOn_WhenFirstLampGetTurnedOn_OnlyFirstLampHaveGetIsOnTrue()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -55,17 +55,17 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnOnlyFirstLightOn();
+            twoLampDevice.TurnOnlyFirstLampOn();
 
             // Assert
 
-            Assert.True(lamp1.GetIsOn());
-            Assert.False(lamp2.GetIsOn());
+            Assert.True(lamp1.IsOn);
+            Assert.False(lamp2.IsOn);
 
         }
 
         [Fact]
-        public void TurnOnlySecond_WhenSecondLampGetTurnedOn_OnlySecondLampHaveGetIsOnTrue()
+        public void TurnOnlySecondLampOn_WhenSecondLampGetTurnedOn_OnlySecondLampHaveGetIsOnTrue()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -73,12 +73,12 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnOnlySecondLightOn();
+            twoLampDevice.TurnOnlySecondLampOn();
 
             // Assert
 
-            Assert.False(lamp1.GetIsOn());
-            Assert.True(lamp2.GetIsOn());
+            Assert.False(lamp1.IsOn);
+            Assert.True(lamp2.IsOn);
 
         }
 

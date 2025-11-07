@@ -2,18 +2,14 @@
 {
     public class Lamp : AbstractLamp 
     {
-        public int BrightnessLevel { get; private set; }
-        private bool IsOn { get;  set; }
 
-        public override bool GetIsOn()
-        {
-            return IsOn;
-        }
+        public override bool IsOn { get; set; }
+        public int BrightnessLevel { get; private set; }
 
         public Lamp()
         {
             IsOn = false;
-            BrightnessLevel = 50;
+            BrightnessLevel = 100;
         }
 
 

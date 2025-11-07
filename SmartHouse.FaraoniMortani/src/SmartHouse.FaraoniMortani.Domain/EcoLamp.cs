@@ -8,24 +8,24 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class EcoLamp : AbstractLamp
     {
-        public DateTime CurrentTime = DateTime.UtcNow;
+        public override bool IsOn { get; set; }
+        public DateTime AccensionTime { get; set; }
         public int BrightnessLevel { get; private set; }
-        private bool IsOn { get; set; }
-
-        public override bool GetIsOn()
-        {
-            return IsOn;
-        }
-
+        
         public EcoLamp()
         {
             IsOn = false;
-            BrightnessLevel = 50;
+            BrightnessLevel = 100;
+            
         }
 
         public override void Switch()
         {
             IsOn = !IsOn;
+
+            if(IsOn)
+                AccensionTime = DateTime.UtcNow;
+
         }
 
 
@@ -42,13 +42,19 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         }
 
-        public void TurnOffAfterTime(DateTime initialTime, int minutes)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="initialTime"></param>
+        /// <param name="minutes"></param>
+        public void TurnOffAfterTime(DateTime currentTime, int minutes)
         {
+
             if (IsOn)
-                if (CurrentTime - initialTime > TimeSpan.FromMinutes(minutes))
+                if (AccensionTime - currentTime > TimeSpan.FromMinutes(minutes))
                     Switch();
             
         }
-
+        
     }
 }

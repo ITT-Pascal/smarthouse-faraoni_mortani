@@ -8,7 +8,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public abstract class AbstractLamp
     {
-        public abstract bool GetIsOn();
+        public abstract bool IsOn { get; set; }
 
         public abstract void Switch();
 
