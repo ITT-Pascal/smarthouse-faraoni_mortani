@@ -18,7 +18,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             ecoLamp.Switch();
 
             // Assert
-            Assert.True(ecoLamp.GetIsOn());
+            Assert.True(ecoLamp.IsOn);
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             ecoLamp.Switch();
 
             // Assert
-            Assert.False(ecoLamp.GetIsOn());
+            Assert.False(ecoLamp.IsOn);
 
         }
 
@@ -55,7 +55,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             ecoLamp.Switch();
             ecoLamp.ChangeBrightness(0);
 
-            Assert.False(ecoLamp.GetIsOn());
+            Assert.False(ecoLamp.IsOn);
         }
 
         [Fact]

@@ -14,7 +14,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             lamp.Switch();
 
             // Assert
-            Assert.True(lamp.GetIsOn());
+            Assert.True(lamp.IsOn);
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             lamp.Switch();
 
             // Assert
-            Assert.False(lamp.GetIsOn());
+            Assert.False(lamp.IsOn);
 
         }
 
@@ -49,15 +49,23 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             lamp.Switch();
             lamp.ChangeBrightness(0);
 
-            Assert.False(lamp.GetIsOn());
+            Assert.False(lamp.IsOn);
         }
 
         [Fact]
-        public void ChangeBrightness_WhenBrightnessLevelIsSetToANegativeNumberSelectionIsNot()
+        public void ChangeBrightness_WhenBrightnessLevelIsSetToANegativeNumberThrowArgument()
         {
             Lamp lamp = new Lamp();
             lamp.Switch();
             Assert.Throws<ArgumentOutOfRangeException>(() => lamp.ChangeBrightness(-1));
+        }
+
+        [Fact]
+        public void ChangeBrightness_WhenBrightnessLevelIsSetToANumberGreaterThanMaximumLimitThrowArgument()
+        {
+            Lamp lamp = new Lamp();
+            lamp.Switch();
+            Assert.Throws<ArgumentOutOfRangeException>(() => lamp.ChangeBrightness(101));
         }
     }
 }

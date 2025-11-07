@@ -19,7 +19,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnBothLightsOn();
+            twoLampDevice.TurnBothLampsOn();
 
             // Assert
 
@@ -37,7 +37,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnBothLightsOff();
+            twoLampDevice.TurnBothLampsOff();
 
             // Assert
 
@@ -55,7 +55,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnOnlyFirstLight();
+            twoLampDevice.TurnOnlyFirstLightOn();
 
             // Assert
 
@@ -73,7 +73,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnOnlySecondLight();
+            twoLampDevice.TurnOnlySecondLightOn();
 
             // Assert
 
