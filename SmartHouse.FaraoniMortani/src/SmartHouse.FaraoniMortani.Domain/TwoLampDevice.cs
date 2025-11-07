@@ -21,19 +21,19 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         public void TurnBothLightsOn()
         {
-            if(Lamp1.GetIsOn())
+            if(!Lamp1.GetIsOn())
                 Lamp1.Switch();
 
-            if(Lamp2.GetIsOn())
+            if(!Lamp2.GetIsOn())
                 Lamp2.Switch();    
         }
         
         public void TurnBothLightsOff()
         {
-            if(!Lamp1.GetIsOn())
+            if(Lamp1.GetIsOn())
                 Lamp1.Switch();
             
-            if(!Lamp2.GetIsOn())
+            if(Lamp2.GetIsOn())
                 Lamp2.Switch();  
         }
 
