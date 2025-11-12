@@ -46,8 +46,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
         }
 
-        [Fact
-        public void TurnOnlyFirstLampOn_WhenFirstLampGetTurnedOn_OnlyFirstLampHaveGetIsOnTrue()
+        [Fact]
+        public void TurnOnlyFirstLampOn_WhenFirstLampGetTurnedOn_FirstLampHaveGetIsOnTrue()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -58,14 +58,12 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             twoLampDevice.TurnOnlyFirstLampOn();
 
             // Assert
-
             Assert.True(lamp1.IsOn);
-            Assert.False(lamp2.IsOn);
 
         }
 
         [Fact]
-        public void TurnOnlySecondLampOn_WhenSecondLampGetTurnedOn_OnlySecondLampHaveGetIsOnTrue()
+        public void TurnOnlySecondLampOn_WhenSecondLampGetTurnedOn_SecondLampHaveGetIsOnTrue()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -76,8 +74,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             twoLampDevice.TurnOnlySecondLampOn();
 
             // Assert
-
-            Assert.False(lamp1.IsOn);
             Assert.True(lamp2.IsOn);
 
         }

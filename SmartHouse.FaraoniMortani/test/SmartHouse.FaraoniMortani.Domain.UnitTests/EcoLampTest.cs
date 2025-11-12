@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,37 +41,91 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         [Fact]
         public void ChangeBrightness_WhenBrightnessLevelIsSetTo100AssignBrightnessValue()
         {
+            // Arrange
             EcoLamp ecoLamp = new EcoLamp();
 
+            // Act
             ecoLamp.Switch();
             ecoLamp.ChangeBrightness(100);
 
+            // Assert
             Assert.Equal(100, ecoLamp.BrightnessLevel);
         }
 
         [Fact]
         public void ChangeBrightness_WhenBrightnessLevelIsSetTo0LampGetsTurnedOff()
         {
+            // Arrange
             EcoLamp ecoLamp = new EcoLamp();
 
+            // Act
             ecoLamp.Switch();
             ecoLamp.ChangeBrightness(0);
 
+            // Assert
             Assert.False(ecoLamp.IsOn);
         }
 
         [Fact]
-        public void ChangeBrightness_WhenBrightnessLevelIsSetToANegativeNumberSelectionIsNot()
+        public void ChangeBrightness_WhenBrightnessLevelIsSetToANegativeNumberSelectionIsNotChanged()
         {
+            // Arrange
             EcoLamp ecoLamp = new EcoLamp();
+            
+            // Act
             ecoLamp.Switch();
+
+            // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => ecoLamp.ChangeBrightness(-1));
         }
 
-        //TODO: Test function TurnOffAfterTime (At least four tests)
+        //TODO:  Complete Test function TurnOffAfterTime (At least four tests)
 
-        
+        [Fact]
+        public void TurnOffAfterTime_IfTheLampIsOff_ItDoesNotSwitch()
+        {
+            // Arrange
+            EcoLamp ecoLamp = new EcoLamp();
+            DateTime time = DateTime.UtcNow;
 
+            // Act
+            ecoLamp.TurnOffAfterTime(time, 30);
+
+            // Assert
+            Assert.False(ecoLamp.IsOn);
+        }
+
+        [Fact]
+        public void TurnOffAfterTime_w()
+        {
+            // Arrange
+            EcoLamp ecolamp = new EcoLamp();
+
+            // Act
+
+        }
+
+        [Fact]
+        public void TurnOffAfterTime_y()
+        {
+            // Arrange
+            EcoLamp ecolamp = new EcoLamp();
         
+            // Act
+        
+        }
+
+        [Fact]
+        public void TurnOffAfterTime_t()
+        {
+            // Arrange
+            EcoLamp ecolamp = new EcoLamp();
+        
+            // Act
+
+        }
+
+
+
     }
 }

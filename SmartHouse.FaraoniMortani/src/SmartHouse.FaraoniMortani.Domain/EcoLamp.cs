@@ -8,13 +8,14 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class EcoLamp : AbstractLamp
     {
-        public override bool IsOn { get; set; }
+        public bool IsOn { get; set; }
         public DateTime AccensionTime { get; set; }
         public int BrightnessLevel { get; private set; }
         
         public EcoLamp()
         {
             IsOn = false;
+            Id = new Guid();
             BrightnessLevel = 100;
             
         }
@@ -43,7 +44,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         }
 
         /// <summary>
-        /// 
+        /// It turns off the lamp when the difference of the AccensionTime and currentTime is higher than period of time choose by the user
         /// </summary>
         /// <param name="initialTime"></param>
         /// <param name="minutes"></param>
