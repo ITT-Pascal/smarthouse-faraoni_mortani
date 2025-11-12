@@ -3,12 +3,13 @@
     public class Lamp : AbstractLamp 
     {
 
-        public override bool IsOn { get; set; }
+        public bool IsOn { get; set; }
         public int BrightnessLevel { get; private set; }
 
         public Lamp()
         {
             IsOn = false;
+            Id = new Guid();
             BrightnessLevel = 100;
         }
 
