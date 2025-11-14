@@ -8,7 +8,6 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class EcoLamp : AbstractLamp
     {
-        public bool IsOn { get; set; }
         public DateTime AccensionTime { get; set; }
         public int BrightnessLevel { get; private set; }
         
@@ -16,8 +15,15 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             IsOn = false;
             Id = new Guid();
+            BrightnessLevel = 100;  
+        }
+
+        public EcoLamp(string name)
+        {
+            IsOn = false;
+            Id = new Guid();
+            Name = name;
             BrightnessLevel = 100;
-            
         }
 
         public override void Switch()

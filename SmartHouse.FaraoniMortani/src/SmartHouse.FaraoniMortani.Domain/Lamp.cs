@@ -2,8 +2,6 @@
 {
     public class Lamp : AbstractLamp 
     {
-
-        public bool IsOn { get; set; }
         public int BrightnessLevel { get; private set; }
 
         public Lamp()
@@ -13,12 +11,18 @@
             BrightnessLevel = 100;
         }
 
+        public Lamp(string name)
+        {
+            IsOn = false;
+            Id = new Guid();
+            Name = name;
+            BrightnessLevel = 100;
+        }
 
         public override void Switch()
         {
             IsOn = !IsOn;
         }
-
 
         public override void ChangeBrightness(int newBrightnessLevel)
         {
@@ -30,9 +34,7 @@
                     IsOn = false; 
                 else
                     BrightnessLevel = newBrightnessLevel;
-                
+      
         }
-
     }
-
 }

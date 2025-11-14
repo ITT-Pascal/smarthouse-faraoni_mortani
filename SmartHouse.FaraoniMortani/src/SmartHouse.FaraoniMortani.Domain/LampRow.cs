@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,6 @@ namespace SmartHouse.FaraoniMortani.Domain
     public class LampRow
     {
         public List<AbstractLamp> lampRow;
-
         public LampRow(){}
 
         public void AddLamp(AbstractLamp lamp)
@@ -17,17 +17,34 @@ namespace SmartHouse.FaraoniMortani.Domain
             lampRow.Add(lamp);
         }
 
-        public void RemoveLamp(int index)
+        public void AddLampInPosition(AbstractLamp lamp, int position)
         {
-            lampRow.RemoveAt(index);
+            lampRow.Insert(position, lamp);
         }
 
-        public void TurnOnSingleLamp(int index)
+        public void RemoveLamp(Guid id)
         {
-            if (!lampRow[index].IsOn)
-            {
-                lampRow[index].Switch();
-            }
+            lampRow.Remove(new Lamp(){ Id = id });
+        }
+
+        public void RemoveLamp(string name)
+        {
+            lampRow.Remove(new Lamp() { Name = name });
+        }
+
+        public void RemoveLampInPosition(int position)
+        {
+            lampRow.RemoveAt(position);
+        }
+
+        public void TurnOnSingleLamp(Guid id)
+        {
+            //TODO
+        }
+
+        public void TurnOnSingleLamp(string name)
+        {
+            //TODO
         }
 
         public void TurnOnAllLamps()
@@ -39,12 +56,14 @@ namespace SmartHouse.FaraoniMortani.Domain
             }
         }
 
-        public void TurnOffSingleLamp(int index)
+        public void TurnOffSingleLamp(Guid id)
         {
-            if (lampRow[index].IsOn)
-            {
-                lampRow[index].Switch();
-            }
+           //TODO
+        }
+
+        public void TurnOffSingleLamp(string name)
+        {
+            //TODO
         }
 
         public void TurnOffAllLamps()
@@ -53,6 +72,24 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (lampRow[index].IsOn)
                     lampRow[index].Switch();
+            }
+        }
+
+        public void SetBrightnessForLamp(Guid id, int newBrightness)
+        {
+            //TODO
+        }
+
+        public void SetBrightnessForLamp(string name, int newBrightness)
+        {
+            //TODO
+        }
+
+        public void SetBrightnessForAllLamps(int newBrightness)
+        {
+            for (int index = 0; index < lampRow.Count; index++)
+            {
+                lampRow[index].ChangeBrightness(newBrightness);
             }
         }
     }
