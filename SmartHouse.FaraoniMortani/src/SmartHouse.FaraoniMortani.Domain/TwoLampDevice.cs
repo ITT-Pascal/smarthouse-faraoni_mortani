@@ -43,6 +43,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             
             if(Lamp2.IsOn)
                 Lamp2.Switch();  
+
         }
 
         /// <summary>
@@ -66,20 +67,29 @@ namespace SmartHouse.FaraoniMortani.Domain
         // TODO: If there are two ecolamp, can activate TurnOffAfterTime
 
 
-        public void TurnFirstLampOffAfterTime()
+        public void TurnFirstLampOffAfterTime(DateTime currentTime, int minutes)
         {
-            if(Lamp1 is EcoLamp)
+            if(Lamp1 is EcoLamp EcoLamp1)
             {
-                Lamp1.TurnOffAfterTime();
+                EcoLamp1.TurnOffAfterTime(currentTime, minutes);
             }
 
         }
 
-        public void TurnSecondLampOffAfterTime()
+        public void TurnSecondLampOffAfterTime(DateTime currentTime, int minutes)
         {
-            if(Lamp2 is EcoLamp)
+            if(Lamp2 is EcoLamp EcoLamp2)
             {
-                Lamp2.TurnOffAfterTime();
+                EcoLamp2.TurnOffAfterTime(currentTime, minutes);
+            }
+
+        }
+
+        public void TurnBothLampsOffAfterTime(DateTime currentTime, int minutes)
+        {
+            if(Lamp1 is EcoLamp EcoLamp1)
+            {
+                EcoLamp1.TurnOffAfterTime(currentTime, minutes);
             }
 
         }
