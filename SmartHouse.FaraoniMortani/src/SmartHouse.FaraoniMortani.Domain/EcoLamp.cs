@@ -8,85 +8,39 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class EcoLamp : AbstractLamp
     {
-        public const int StandardMinimumIntensity = 0;
-        public const int StandardMaximumIntensity = 70;
-        public DateTime AccensionTime { get; set; }
-        public int BrightnessLevel { get; private set; }
+        
+        public const int DefaultAutoOffMinutes = 50;
+        public const int EcoModeBrightnessValue = 40;
 
-        public override int MinimumIntensity => StandardMinimumIntensity;
-        public override int MaximumIntensity => StandardMaximumIntensity;
-
-        public EcoLamp()
+        public void SetOnTime(DateTime time)
         {
-            IsOn = false;
-            Id = new Guid();
-            BrightnessLevel = StandardMaximumIntensity;  
+            LastChangeTime = time;
         }
 
-        public EcoLamp(string name)
+        
+        public EcoLamp(Guid guid, string name) : base(guid, name) { }
+        public EcoLamp(string name) : base(name) { }
+
+
+        
+        public void SetEcoModeBrightness()
         {
-            IsOn = false;
-            Id = new Guid();
-            Name = name;
-            BrightnessLevel = StandardMaximumIntensity;
-        }
-
-        public override void Switch()
-        {
-            IsOn = !IsOn;
-
-            if(IsOn)
-                AccensionTime = DateTime.UtcNow;
-        }
-
-
-        public override void ChangeBrightness(int newBrightnessLevel)
-        {
-
-            if (IsOn)
-                if (newBrightnessLevel < StandardMinimumIntensity || newBrightnessLevel > StandardMaximumIntensity)
-                    throw new ArgumentOutOfRangeException();
-                else if (newBrightnessLevel == StandardMinimumIntensity)
-                    IsOn = false;
-                else
-                    BrightnessLevel = newBrightnessLevel;
-        }
-
-        public override void Brighten()
-        {
-            if(BrightnessLevel + 5 > MaximumIntensity)
+            if (Status == DeviceStatus.On && BrightnessLevel > EcoModeBrightnessValue)
             {
-                BrightnessLevel = MaximumIntensity;
-            }
-            else
-            {
-                BrightnessLevel += 5;
+                BrightnessLevel = EcoModeBrightnessValue;
             }
         }
 
-        public override void Dimmer()
+        public void TurnOffAfterTime()
         {
-            if (BrightnessLevel - 5 < MinimumIntensity)
+            if (Status == DeviceStatus.On)
             {
-                BrightnessLevel = MinimumIntensity;
+                if (DateTime.Now - LastChangeTime > TimeSpan.FromMinutes(DefaultAutoOffMinutes))
+                {
+                    SwitchOff();
+                }
             }
-            else
-            {
-                BrightnessLevel -= 5;
-            }
-        }
 
-        /// <summary>
-        /// It turns off the lamp when the difference of the AccensionTime and currentTime is higher than period of time choose by the user
-        /// </summary>
-        /// <param name="initialTime"></param>
-        /// <param name="minutes"></param>
-        public void TurnOffAfterTime(DateTime currentTime, int minutes)
-        {
-
-            if (IsOn)
-                if (AccensionTime - currentTime > TimeSpan.FromMinutes(minutes))
-                    Switch();  
         }
     }
 }

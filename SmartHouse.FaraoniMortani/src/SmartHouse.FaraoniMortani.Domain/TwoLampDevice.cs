@@ -9,98 +9,102 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class TwoLampDevice
     {
-
-        public AbstractLamp Lamp1 { get; private set; } 
-        public AbstractLamp Lamp2 { get; private set; } 
-
         
+        public AbstractLamp Lamp1 { get; private set; }
+        public AbstractLamp Lamp2 { get; private set; }
 
+       
         public TwoLampDevice(AbstractLamp lamp1, AbstractLamp lamp2)
         {
             Lamp1 = lamp1;
             Lamp2 = lamp2;
         }
 
-        /// <summary>
-        /// This method turns on both lamps
-        /// </summary>
-        public void TurnBothLampsOn()
-        {
-            if(!Lamp1.IsOn)
-                Lamp1.Switch();
 
-            if(!Lamp2.IsOn)
-                Lamp2.Switch();    
+        public void TurnOnOneLamp(AbstractLamp currentLamp)
+        {
+            if (currentLamp == Lamp1 || currentLamp == Lamp2)
+                currentLamp.SwitchOn();
         }
-        
-        /// <summary>
-        /// This method turns off both lamps
-        /// </summary>
-        public void TurnBothLampsOff()
+        public void TurnOffOneLamp(AbstractLamp currentLamp)
         {
-            if(Lamp1.IsOn)
-                Lamp1.Switch();
-            
-            if(Lamp2.IsOn)
-                Lamp2.Switch();  
-
+            if (currentLamp == Lamp1 || currentLamp == Lamp2)
+                currentLamp.SwitchOff();
         }
 
-        /// <summary>
-        /// This method turns the first lamp on
-        /// </summary>
-        public void TurnOnlyFirstLampOn()
+        public void TurnBothOn()
         {
-            if(!Lamp1.IsOn)
-                Lamp1.Switch() ;
+            Lamp1.SwitchOn();
+            Lamp2.SwitchOn();
         }
 
-        /// <summary>
-        /// Turns the second lamp on
-        /// </summary>
-        public void TurnOnlySecondLampOn()
+        public void TurnBothOff()
         {
-            if (!Lamp2.IsOn)
-                Lamp2.Switch(); 
+            Lamp1.SwitchOff();
+            Lamp2.SwitchOff();
         }
 
-        /// <summary>
-        /// This method turns the first lamp off after a specified amount of time if the lamp is a EcoLamp
-        /// </summary>
-        /// <param name="currentTime"></param>
-        /// <param name="minutes"></param>
-        public void TurnFirstLampOffAfterTime(DateTime currentTime, int minutes)
+
+
+        public void SetOneBrightness(AbstractLamp currentLamp, int newBrightness)
         {
-            if(Lamp1 is EcoLamp EcoLamp1)
+            if (currentLamp == Lamp1 || currentLamp == Lamp2)
+                currentLamp.SetBrightness(newBrightness);
+        }
+
+        public void SetBothSameBrightness(int newBrightness)
+        {
+            Lamp1.SetBrightness(newBrightness);
+            Lamp2.SetBrightness(newBrightness);
+
+
+        }
+
+        public void SetOneEcoLampBrightnessToEco(AbstractLamp currentLamp)
+        {
+            if (currentLamp == Lamp1 || currentLamp == Lamp2)
             {
-                EcoLamp1.TurnOffAfterTime(currentTime, minutes);
+                if (currentLamp is EcoLamp ecoLamp1)
+                {
+                    ecoLamp1.SetEcoModeBrightness();
+
+                }
             }
         }
 
-        /// <summary>
-        /// This method turns the second lamp off after a specified amount of time if the lamp is a EcoLamp
-        /// </summary>
-        /// <param name="currentTime"></param>
-        /// <param name="minutes"></param>
-        public void TurnSecondLampOffAfterTime(DateTime currentTime, int minutes)
+        public void SetBothEcoLampsBrightnessToEco()
         {
-            if(Lamp2 is EcoLamp EcoLamp2)
+            if (Lamp1 is EcoLamp ecoLamp1)
             {
-                EcoLamp2.TurnOffAfterTime(currentTime, minutes);
+                ecoLamp1.SetEcoModeBrightness();
+            }
+            if (Lamp2 is EcoLamp ecoLamp2)
+            {
+                ecoLamp2.SetEcoModeBrightness();
             }
         }
 
-        /// <summary>
-        /// This method turns both lamps off after a specified amount of time if both lamps is a EcoLamp
-        /// </summary>
-        /// <param name="currentTime"></param>
-        /// <param name="minutes"></param>
-        public void TurnBothLampsOffAfterTime(DateTime currentTime, int minutes)
+        public void TurnOneEcoLampOffAfterTime(AbstractLamp currentLamp)
         {
-            if(Lamp1 is EcoLamp EcoLamp1)
+            if (currentLamp == Lamp1 || currentLamp == Lamp2)
             {
-                EcoLamp1.TurnOffAfterTime(currentTime, minutes);
+                if (currentLamp is EcoLamp ecoLamp1)
+                {
+                    ecoLamp1.TurnOffAfterTime();
+                }
             }
         }
+        public void TurnBothEcoLampsOffAfterTime()
+        {
+            if (Lamp1 is EcoLamp ecoLamp1)
+            {
+                ecoLamp1.TurnOffAfterTime();
+            }
+            if (Lamp2 is EcoLamp ecoLamp2)
+            {
+                ecoLamp2.TurnOffAfterTime();
+            }
+        }
+
     }
 }

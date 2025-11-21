@@ -32,6 +32,11 @@ namespace SmartHouse.FaraoniMortani.Domain
             lampRow.Insert(position, lamp);
         }
 
+
+
+        // TODO: Adjust the two function belo this comment
+
+
         /// <summary>
         /// This method removes a lamp with a specified id from the row
         /// </summary>
@@ -70,7 +75,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (lampRow[i].Id == id)
                 {
-                    if (lampRow[i].IsOn == false)
+                    if (lampRow[i].Status == DeviceStatus.Off)
                     {
                         lampRow[i].Switch();
                     }
@@ -96,7 +101,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (lampRow[i].Name == name)
                 {
-                    if(lampRow[i].IsOn == false)
+                    if(lampRow[i].Status == DeviceStatus.Off)
                     {
                         lampRow[i].Switch();
                     }
@@ -116,10 +121,10 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// </summary>
         public void TurnOnAllLamps()
         {
-            for(int index = 0; index<lampRow.Count; index++)
+            for(int i = 0; i<lampRow.Count; i++)
             {
-                if (!lampRow[index].IsOn)
-                lampRow[index].Switch();
+                if (lampRow[i].Status == DeviceStatus.Off)
+                lampRow[i].Switch();
             }
         }
 
@@ -134,7 +139,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (lampRow[i].Id == id)
                 {
-                    if (lampRow[i].IsOn == true)
+                    if (lampRow[i].Status == DeviceStatus.On)
                     {
                         lampRow[i].Switch();
                     }
@@ -160,7 +165,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (lampRow[i].Name == name)
                 {
-                    if (lampRow[i].IsOn == true)
+                    if (lampRow[i].Status == DeviceStatus.On)
                     {
                         lampRow[i].Switch();
                     }
@@ -182,7 +187,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             for (int index = 0; index < lampRow.Count; index++)
             {
-                if (lampRow[index].IsOn)
+                if (lampRow[index].Status == DeviceStatus.On)
                     lampRow[index].Switch();
             }
         }
@@ -199,9 +204,9 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (lampRow[i].Id == id)
                 {
-                    if (lampRow[i].IsOn == true)
+                    if (lampRow[i].Status == DeviceStatus.On)
                     {
-                        lampRow[i].ChangeBrightness(newBrightness);
+                        lampRow[i].SetBrightness(newBrightness);
                     }
                 }
                 else
@@ -226,9 +231,9 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (lampRow[i].Name == name)
                 {
-                    if (lampRow[i].IsOn == true)
+                    if (lampRow[i].Status == DeviceStatus.On)
                     {
-                        lampRow[i].ChangeBrightness(newBrightness);
+                        lampRow[i].SetBrightness(newBrightness);
                     }
                 }
                 else
@@ -247,9 +252,9 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <param name="newBrightness"></param>
         public void SetBrightnessForAllLamps(int newBrightness)
         {
-            for (int index = 0; index < lampRow.Count; index++)
+            for (int i = 0; i < lampRow.Count; i++)
             {
-                lampRow[index].ChangeBrightness(newBrightness);
+                lampRow[i].SetBrightness(newBrightness);
             }
         }
     }

@@ -6,34 +6,60 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public abstract class AbstractLamp
+    public abstract class AbstractLamp : AbstractDevice
     {
-        public bool IsOn { get; set; }
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+        
+        public const int MaxBrightnessLevel = 100;
+        public const int MinBrightnessLevel = 1;
 
-        public virtual int MinimumIntensity { get; set;}
-        public virtual int MaximumIntensity { get; set; }
+        
+        public int BrightnessLevel { get; protected set; }
 
-        /// <summary>
-        /// Changes the accension status of the lamp
-        /// </summary>
-        public abstract void Switch();
 
-        /// <summary>
-        /// Sets the brightness of the lamp to a specified value
-        /// </summary>
-        /// <param name="newBrightnessLevel"></param>
-        public abstract void ChangeBrightness(int newBrightnessLevel);
+        protected AbstractLamp(string name) : base(name)
+        {
+            BrightnessLevel = MaxBrightnessLevel;
 
-        /// <summary>
-        /// Changes the brightness of the lamp by +5
-        /// </summary>
-        public abstract void Brighten();
+        }
+        public AbstractLamp(Guid guid, string name) : base(name, guid)
+        {
+            BrightnessLevel = MaxBrightnessLevel;
 
-        /// <summary>
-        /// Changes the brightness of the lamp by -5
-        /// </summary>
-        public abstract void Dimmer();
+        }
+
+
+
+        public virtual void Dimmer(int amount)
+        {
+            if (Status == DeviceStatus.Off)
+                throw new InvalidOperationException("La lampada è spenta.");
+
+            if (amount < 1)
+                throw new ArgumentOutOfRangeException(nameof(amount), "Amount deve essere almeno 1.");
+
+            BrightnessLevel = Math.Max(MinBrightnessLevel, BrightnessLevel - amount);
+
+        }
+
+        public virtual void Brighten(int amount)
+        {
+            if (Status == DeviceStatus.Off)
+                throw new InvalidOperationException("La lampada è spenta.");
+
+            if (amount < 1)
+                throw new ArgumentOutOfRangeException(nameof(amount), "Amount deve essere almeno 1.");
+
+            BrightnessLevel = Math.Min(MaxBrightnessLevel, BrightnessLevel + amount);
+
+        }
+
+        public virtual void SetBrightness(int levelOfBrightness)
+        {
+            if (levelOfBrightness < MinBrightnessLevel || levelOfBrightness > MaxBrightnessLevel)
+            {
+                throw new ArgumentOutOfRangeException($"Brightness level must be between {MinBrightnessLevel} and {MaxBrightnessLevel}.");
+            }
+            BrightnessLevel = levelOfBrightness;
+        }
     }
 }
