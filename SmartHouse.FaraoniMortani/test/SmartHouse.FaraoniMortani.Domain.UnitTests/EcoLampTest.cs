@@ -39,17 +39,17 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void ChangeBrightness_WhenBrightnessLevelIsSetTo100AssignBrightnessValue()
+        public void ChangeBrightness_WhenBrightnessLevelIsSetTo70AssignBrightnessValue()
         {
             // Arrange
             EcoLamp ecoLamp = new EcoLamp();
 
             // Act
             ecoLamp.Switch();
-            ecoLamp.ChangeBrightness(100);
+            ecoLamp.ChangeBrightness(70);
 
             // Assert
-            Assert.Equal(100, ecoLamp.BrightnessLevel);
+            Assert.Equal(70, ecoLamp.BrightnessLevel);
         }
 
         [Fact]
@@ -120,12 +120,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         {
             // Arrange
             EcoLamp ecolamp = new EcoLamp();
-        
+
             // Act
-
         }
-
-
-
     }
 }

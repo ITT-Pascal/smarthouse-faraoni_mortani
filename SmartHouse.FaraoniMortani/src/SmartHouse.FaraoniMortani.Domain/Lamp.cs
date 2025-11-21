@@ -2,13 +2,18 @@
 {
     public class Lamp : AbstractLamp 
     {
+        public const int StandardMinimumIntensity = 0;
+        public const int StandardMaximumIntensity = 100;
         public int BrightnessLevel { get; private set; }
+
+        public override int MinimumIntensity => StandardMinimumIntensity;
+        public override int MaximumIntensity => StandardMaximumIntensity;
 
         public Lamp()
         {
             IsOn = false;
             Id = new Guid();
-            BrightnessLevel = 100;
+            BrightnessLevel = StandardMaximumIntensity;
         }
 
         public Lamp(string name)
@@ -16,7 +21,7 @@
             IsOn = false;
             Id = new Guid();
             Name = name;
-            BrightnessLevel = 100;
+            BrightnessLevel = StandardMaximumIntensity;
         }
 
         public override void Switch()
@@ -28,13 +33,12 @@
         {
 
             if(IsOn)
-                if (newBrightnessLevel < 0 || newBrightnessLevel > 100)
+                if (newBrightnessLevel < StandardMinimumIntensity || newBrightnessLevel > StandardMaximumIntensity)
                     throw new ArgumentOutOfRangeException();
-                else if (newBrightnessLevel == 0)
+                else if (newBrightnessLevel == StandardMinimumIntensity)
                     IsOn = false; 
                 else
                     BrightnessLevel = newBrightnessLevel;
-      
         }
     }
 }

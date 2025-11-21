@@ -12,7 +12,18 @@ namespace SmartHouse.FaraoniMortani.Domain
         public Guid Id { get; set; }
         public string Name { get; set; }
 
+        public virtual int MinimumIntensity { get; set;}
+        public virtual int MaximumIntensity { get; set; }
+
+        /// <summary>
+        /// Changes the accension status of the lamp
+        /// </summary>
         public abstract void Switch();
+
+        /// <summary>
+        /// Sets the brightness of the lamp to a specified value
+        /// </summary>
+        /// <param name="newBrightnessLevel"></param>
         public abstract void ChangeBrightness(int newBrightnessLevel);
     }
 }

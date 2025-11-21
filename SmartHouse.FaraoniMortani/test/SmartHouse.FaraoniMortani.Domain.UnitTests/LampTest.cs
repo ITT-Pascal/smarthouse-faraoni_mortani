@@ -29,7 +29,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Assert
             Assert.False(lamp.IsOn);
-
         }
 
         [Fact]

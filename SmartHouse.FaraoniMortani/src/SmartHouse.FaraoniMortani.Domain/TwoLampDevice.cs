@@ -22,7 +22,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         }
 
         /// <summary>
-        /// After the function, both lamps are on
+        /// This method turns on both lamps
         /// </summary>
         public void TurnBothLampsOn()
         {
@@ -34,7 +34,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         }
         
         /// <summary>
-        /// At the end of this function, both lamps are off
+        /// This method turns off both lamps
         /// </summary>
         public void TurnBothLampsOff()
         {
@@ -47,7 +47,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         }
 
         /// <summary>
-        /// Turns the first lamp on
+        /// This method turns the first lamp on
         /// </summary>
         public void TurnOnlyFirstLampOn()
         {
@@ -60,40 +60,47 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// </summary>
         public void TurnOnlySecondLampOn()
         {
-            if (Lamp1.IsOn)
-                Lamp1.Switch(); 
+            if (!Lamp2.IsOn)
+                Lamp2.Switch(); 
         }
 
-        // TODO: If there are two ecolamp, can activate TurnOffAfterTime
-
-
+        /// <summary>
+        /// This method turns the first lamp off after a specified amount of time if the lamp is a EcoLamp
+        /// </summary>
+        /// <param name="currentTime"></param>
+        /// <param name="minutes"></param>
         public void TurnFirstLampOffAfterTime(DateTime currentTime, int minutes)
         {
             if(Lamp1 is EcoLamp EcoLamp1)
             {
                 EcoLamp1.TurnOffAfterTime(currentTime, minutes);
             }
-
         }
 
+        /// <summary>
+        /// This method turns the second lamp off after a specified amount of time if the lamp is a EcoLamp
+        /// </summary>
+        /// <param name="currentTime"></param>
+        /// <param name="minutes"></param>
         public void TurnSecondLampOffAfterTime(DateTime currentTime, int minutes)
         {
             if(Lamp2 is EcoLamp EcoLamp2)
             {
                 EcoLamp2.TurnOffAfterTime(currentTime, minutes);
             }
-
         }
 
+        /// <summary>
+        /// This method turns both lamps off after a specified amount of time if both lamps is a EcoLamp
+        /// </summary>
+        /// <param name="currentTime"></param>
+        /// <param name="minutes"></param>
         public void TurnBothLampsOffAfterTime(DateTime currentTime, int minutes)
         {
             if(Lamp1 is EcoLamp EcoLamp1)
             {
                 EcoLamp1.TurnOffAfterTime(currentTime, minutes);
             }
-
         }
-
-
     }
 }

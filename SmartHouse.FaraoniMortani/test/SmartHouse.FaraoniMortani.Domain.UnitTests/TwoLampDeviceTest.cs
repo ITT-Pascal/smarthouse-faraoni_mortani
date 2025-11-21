@@ -22,10 +22,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             twoLampDevice.TurnBothLampsOn();
 
             // Assert
-
             Assert.True(lamp1.IsOn);
             Assert.True(lamp2.IsOn);
-
         }
 
         [Fact]
@@ -40,10 +38,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             twoLampDevice.TurnBothLampsOff();
 
             // Assert
-
             Assert.False(lamp1.IsOn);
             Assert.False(lamp2.IsOn);
-
         }
 
         [Fact]
@@ -59,7 +55,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Assert
             Assert.True(lamp1.IsOn);
-
         }
 
         [Fact]
@@ -75,10 +70,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Assert
             Assert.True(lamp2.IsOn);
-
         }
-
-
-
     }
 }

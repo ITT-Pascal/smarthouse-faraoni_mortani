@@ -8,14 +8,19 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class EcoLamp : AbstractLamp
     {
+        public const int StandardMinimumIntensity = 0;
+        public const int StandardMaximumIntensity = 70;
         public DateTime AccensionTime { get; set; }
         public int BrightnessLevel { get; private set; }
-        
+
+        public override int MinimumIntensity => StandardMinimumIntensity;
+        public override int MaximumIntensity => StandardMaximumIntensity;
+
         public EcoLamp()
         {
             IsOn = false;
             Id = new Guid();
-            BrightnessLevel = 100;  
+            BrightnessLevel = StandardMaximumIntensity;  
         }
 
         public EcoLamp(string name)
@@ -23,7 +28,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             IsOn = false;
             Id = new Guid();
             Name = name;
-            BrightnessLevel = 100;
+            BrightnessLevel = StandardMaximumIntensity;
         }
 
         public override void Switch()
@@ -32,7 +37,6 @@ namespace SmartHouse.FaraoniMortani.Domain
 
             if(IsOn)
                 AccensionTime = DateTime.UtcNow;
-
         }
 
 
@@ -40,13 +44,12 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
 
             if (IsOn)
-                if (newBrightnessLevel < 0 || newBrightnessLevel > 100)
+                if (newBrightnessLevel < StandardMinimumIntensity || newBrightnessLevel > StandardMaximumIntensity)
                     throw new ArgumentOutOfRangeException();
-                else if (newBrightnessLevel == 0)
+                else if (newBrightnessLevel == StandardMinimumIntensity)
                     IsOn = false;
                 else
                     BrightnessLevel = newBrightnessLevel;
-
         }
 
         /// <summary>
@@ -59,9 +62,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 
             if (IsOn)
                 if (AccensionTime - currentTime > TimeSpan.FromMinutes(minutes))
-                    Switch();
-            
+                    Switch();  
         }
-        
     }
 }
