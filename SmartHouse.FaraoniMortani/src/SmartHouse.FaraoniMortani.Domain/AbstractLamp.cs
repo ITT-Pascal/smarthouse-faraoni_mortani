@@ -25,5 +25,15 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// </summary>
         /// <param name="newBrightnessLevel"></param>
         public abstract void ChangeBrightness(int newBrightnessLevel);
+
+        /// <summary>
+        /// Changes the brightness of the lamp by +5
+        /// </summary>
+        public abstract void Brighten();
+
+        /// <summary>
+        /// Changes the brightness of the lamp by -5
+        /// </summary>
+        public abstract void Dimmer();
     }
 }

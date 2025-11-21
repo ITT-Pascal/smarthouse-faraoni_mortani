@@ -52,6 +52,30 @@ namespace SmartHouse.FaraoniMortani.Domain
                     BrightnessLevel = newBrightnessLevel;
         }
 
+        public override void Brighten()
+        {
+            if(BrightnessLevel + 5 > MaximumIntensity)
+            {
+                BrightnessLevel = MaximumIntensity;
+            }
+            else
+            {
+                BrightnessLevel += 5;
+            }
+        }
+
+        public override void Dimmer()
+        {
+            if (BrightnessLevel - 5 < MinimumIntensity)
+            {
+                BrightnessLevel = MinimumIntensity;
+            }
+            else
+            {
+                BrightnessLevel -= 5;
+            }
+        }
+
         /// <summary>
         /// It turns off the lamp when the difference of the AccensionTime and currentTime is higher than period of time choose by the user
         /// </summary>

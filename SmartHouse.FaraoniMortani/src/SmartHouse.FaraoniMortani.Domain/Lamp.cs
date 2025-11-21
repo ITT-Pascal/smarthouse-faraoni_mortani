@@ -40,5 +40,28 @@
                 else
                     BrightnessLevel = newBrightnessLevel;
         }
+
+        public override void Brighten()
+        {
+            if (BrightnessLevel + 5 > MaximumIntensity)
+            {
+                BrightnessLevel = MaximumIntensity;
+            }
+            else
+            {
+                BrightnessLevel += 5;
+            }
+        }
+        public override void Dimmer()
+        {
+            if (BrightnessLevel - 5 < MinimumIntensity)
+            {
+                BrightnessLevel = MinimumIntensity;
+            }
+            else
+            {
+                BrightnessLevel -= 5;
+            }
+        }
     }
 }
