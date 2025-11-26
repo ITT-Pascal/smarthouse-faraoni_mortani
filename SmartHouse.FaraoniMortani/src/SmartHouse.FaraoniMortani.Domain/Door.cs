@@ -12,21 +12,28 @@ namespace SmartHouse.FaraoniMortani.Domain
         public string Name { get; private set; }
         public bool IsOpen;
         public bool IsLocked;
+        public string Password { get; private set; }
 
-        public Door(string name)
+        public Door(string name, string password)
         {
             Id = new Guid();
             Name = name;
             IsOpen = false;
             IsLocked = false;
+            Password = password;
         }
 
         public void OpenDoor()
         {
-            if(IsOpen == false)
+            if (IsOpen == false)
             {
-                IsOpen = true;
-            }         
+                if (IsLocked == false)
+                {
+                    IsOpen = true;
+                }
+                else throw new Exception("Door is locked. To open it, unlock it first");
+            }
+            else throw new Exception("Door is already open");
         }
 
         public void CloseDoor()
@@ -35,6 +42,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 IsOpen = false;
             }
+            else throw new Exception("Door is already closed");
         }
 
         public void LockDoor()
@@ -43,16 +51,29 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 IsLocked = true;
             }
+            else throw new Exception("Door is already locked");
         }
 
-        public void UnlockDoor()
+        public void UnlockDoor(string password)
         {
-            if(IsLocked == true)
+            if (IsLocked == true)
             {
-
+                if (Password == password)
+                {
+                    IsLocked = false;
+                }
+                else throw new ArgumentException("Incorrect Password");
             }
+            else throw new Exception("Door is already unlocked");
         }
 
-        //TODO: Upgrade door
+        public void SetNewDoorPassword(string currentPassword, string newPassword)
+        {
+            if(Password == currentPassword)
+            {
+                Password = newPassword;
+            }
+            else throw new ArgumentException("Incorrect Password");
+        }
     }
 }
