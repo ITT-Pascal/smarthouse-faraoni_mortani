@@ -8,12 +8,10 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public abstract class AbstractLamp : AbstractDevice
     {
-        
+
+        public int BrightnessLevel { get; protected set; }
         public const int MaxBrightnessLevel = 100;
         public const int MinBrightnessLevel = 1;
-
-        
-        public int BrightnessLevel { get; protected set; }
 
 
         protected AbstractLamp(string name) : base(name)
@@ -26,8 +24,6 @@ namespace SmartHouse.FaraoniMortani.Domain
             BrightnessLevel = MaxBrightnessLevel;
 
         }
-
-
 
         public virtual void Dimmer(int amount)
         {
