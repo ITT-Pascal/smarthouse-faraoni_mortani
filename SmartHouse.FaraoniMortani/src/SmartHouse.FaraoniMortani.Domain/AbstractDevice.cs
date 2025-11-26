@@ -14,6 +14,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         public DateTime CreationTime { get; set; }
         public DateTime LastChangeTime { get; set; }
 
+        protected AbstractDevice() { }
+
         public AbstractDevice(string name)
         {
             Id = Guid.NewGuid();

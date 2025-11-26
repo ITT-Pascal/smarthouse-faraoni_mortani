@@ -17,7 +17,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             LastChangeTime = time;
         }
 
-        
+        public EcoLamp() { }
         public EcoLamp(Guid guid, string name) : base(guid, name) { }
         public EcoLamp(string name) : base(name) { }
 

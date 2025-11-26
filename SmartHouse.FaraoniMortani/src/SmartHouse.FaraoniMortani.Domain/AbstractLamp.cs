@@ -13,6 +13,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         public const int MaxBrightnessLevel = 100;
         public const int MinBrightnessLevel = 1;
 
+        protected AbstractLamp() { }
 
         protected AbstractLamp(string name) : base(name)
         {
