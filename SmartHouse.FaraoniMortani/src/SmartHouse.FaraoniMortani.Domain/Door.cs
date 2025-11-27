@@ -9,7 +9,6 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class Door: AbstractDevice
     {
-        public bool IsOpen { get; private set; }
         public bool IsLocked { get; private set; }
         public string Password { get; private set; }
 
@@ -20,7 +19,6 @@ namespace SmartHouse.FaraoniMortani.Domain
             Status = DeviceStatus.Closed;
             CreationTime = DateTime.UtcNow;
             LastChangeTime = DateTime.UtcNow;
-            IsOpen = false;
             IsLocked = false;
             Password = password;
         }
