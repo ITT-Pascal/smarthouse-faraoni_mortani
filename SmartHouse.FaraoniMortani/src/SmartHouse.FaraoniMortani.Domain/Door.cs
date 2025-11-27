@@ -8,8 +8,8 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class Door: AbstractDevice
     {
-        public bool IsOpen;
-        public bool IsLocked;
+        public bool IsOpen { get; private set; }
+        public bool IsLocked { get; private set; }
         public string Password { get; private set; }
 
         public Door(string name, string password)
