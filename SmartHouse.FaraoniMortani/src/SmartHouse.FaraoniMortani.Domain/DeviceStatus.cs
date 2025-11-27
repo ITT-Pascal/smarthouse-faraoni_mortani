@@ -12,6 +12,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         Off,
         On,
         StandBy,
-        Error
+        Error,
+        Open,
+        Closed
     }
 }

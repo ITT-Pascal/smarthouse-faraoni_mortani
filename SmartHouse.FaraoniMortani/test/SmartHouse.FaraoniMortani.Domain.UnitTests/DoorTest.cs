@@ -15,19 +15,20 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             door1.OpenDoor();
 
-            Assert.True(door1.IsOpen);
+            Assert.Equal(DeviceStatus.Open, door1.Status);
         }
 
+        [Fact]
         public void OpenDoor_WhenDoorIsClosedAndLocked_DoorCannotBeOpened()
         {
             Door door1 = new Door("Main Door", "1234");
 
             door1.LockDoor();
-            door1.OpenDoor();
 
-            Assert.False(door1.IsOpen);
+            Assert.Throws<Exception>(() => door1.OpenDoor());
         }
 
+        [Fact]
         public void OpenDoor_WhenDoorIsOpen_DoorCannotBeOpened()
         {
             Door door1 = new Door("Main Door", "1234");
@@ -37,15 +38,17 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.Throws<Exception>(() => door1.OpenDoor());
         }
 
+        [Fact]
         public void CloseDoor_WhenDoorIsOpen_DoorCanBeClosed()
         {
             Door door1 = new Door("Main Door", "1234");
 
             door1.CloseDoor();
 
-            Assert.False(door1.IsOpen);
+            Assert.Equal(DeviceStatus.Closed, door1.Status);
         }
 
+        [Fact]
         public void CloseDoor_WhenDoorIsClosed_DoorCannotBeClosed()
         {
             Door door1 = new Door("Main Door", "1234");
@@ -53,6 +56,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.Throws<Exception>(() => door1.CloseDoor());
         }
 
+        [Fact]
         public void LockDoor_WhenDoorIsUnlocked_DoorCanBeLocked()
         {
             Door door1 = new Door("Main Door", "1234");
@@ -62,6 +66,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.True(door1.IsLocked);
         }
 
+        [Fact]
         public void LockDoor_WhenDoorIsLocked_DoorCannotBeLocked()
         {
             Door door1 = new Door("Main Door", "1234");
@@ -71,6 +76,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.Throws<Exception>(() => door1.LockDoor());
         }
 
+        [Fact]
         public void UnlockDoor_WhenDoorIsLockedAndPasswordIsCorrect_DoorCanBeUnlocked()
         {
             Door door1 = new Door("Main Door", "1234");
@@ -82,6 +88,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.False(door1.IsLocked);
         }
 
+        [Fact]
         public void UnlockDoor_WhenDoorIsLockedAndPasswordIsNotCorrect_DoorCannotBeUnlocked()
         {
             Door door1 = new Door("Main Door", "1234");
@@ -92,6 +99,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.True(door1.IsLocked);
         }
 
+        [Fact]
         public void UnlockDoor_WhenDoorIsUnlockedt_DoorCannotBeUnlocked()
         {
             Door door1 = new Door("Main Door", "1234");
@@ -99,6 +107,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.Throws<Exception>(() => door1.UnlockDoor("1234"));
         }
 
+        [Fact]
         public void SetNewDoorPassword_WhenOldPasswordIsCorrect_ChangePassword()
         {
             Door door1 = new Door("Main Door", "1234");
@@ -107,6 +116,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.Equal("1050", door1.Password);
         }
 
+        [Fact]
         public void SetNewDoorPassword_WhenOldPasswordIsIncorrect_ThrowException()
         {
             Door door1 = new Door("Main Door", "1234");

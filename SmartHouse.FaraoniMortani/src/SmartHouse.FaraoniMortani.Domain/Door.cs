@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             Id = new Guid();
             Name = name;
-            Status = DeviceStatus.Unkwnown;
+            Status = DeviceStatus.Closed;
             CreationTime = DateTime.UtcNow;
             LastChangeTime = DateTime.UtcNow;
             IsOpen = false;
@@ -26,11 +27,11 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         public void OpenDoor()
         {
-            if (IsOpen == false)
+            if (Status == DeviceStatus.Closed)
             {
                 if (IsLocked == false)
                 {
-                    IsOpen = true;
+                    Status = DeviceStatus.Open;
                 }
                 else throw new Exception("Door is locked. To open it, unlock it first");
             }
@@ -39,9 +40,9 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         public void CloseDoor()
         {
-            if(IsOpen == true)
+            if(Status == DeviceStatus.Open)
             {
-                IsOpen = false;
+                Status = DeviceStatus.Closed;
             }
             else throw new Exception("Door is already closed");
         }
