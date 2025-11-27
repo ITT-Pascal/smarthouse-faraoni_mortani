@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public class Door
+    public class Door: AbstractDevice
     {
-        public Guid Id { get; private set; }
-        public string Name { get; private set; }
         public bool IsOpen;
         public bool IsLocked;
         public string Password { get; private set; }
@@ -18,6 +16,9 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             Id = new Guid();
             Name = name;
+            Status = DeviceStatus.Unkwnown;
+            CreationTime = DateTime.UtcNow;
+            LastChangeTime = DateTime.UtcNow;
             IsOpen = false;
             IsLocked = false;
             Password = password;
