@@ -11,7 +11,10 @@ namespace SmartHouse.FaraoniMortani.Domain
     public class LampRow
     {
         public List<AbstractLamp> lampRow;
-        public LampRow(){}
+        public LampRow()
+        {
+            lampRow = new List<AbstractLamp>();
+        }
 
         /// <summary>
         /// This method adds a lamp into the row

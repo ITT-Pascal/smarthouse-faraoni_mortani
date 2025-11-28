@@ -14,27 +14,27 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         public void Switch_WhenSwitchIsUsedAndLampIsTurnedOff_IsOnIsTrue()
         {
             // Arrange
-            EcoLamp ecoLamp = new EcoLamp();
+            EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
 
             // Act
             ecoLamp.Switch();
 
             // Assert
-            Assert.True(ecoLamp.IsOn);
+            Assert.Equal(DeviceStatus.On, ecoLamp.Status);
         }
 
         [Fact]
         public void Switch_WhenSwitchIsUsedAndLampIsTurnedOn_IsOnIsFalse()
         {
             // Arrange
-            EcoLamp ecoLamp = new EcoLamp();
+            EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
 
             // Act
             ecoLamp.Switch();
             ecoLamp.Switch();
 
             // Assert
-            Assert.False(ecoLamp.IsOn);
+            Assert.Equal(DeviceStatus.Off, ecoLamp.Status);
 
         }
 
@@ -42,86 +42,56 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         public void ChangeBrightness_WhenBrightnessLevelIsSetTo70AssignBrightnessValue()
         {
             // Arrange
-            EcoLamp ecoLamp = new EcoLamp();
+            EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
 
             // Act
             ecoLamp.Switch();
-            ecoLamp.ChangeBrightness(70);
+            ecoLamp.SetBrightness(70);
 
             // Assert
             Assert.Equal(70, ecoLamp.BrightnessLevel);
         }
 
+        // TODO: fix this test
         [Fact]
         public void ChangeBrightness_WhenBrightnessLevelIsSetTo0LampGetsTurnedOff()
         {
             // Arrange
-            EcoLamp ecoLamp = new EcoLamp();
+            EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
 
             // Act
             ecoLamp.Switch();
-            ecoLamp.ChangeBrightness(0);
+            ecoLamp.SetBrightness(0);
 
             // Assert
-            Assert.False(ecoLamp.IsOn);
+            Assert.Equal(DeviceStatus.Off, ecoLamp.Status);
         }
 
         [Fact]
         public void ChangeBrightness_WhenBrightnessLevelIsSetToANegativeNumberSelectionIsNotChanged()
         {
             // Arrange
-            EcoLamp ecoLamp = new EcoLamp();
+            EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
             
             // Act
             ecoLamp.Switch();
 
             // Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => ecoLamp.ChangeBrightness(-1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => ecoLamp.SetBrightness(-1));
         }
-
-        //TODO:  Complete Test function TurnOffAfterTime (At least four tests)
 
         [Fact]
         public void TurnOffAfterTime_IfTheLampIsOff_ItDoesNotSwitch()
         {
             // Arrange
-            EcoLamp ecoLamp = new EcoLamp();
+            EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
             DateTime time = DateTime.UtcNow;
 
             // Act
-            ecoLamp.TurnOffAfterTime(time, 30);
+            ecoLamp.TurnOffAfterTime();
 
             // Assert
-            Assert.False(ecoLamp.IsOn);
-        }
-
-        [Fact]
-        public void TurnOffAfterTime_w()
-        {
-            // Arrange
-            EcoLamp ecolamp = new EcoLamp();
-
-            // Act
-
-        }
-
-        [Fact]
-        public void TurnOffAfterTime_y()
-        {
-            // Arrange
-            EcoLamp ecolamp = new EcoLamp();
-        
-            // Act
-        
-        }
-
-        [Fact]
-        public void TurnOffAfterTime_t()
-        {
-            // Arrange
-            EcoLamp ecolamp = new EcoLamp();
-
-            // Act
+            Assert.Equal(DeviceStatus.Off, ecoLamp.Status);
         }
     }
 }

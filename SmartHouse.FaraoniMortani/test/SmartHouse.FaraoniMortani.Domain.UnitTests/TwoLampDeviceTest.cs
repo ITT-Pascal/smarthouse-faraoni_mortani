@@ -8,10 +8,9 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 {
     public class TwoLampDeviceTest
     {
-        // Adjust This two tests
 
         [Fact]
-        public void TurnBothLampsOn_WhenBothLampsGetTurnedOn_BothLampsHaveGetIsOnTrue()
+        public void TurnBothOn_WhenBothLampsGetTurnedOn_BothLampsHaveStatusOn()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -19,15 +18,15 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnBothLampsOn();
+            twoLampDevice.TurnBothOn();
 
             // Assert
-            Assert.True(lamp1.IsOn);
-            Assert.True(lamp2.IsOn);
+            Assert.Equal(DeviceStatus.On, lamp1.Status);
+            Assert.Equal(DeviceStatus.On, lamp2.Status );
         }
 
         [Fact]
-        public void TurnBothLampsOff_WhenBothLampsGetTurnedOff_BothLampsHaveGetIsOnFalse()
+        public void TurnBothOff_WhenBothLampsGetTurnedOff_BothLampsHaveStatusOff()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -35,15 +34,15 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnBothLampsOff();
+            twoLampDevice.TurnBothOff();
 
             // Assert
-            Assert.False(lamp1.IsOn);
-            Assert.False(lamp2.IsOn);
+            Assert.Equal(DeviceStatus.Off, lamp1.Status);
+            Assert.Equal(DeviceStatus.Off, lamp2.Status);
         }
 
         [Fact]
-        public void TurnOnlyFirstLampOn_WhenFirstLampGetTurnedOn_FirstLampHaveGetIsOnTrue()
+        public void TurnOnOneLamp_WhenFirstLampGetTurnedOn_FirstLampHaveOnStatus()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -51,14 +50,14 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnOnlyFirstLampOn();
+            twoLampDevice.TurnOnOneLamp(lamp1);
 
             // Assert
-            Assert.True(lamp1.IsOn);
+            Assert.Equal(DeviceStatus.On, lamp1.Status);
         }
 
         [Fact]
-        public void TurnOnlySecondLampOn_WhenSecondLampGetTurnedOn_SecondLampHaveGetIsOnTrue()
+        public void TurnOnOneLamp_WhenSecondLampGetTurnedOn_SecondLampHaveStatusOn()
         {
             // Arrange
             Lamp lamp1 = new Lamp();
@@ -66,10 +65,105 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.TurnOnlySecondLampOn();
+            twoLampDevice.TurnOnOneLamp(lamp2);
 
             // Assert
-            Assert.True(lamp2.IsOn);
+            Assert.Equal(DeviceStatus.On, lamp2.Status);
         }
+
+        [Fact]
+        public void SetOneBrightness_WhenFirstLampBrightnessIsSetTo30_BrightnessIs30()
+        {
+            // Arrange
+            Lamp lamp1 = new Lamp();
+            Lamp lamp2 = new Lamp();
+            TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
+
+            // Act
+            twoLampDevice.SetOneBrightness(lamp1, 30);
+
+            // Assert
+            Assert.Equal(30, lamp1.BrightnessLevel);
+        }
+
+        [Fact]
+        public void SetOneBrightness_WhenSecondLampBrightnessIsSetTo30_BrightnessIs30()
+        {
+            // Arrange
+            Lamp lamp1 = new Lamp();
+            Lamp lamp2 = new Lamp();
+            TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
+
+            // Act
+            twoLampDevice.SetOneBrightness(lamp2, 30);
+
+            // Assert
+            Assert.Equal(30, lamp2.BrightnessLevel);
+        }
+
+        [Fact]
+        public void SetBothSameBrightness_WhenLampsBrightnessIsSetTo30_BrightnessIs30()
+        {
+            // Arrange
+            Lamp lamp1 = new Lamp();
+            Lamp lamp2 = new Lamp();
+            TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
+
+            // Act
+            twoLampDevice.SetBothSameBrightness(30);
+
+            // Assert
+            Assert.Equal(30, lamp1.BrightnessLevel);
+            Assert.Equal(30, lamp2.BrightnessLevel);
+        }
+
+        [Fact]
+        public void SetOneEcoLampBrightnessToEco_WhenFirstLampIsEcoLamp_BrightnessIs50()
+        {
+            // Arrange
+            EcoLamp ecoLamp1 = new EcoLamp("Stefano's EcoLamp");
+            Lamp lamp2 = new Lamp();
+            TwoLampDevice twoLampDevice = new TwoLampDevice(ecoLamp1, lamp2);
+
+            // Act
+            twoLampDevice.SetOneEcoLampBrightnessToEco(ecoLamp1);
+
+            // Assert
+            Assert.Equal(50, ecoLamp1.BrightnessLevel);
+
+        }
+
+        [Fact]
+        public void SetOneEcoLampBrightnessToEco_WhenSecondLampIsEcoLamp_BrightnessIs50()
+        {
+            // Arrange
+            Lamp lamp1 = new Lamp();
+            EcoLamp ecoLamp2 = new EcoLamp("Stefano's EcoLamp");
+            TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, ecoLamp2);
+
+            // Act
+            twoLampDevice.SetOneEcoLampBrightnessToEco(ecoLamp2);
+
+            // Assert
+            Assert.Equal(50, ecoLamp2.BrightnessLevel);
+
+        }
+
+        [Fact]
+        public void SetBothEcoLampsBrightnessToEco_WhenBothLampAreEcoLamp_BrightnessIs50()
+        {
+            // Arrange
+            EcoLamp ecoLamp1 = new EcoLamp("Stefano's EcoLamp");
+            EcoLamp ecoLamp2 = new EcoLamp("Stefano's EcoLamp");
+            TwoLampDevice twoLampDevice = new TwoLampDevice(ecoLamp1, ecoLamp2);
+
+            // Act
+            twoLampDevice.SetBothEcoLampsBrightnessToEco();
+
+            // Assert
+            Assert.Equal(50, ecoLamp1.BrightnessLevel);
+            Assert.Equal(50, ecoLamp2.BrightnessLevel);
+        }
+
     }
 }

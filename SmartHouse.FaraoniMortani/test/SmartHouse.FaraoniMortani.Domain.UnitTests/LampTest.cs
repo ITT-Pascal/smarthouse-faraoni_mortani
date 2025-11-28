@@ -43,7 +43,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             lamp.SwitchOn();
 
             // Assert
-            Assert.Equal(DeviceStatus.Off, lamp.Status);
+            Assert.Equal(DeviceStatus.On, lamp.Status);
         }
 
         [Fact]
@@ -53,6 +53,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Lamp lamp = new Lamp(id, "Stefano's lamp");
 
             // Act
+            lamp.SwitchOn();
             lamp.SwitchOff();
 
             // Assert
@@ -103,6 +104,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         public void Dimmer_IfDeviceStatusIsOff_ThrowsException()
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+            lamp.SwitchOn();
             Assert.Throws<InvalidOperationException>(() => lamp.Dimmer(10));
         }
 
@@ -110,6 +112,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         public void Dimmer_IfAmountIsLowerThanOne_ThrowsException()
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+            lamp.SwitchOn();
             Assert.Throws<ArgumentOutOfRangeException>(() => lamp.Dimmer(0));
         }
 
@@ -117,6 +120,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         public void Dimmer_IfDeviceStatusIsOnAndAmountIs30_BrightnessIs70()
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+            lamp.SwitchOn();
             lamp.Dimmer(30);
             Assert.Equal(70, lamp.BrightnessLevel);
         }
@@ -125,6 +129,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         public void Dimmer_IfDeviceStatusIsOnAndAmountIs120_BrightnessIs1()
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+            lamp.SwitchOn();
             lamp.Dimmer(120);
             Assert.Equal(1, lamp.BrightnessLevel);
         }
@@ -140,6 +145,9 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         public void Brighten_IfAmountIsLowerThanOne_ThrowsException()
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+
+            lamp.SwitchOn();
+
             Assert.Throws<ArgumentOutOfRangeException>(() => lamp.Brighten(0));
         }
 

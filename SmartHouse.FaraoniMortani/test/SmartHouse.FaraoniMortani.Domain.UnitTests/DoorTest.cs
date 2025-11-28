@@ -43,6 +43,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         {
             Door door1 = new Door("Main Door", "1234");
 
+            door1.OpenDoor();
             door1.CloseDoor();
 
             Assert.Equal(DeviceStatus.Closed, door1.Status);
