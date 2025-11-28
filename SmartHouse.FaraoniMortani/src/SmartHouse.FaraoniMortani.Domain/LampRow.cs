@@ -43,7 +43,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <param name="id"></param>
         public void RemoveLamp(Guid id)
         {
-            lampRow.Remove(new Lamp(){ Id = id });
+            lampRow.Remove(new Lamp() { Id = id });
         }
 
         /// <summary>
