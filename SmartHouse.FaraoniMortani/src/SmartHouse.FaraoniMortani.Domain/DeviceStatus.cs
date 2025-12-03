@@ -8,7 +8,6 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public enum DeviceStatus
     {
-        Unkwnown,
         Off,
         On,
         StandBy,

@@ -11,7 +11,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         public int BrightnessLevel { get; protected set; }
         public const int MaxBrightnessLevel = 100;
-        public const int MinBrightnessLevel = 1;
+        public const int MinBrightnessLevel = 0;
 
         protected AbstractLamp() { }
 
@@ -29,10 +29,10 @@ namespace SmartHouse.FaraoniMortani.Domain
         public virtual void Dimmer(int amount)
         {
             if (Status == DeviceStatus.Off)
-                throw new InvalidOperationException("La lampada è spenta.");
+                throw new InvalidOperationException("Lamp is turned off");
 
             if (amount < 1)
-                throw new ArgumentOutOfRangeException(nameof(amount), "Amount deve essere almeno 1.");
+                throw new ArgumentOutOfRangeException(nameof(amount), "Invalid Amount");
 
             BrightnessLevel = Math.Max(MinBrightnessLevel, BrightnessLevel - amount);
 
@@ -41,10 +41,10 @@ namespace SmartHouse.FaraoniMortani.Domain
         public virtual void Brighten(int amount)
         {
             if (Status == DeviceStatus.Off)
-                throw new InvalidOperationException("La lampada è spenta.");
+                throw new InvalidOperationException("Lamp is turned off");
 
             if (amount < 1)
-                throw new ArgumentOutOfRangeException(nameof(amount), "Amount deve essere almeno 1.");
+                throw new ArgumentOutOfRangeException(nameof(amount), "Invalid Amount");
 
             BrightnessLevel = Math.Min(MaxBrightnessLevel, BrightnessLevel + amount);
 

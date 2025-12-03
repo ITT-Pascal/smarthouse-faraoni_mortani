@@ -45,20 +45,28 @@ namespace SmartHouse.FaraoniMortani.Domain
         public virtual void SwitchOn()
         {
             if (Status == DeviceStatus.On)
-                throw new InvalidOperationException("Il disposotivo è già accesso");
-
-            Status = DeviceStatus.On;
-            LastChangeTime = DateTime.UtcNow;
-
+            {
+                throw new InvalidOperationException("Device is already turned on");
+            }
+                
+            else
+            {
+                Status = DeviceStatus.On;
+                LastChangeTime = DateTime.UtcNow;
+            }
         }
 
         public virtual void SwitchOff()
         {
             if (Status == DeviceStatus.Off)
-                throw new InvalidOperationException("Il dispositivo è già spento");
-
-            Status = DeviceStatus.Off;
-            LastChangeTime = DateTime.UtcNow;
+            {
+                throw new InvalidOperationException("Device is already turned off");
+            }
+            else
+            {
+                Status = DeviceStatus.Off;
+                LastChangeTime = DateTime.UtcNow;
+            }          
         }
     }
 }

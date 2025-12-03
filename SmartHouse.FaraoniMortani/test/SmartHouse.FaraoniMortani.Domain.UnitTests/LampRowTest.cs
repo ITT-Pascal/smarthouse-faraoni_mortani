@@ -25,10 +25,10 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             AbstractLamp lamp1 = new Lamp();
             LampRow lampRow1 = new LampRow();
 
-            lampRow1.AddLampInPosition(lamp1, 2);
+            lampRow1.AddLampInPosition(lamp1, 0);
 
             Assert.Equal(1, lampRow1.lampRow.Count());
-            Assert.Equal(2, lampRow1.lampRow.IndexOf(lamp1));
+            Assert.Equal(0, lampRow1.lampRow.IndexOf(lamp1));
         }
 
         [Fact]
@@ -58,13 +58,13 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void RemoveLampInPosition_WhenInARowWithOneLamp_LampIsRemovedInPosition2_RowHasZeroLamps()
+        public void RemoveLampInPosition_WhenInARowWithOneLamp_LampIsRemovedFromPosition2_RowHasZeroLamps()
         {
             AbstractLamp lamp1 = new Lamp();
             LampRow lampRow1 = new LampRow();
 
-            lampRow1.AddLampInPosition(lamp1, 2);
-            lampRow1.RemoveLampInPosition(2);
+            lampRow1.AddLampInPosition(lamp1, 0);
+            lampRow1.RemoveLampInPosition(0);
 
             Assert.Equal(0, lampRow1.lampRow.Count());
         }

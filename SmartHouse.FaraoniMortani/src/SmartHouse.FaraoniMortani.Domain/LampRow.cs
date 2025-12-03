@@ -32,6 +32,10 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <param name="position"></param>
         public void AddLampInPosition(AbstractLamp lamp, int position)
         {
+            if (position < 0)
+            {
+                throw new ArgumentException("Invalid position");
+            }
             lampRow.Insert(position, lamp);
         }
 
@@ -46,7 +50,14 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <param name="id"></param>
         public void RemoveLamp(Guid id)
         {
-            lampRow.Remove(new Lamp() { Id = id });
+            for(int i = 0; i < lampRow.Count; i++)
+            {
+                if (lampRow[i].Id == id)
+                {
+                    lampRow.Remove(lampRow[i]);
+                    break;
+                }
+            }
         }
 
         /// <summary>
@@ -55,7 +66,14 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <param name="name"></param>
         public void RemoveLamp(string name)
         {
-            lampRow.Remove(new Lamp() { Name = name });
+            for (int i = 0; i < lampRow.Count; i++)
+            {
+                if (lampRow[i].Name == name)
+                {
+                    lampRow.Remove(lampRow[i]);
+                    break;
+                }
+            }
         }
 
         /// <summary>
@@ -64,7 +82,14 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <param name="position"></param>
         public void RemoveLampInPosition(int position)
         {
-            lampRow.RemoveAt(position);
+            if(position < 0 || position >= lampRow.Count)
+            {
+                throw new ArgumentException("Invalid position");
+            }
+            else
+            {
+                lampRow.RemoveAt(position);
+            }  
         }
 
         /// <summary>
