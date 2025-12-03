@@ -34,12 +34,28 @@ namespace SmartHouse.FaraoniMortani.Domain
             TargetTemperature = MaxTemperature;
         }
 
-
-
-
+        public void SetCustomTemperature(int customTemperature)
+        {
+            if (customTemperature < MinTemperature || customTemperature > MaxTemperature)
+                throw new ArgumentOutOfRangeException($"Brightness level must be between {MinTemperature} and {MaxTemperature}.");
+            else
+                TargetTemperature = customTemperature;
+        }
 
         
+        public void HeatUp()
+        {
+            if (TargetTemperature < MaxTemperature)
+                TargetTemperature += 1;
 
+        }
+
+        public void CoolDown()
+        {
+            if (TargetTemperature > MinTemperature)
+                TargetTemperature -= 1;
+
+        }
 
     }
 }
