@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SmartHouse.FaraoniMortani.Domain.CctvDevice;
+using SmartHouse.FaraoniMortani.Domain;
 
-namespace SmartHouse.FaraoniMortani.Domain.CCTV_Device
+namespace SmartHouse.FaraoniMortani.Domain
 {
     public class CCTV : AbstractDevice
     {

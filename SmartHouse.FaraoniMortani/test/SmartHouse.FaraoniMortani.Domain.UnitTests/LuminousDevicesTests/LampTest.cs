@@ -1,6 +1,6 @@
 using System.Security.Cryptography.X509Certificates;
 
-namespace SmartHouse.FaraoniMortani.Domain.UnitTests
+namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 {
     public class LampTest
     {

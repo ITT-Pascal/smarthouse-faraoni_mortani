@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse.FaraoniMortani.Domain.UnitTests
+namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 {
     public class LampRowTest
     {
