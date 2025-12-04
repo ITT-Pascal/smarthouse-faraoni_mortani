@@ -10,10 +10,12 @@ namespace SmartHouse.FaraoniMortani.Domain
     public class TwoLampDevice
     {
         
+        // Properties
         public AbstractLamp Lamp1 { get; private set; }
         public AbstractLamp Lamp2 { get; private set; }
 
        
+        // Constructors
         public TwoLampDevice(AbstractLamp lamp1, AbstractLamp lamp2)
         {
             Lamp1 = lamp1;
@@ -21,6 +23,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         }
 
 
+        // Methods
         public void TurnOnOneLamp(AbstractLamp currentLamp)
         {
             if (currentLamp == Lamp1 || currentLamp == Lamp2)

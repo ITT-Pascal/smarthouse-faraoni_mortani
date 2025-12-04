@@ -10,12 +10,19 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class LampRow
     {
+
+        // Attributes
         public List<AbstractLamp> lampRow;
+
+        // Constructors
         public LampRow()
         {
             lampRow = new List<AbstractLamp>();
         }
 
+
+
+        // Methods
         /// <summary>
         /// This method adds a lamp into the row
         /// </summary>
@@ -38,10 +45,6 @@ namespace SmartHouse.FaraoniMortani.Domain
             }
             lampRow.Insert(position, lamp);
         }
-
-
-
-        // TODO: Adjust the two function belo this comment
 
 
         /// <summary>

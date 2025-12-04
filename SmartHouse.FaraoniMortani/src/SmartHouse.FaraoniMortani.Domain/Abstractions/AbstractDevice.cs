@@ -8,12 +8,15 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public abstract class AbstractDevice
     {
+        // Properties
         public Guid Id { get; set; }
         public string Name { get; set; }
         public DeviceStatus Status { get; set; }
         public DateTime CreationTime { get; set; }
         public DateTime LastChangeTime { get; set; }
 
+
+        // Constructors
         protected AbstractDevice() { }
 
         public AbstractDevice(string name)
@@ -34,6 +37,8 @@ namespace SmartHouse.FaraoniMortani.Domain
             LastChangeTime = DateTime.UtcNow;
         }
 
+
+        // Methods
         public virtual void Switch()
         {
             if (Status == DeviceStatus.Off)

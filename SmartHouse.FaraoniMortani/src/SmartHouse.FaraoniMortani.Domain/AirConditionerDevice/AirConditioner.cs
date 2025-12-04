@@ -8,17 +8,23 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class AirConditioner : AbstractDevice
     {
+        // Constants
         public const int MinTemperature = 5;
         public const int DefaultTemperature = 20;
         public const int MaxTemperature = 40; 
+
+        // Properties
         public int CurrentTemperature { get; set; }
         public int TargetTemperature { get; set; }
 
+        // Constructors
         public AirConditioner(string name): base(name)
         {
             TargetTemperature = DefaultTemperature;
         }
 
+
+        // Methods
         public void SetTemperatureToMin()
         {
             TargetTemperature = MinTemperature;
