@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.36212.18
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11222.15 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C83A596-D32D-B35F-00DD-F0C99B673980}"
 EndProject
@@ -9,8 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1B2593F8-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BB6623DA-A694-4906-8A5F-C24442A6817C}"
 	ProjectSection(SolutionItems) = preProject
-		docs\CodeReviews.docx = docs\CodeReviews.docx
-		docs\SmartHouseDocumentazione.docx = docs\SmartHouseDocumentazione.docx
+		..\..\..\..\Downloads\SmartHouseDocumentazione.docx.pdf = ..\..\..\..\Downloads\SmartHouseDocumentazione.docx.pdf
+		..\..\..\..\Downloads\UMLSmartHouse.png = ..\..\..\..\Downloads\UMLSmartHouse.png
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Domain", "src\SmartHouse.FaraoniMortani.Domain\SmartHouse.FaraoniMortani.Domain.csproj", "{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36}"
