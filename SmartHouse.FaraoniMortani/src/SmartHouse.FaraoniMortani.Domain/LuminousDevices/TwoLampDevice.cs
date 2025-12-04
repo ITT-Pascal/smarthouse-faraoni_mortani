@@ -27,35 +27,51 @@ namespace SmartHouse.FaraoniMortani.Domain
         public void TurnOnOneLamp(AbstractLamp currentLamp)
         {
             if (currentLamp == Lamp1 || currentLamp == Lamp2)
-                currentLamp.SwitchOn();
+            {
+                if(currentLamp.Status == DeviceStatus.Off)
+                {
+                    currentLamp.Switch();
+                }
+            }         
         }
         public void TurnOffOneLamp(AbstractLamp currentLamp)
         {
             if (currentLamp == Lamp1 || currentLamp == Lamp2)
-                currentLamp.SwitchOff();
+            {
+                if(currentLamp.Status == DeviceStatus.On)
+                {
+                    currentLamp.Switch();
+                }
+            }               
         }
 
         public void TurnBothOn()
         {
-            Lamp1.SwitchOn();
-            Lamp2.SwitchOn();
+            if (Lamp1.Status == DeviceStatus.Off || Lamp2.Status == DeviceStatus.Off)
+            {
+                Lamp1.Switch();
+                Lamp2.Switch();
+            }
         }
 
         public void TurnBothOff()
         {
-            Lamp1.SwitchOff();
-            Lamp2.SwitchOff();
+            if(Lamp1.Status == DeviceStatus.On || Lamp2.Status == DeviceStatus.On)
+            {
+                Lamp1.Switch();
+                Lamp2.Switch();
+            }
         }
 
 
 
-        public void SetOneBrightness(AbstractLamp currentLamp, int newBrightness)
+        public void SetBrightnessForSingleLamp(AbstractLamp currentLamp, int newBrightness)
         {
             if (currentLamp == Lamp1 || currentLamp == Lamp2)
                 currentLamp.SetBrightness(newBrightness);
         }
 
-        public void SetBothSameBrightness(int newBrightness)
+        public void SetBrightnessForBothLamps(int newBrightness)
         {
             Lamp1.SetBrightness(newBrightness);
             Lamp2.SetBrightness(newBrightness);

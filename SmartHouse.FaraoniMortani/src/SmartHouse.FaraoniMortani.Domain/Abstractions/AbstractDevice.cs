@@ -47,7 +47,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 SwitchOff();
         }
 
-        public virtual void SwitchOn()
+        private void SwitchOn()
         {
             if (Status == DeviceStatus.On)
             {
@@ -61,7 +61,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             }
         }
 
-        public virtual void SwitchOff()
+        private void SwitchOff()
         {
             if (Status == DeviceStatus.Off)
             {

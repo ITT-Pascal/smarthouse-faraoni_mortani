@@ -40,7 +40,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             Lamp lamp = new Lamp(id, "Stefano's lamp");
 
             // Act
-            lamp.SwitchOn();
+            lamp.Switch();
 
             // Assert
             Assert.Equal(DeviceStatus.On, lamp.Status);
@@ -53,8 +53,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             Lamp lamp = new Lamp(id, "Stefano's lamp");
 
             // Act
-            lamp.SwitchOn();
-            lamp.SwitchOff();
+            lamp.Switch();
+            lamp.Switch();
 
             // Assert
             Assert.Equal(DeviceStatus.Off, lamp.Status);
@@ -104,7 +104,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         public void Dimmer_IfDeviceStatusIsOff_ThrowsException()
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
-            lamp.SwitchOn();
+            lamp.Switch();
             Assert.Throws<InvalidOperationException>(() => lamp.Dimmer(10));
         }
 
@@ -112,7 +112,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         public void Dimmer_IfAmountIsLowerThanOne_ThrowsException()
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
-            lamp.SwitchOn();
+            lamp.Switch();
             Assert.Throws<ArgumentOutOfRangeException>(() => lamp.Dimmer(0));
         }
 
@@ -120,7 +120,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         public void Dimmer_IfDeviceStatusIsOnAndAmountIs30_BrightnessIs70()
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
-            lamp.SwitchOn();
+            lamp.Switch();
             lamp.Dimmer(30);
             Assert.Equal(70, lamp.BrightnessLevel);
         }
@@ -129,7 +129,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         public void Dimmer_IfDeviceStatusIsOnAndAmountIs120_BrightnessIs1()
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
-            lamp.SwitchOn();
+            lamp.Switch();
             lamp.Dimmer(120);
             Assert.Equal(1, lamp.BrightnessLevel);
         }
@@ -146,7 +146,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         {
             Lamp lamp = new Lamp(id, "Stefano's lamp");
 
-            lamp.SwitchOn();
+            lamp.Switch();
 
             Assert.Throws<ArgumentOutOfRangeException>(() => lamp.Brighten(0));
         }
