@@ -11,19 +11,19 @@ namespace SmartHouse.FaraoniMortani.Domain
     {
         // Properties
         public CctvMode Mode { get; set; }
-        public int CurrentTiltDegrees { get; set; }
+        public int CurrentInclination { get; set; }
         public double CurrentZoom { get; set; }
         
         // Constants
-        public const int MaxTiltDegrees = 90;
-        public const int MinTiltDegrees = -90;
+        public const int MaxInclination = 90;
+        public const int MinInclination = -90;
         public const double MaxZoom = 10.0;
 
         // Constructor
         public CCTV(string name): base(name) 
         {
             Mode = CctvMode.Infrared;
-            CurrentTiltDegrees = 0;
+            CurrentInclination = 0;
             CurrentZoom = 1;
         }
 
@@ -42,8 +42,9 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void ChangeInclination(int newTiltDegrees)
         {
-            if (newTiltDegrees > MaxTiltDegrees || newTiltDegrees < MinTiltDegrees)
-                throw new ArgumentOutOfRangeException($"The inclination must be between {MaxTiltDegrees} and {MinTiltDegrees} degrees");
+            if (newTiltDegrees > MaxInclination || newTiltDegrees < MinInclination)
+                throw new ArgumentOutOfRangeException($"The inclination must be between {MaxInclination} and {MinInclination} degrees");
+            else CurrentInclination = newTiltDegrees;
         }
 
         /// <summary>
@@ -51,9 +52,9 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// </summary>
         public void IncreaseInclination() 
         {
-            if(CurrentTiltDegrees + 5 > MaxTiltDegrees)
-                CurrentTiltDegrees += 5;
-            else CurrentTiltDegrees = MaxTiltDegrees;
+            if(CurrentInclination + 5 < MaxInclination)
+                CurrentInclination += 5;
+            else CurrentInclination = MaxInclination;
         }
 
         /// <summary>
@@ -61,9 +62,9 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// </summary>
         public void DecreaseInclination()
         {
-            if(CurrentTiltDegrees - 5 < MinTiltDegrees)
-                CurrentTiltDegrees -= 5;
-            else CurrentTiltDegrees = MinTiltDegrees;
+            if(CurrentInclination - 5 > MinInclination)
+                CurrentInclination -= 5;
+            else CurrentInclination = MinInclination;
         }
 
         /// <summary>
@@ -71,16 +72,12 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// </summary>
         /// <param name="newZoom"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public void Zoom(double newZoom)
+        public void ChangeZoom(double newZoom)
         {
             if (newZoom > MaxZoom || newZoom < 1)
                 throw new ArgumentOutOfRangeException($"New zoom value must be between 1 and {MaxZoom}");
             else CurrentZoom = newZoom;
         }
-
-
-
-        
 
     }
 }

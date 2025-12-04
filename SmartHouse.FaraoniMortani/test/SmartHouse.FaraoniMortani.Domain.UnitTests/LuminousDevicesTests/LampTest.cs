@@ -63,111 +63,161 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void ChangeBrightness_WhenBrightnessLevelIsSetTo100AssignBrightnessValue()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
 
+            // Act
             lamp.Switch();
             lamp.SetBrightness(100);
 
+            // Assert
             Assert.Equal(100, lamp.BrightnessLevel);
         }
 
         [Fact]
         public void SetBrightness_WhenBrightnessLevelIsSetTo0LampGetsTurnedOff()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
 
+            // Act
             lamp.Switch();
             lamp.SetBrightness(0);
 
+            // Assert
             Assert.Equal(DeviceStatus.Off, lamp.Status);
         }
 
         [Fact]
         public void SetBrightness_WhenBrightnessLevelIsSetToANegativeNumberThrowArgument()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
 
+            // Act
             lamp.Switch();
 
+            // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => lamp.SetBrightness(-1));
         }
 
         [Fact]
         public void SetBrightness_WhenBrightnessLevelIsSetToANumberGreaterThanMaximumLimitThrowArgument()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+            
+            // Act 
             lamp.Switch();
+
+            // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => lamp.SetBrightness(101));
         }
 
         [Fact]
         public void Dimmer_IfDeviceStatusIsOff_ThrowsException()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
-            lamp.Switch();
+
+            // Assert
             Assert.Throws<InvalidOperationException>(() => lamp.Dimmer(10));
         }
 
         [Fact]
         public void Dimmer_IfAmountIsLowerThanOne_ThrowsException()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+
+            // Act
             lamp.Switch();
+            
+            // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => lamp.Dimmer(0));
         }
 
         [Fact]
         public void Dimmer_IfDeviceStatusIsOnAndAmountIs30_BrightnessIs70()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+
+            // Act
             lamp.Switch();
             lamp.Dimmer(30);
+
+            // Assert
             Assert.Equal(70, lamp.BrightnessLevel);
         }
 
         [Fact]
-        public void Dimmer_IfDeviceStatusIsOnAndAmountIs120_BrightnessIs1()
+        public void Dimmer_IfDeviceStatusIsOnAndAmountIs120_BrightnessIs0()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+
+            // Act
             lamp.Switch();
             lamp.Dimmer(120);
-            Assert.Equal(1, lamp.BrightnessLevel);
+
+            // Assert
+            Assert.Equal(0, lamp.BrightnessLevel);
         }
 
         [Fact]
         public void Brighten_IfDeviceStatusIsOff_ThrowsException()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+
+            // Assert
             Assert.Throws<InvalidOperationException>(() => lamp.Brighten(10));
         }
 
         [Fact]
         public void Brighten_IfAmountIsLowerThanOne_ThrowsException()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
 
+            // Act
             lamp.Switch();
 
+            // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => lamp.Brighten(0));
+        }
+
+        [Fact]
+        public void Brighten_WhenBrightessLevelIs80AndAmountIs30_BrightnessBecome100()
+        {
+            // Arrange
+            Lamp lamp = new Lamp(id, "Stefano's lamp");
+
+            // Act
+            lamp.Switch();
+            lamp.SetBrightness(80);
+            lamp.Brighten(30);
+
+            // Assert
+            Assert.Equal(100, lamp.BrightnessLevel);
+
         }
 
         [Fact]
         public void Brighten_IfDeviceStatusIsOnAndBrightnessLevelIs40AndAmountIs30_BrightnessIs70()
         {
+            // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
+
+            // Act
+            lamp.Switch();
             lamp.SetBrightness(40);
             lamp.Brighten(30);
+
+            // Assert
             Assert.Equal(70, lamp.BrightnessLevel);
         }
-
-        [Fact]
-        public void Brighten_o()
-        {
-            Lamp lamp = new Lamp(id, "Stefano's lamp");
-
-        }
-
-        // TODO: Finish tests
 
     }
 }

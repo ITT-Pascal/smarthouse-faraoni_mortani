@@ -75,7 +75,49 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.Equal(21, airConditioner.TargetTemperature);
 
         }
-        
-        // TODO: Finish HeatUp tests and start CoolDown tests
+
+        [Fact]
+        public void HeatUp_WhenTemperatureIs40_DoesNotIncrease()
+        {
+
+            // Arrange
+            AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
+
+            // Act
+            airConditioner.SetTemperatureToMax();
+            airConditioner.HeatUp();
+
+            // Assert
+            Assert.Equal(40, airConditioner.TargetTemperature);
+        }
+
+        [Fact]
+        public void CoolDown_WhenTemperatureIs20_TemperatureBecome19()
+        {
+
+            // Arrange
+            AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
+
+            // Act
+            airConditioner.CoolDown();
+
+            // Assert
+            Assert.Equal(19, airConditioner.TargetTemperature);
+        }
+
+        [Fact]
+        public void CoolDown_WhenTemperatureIs5_DoesNotDecrease()
+        {
+
+            // Arrange
+            AirConditioner airconditioner = new AirConditioner("Stefano's air conditioner");
+
+            // Act
+            airconditioner.SetCustomTemperature(5);
+            airconditioner.CoolDown();
+
+            // Assert
+            Assert.Equal(5, airconditioner.TargetTemperature);
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace SmartHouse.FaraoniMortani.Domain
     {
 
         // Attributes
-        public List<AbstractLamp> lampRow;
+        public List<AbstractLamp> lampRow {  get; set; }
 
         // Constructors
         public LampRow()
@@ -231,24 +231,35 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <exception cref="ArgumentException"></exception>
         public void SetBrightnessForLamp(Guid id, int newBrightness)
         {
-            for (int i = 0; i < lampRow.Count(); i++)
+            if (newBrightness < 0 || newBrightness > 100)
+                throw new ArgumentOutOfRangeException("New brightness must be between 0 and 100");
+            else
             {
-                if (lampRow[i].Id == id)
-                {
-                    if (lampRow[i].Status == DeviceStatus.On)
-                    {
-                        lampRow[i].SetBrightness(newBrightness);
-                    }
-                }
-                else
-                {
-                    if (i == (lampRow.Count() - 1))
-                    {
-                        throw new ArgumentException("No lamp with given id was found");
-                    }
-                }
-            }
+				for (int i = 0; i < lampRow.Count(); i++)
+				{
+					if (lampRow[i].Id == id)
+					{
+						if (lampRow[i].Status == DeviceStatus.On)
+							lampRow[i].SetBrightness(newBrightness);
+						else
+						{
+							lampRow[i].Switch();
+							lampRow[i].SetBrightness(newBrightness);
+						}
+
+					}
+					else
+					{
+						if (i == (lampRow.Count() - 1))
+						{
+							throw new ArgumentException("No lamp with given id was found");
+						}
+					}
+				}
+			}
         }
+
+
 
         /// <summary>
         /// This method sets the bightness of a lamp with a specified name to a specified value
@@ -258,24 +269,33 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <exception cref="ArgumentException"></exception>
         public void SetBrightnessForLamp(string name, int newBrightness)
         {
-            for (int i = 0; i < lampRow.Count(); i++)
-            {
-                if (lampRow[i].Name == name)
-                {
-                    if (lampRow[i].Status == DeviceStatus.On)
-                    {
-                        lampRow[i].SetBrightness(newBrightness);
-                    }
-                }
-                else
-                {
-                    if (i == (lampRow.Count() - 1))
-                    {
-                        throw new ArgumentException("No lamp with given name was found");
-                    }
-                }
-            }
-        }
+			if (newBrightness < 0 || newBrightness > 100)
+				throw new ArgumentOutOfRangeException("New brightness must be between 0 and 100");
+			else
+			{
+				for (int i = 0; i < lampRow.Count(); i++)
+				{
+					if (lampRow[i].Name == name)
+					{
+						if (lampRow[i].Status == DeviceStatus.On)
+							lampRow[i].SetBrightness(newBrightness);
+						else
+						{
+							lampRow[i].Switch();
+							lampRow[i].SetBrightness(newBrightness);
+						}
+
+					}
+					else
+					{
+						if (i == (lampRow.Count() - 1))
+						{
+							throw new ArgumentException("No lamp with given id was found");
+						}
+					}
+				}
+			}
+		}
 
         /// <summary>
         /// This method sets the brightness of all lamps to a specified value

@@ -12,6 +12,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void TurnBothOn_WhenBothLampsGetTurnedOn_BothLampsHaveStatusOn()
         {
+
             // Arrange
             Lamp lamp1 = new Lamp();
             Lamp lamp2 = new Lamp();
@@ -28,6 +29,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void TurnBothOff_WhenBothLampsGetTurnedOff_BothLampsHaveStatusOff()
         {
+
             // Arrange
             Lamp lamp1 = new Lamp();
             Lamp lamp2 = new Lamp();
@@ -44,6 +46,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void TurnOnOneLamp_WhenFirstLampGetTurnedOn_FirstLampHaveOnStatus()
         {
+
             // Arrange
             Lamp lamp1 = new Lamp();
             Lamp lamp2 = new Lamp();
@@ -59,6 +62,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void TurnOnOneLamp_WhenSecondLampGetTurnedOn_SecondLampHaveStatusOn()
         {
+
             // Arrange
             Lamp lamp1 = new Lamp();
             Lamp lamp2 = new Lamp();
@@ -74,6 +78,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void SetOneBrightness_WhenFirstLampBrightnessIsSetTo30_BrightnessIs30()
         {
+
             // Arrange
             Lamp lamp1 = new Lamp();
             Lamp lamp2 = new Lamp();
@@ -89,6 +94,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void SetOneBrightness_WhenSecondLampBrightnessIsSetTo30_BrightnessIs30()
         {
+
             // Arrange
             Lamp lamp1 = new Lamp();
             Lamp lamp2 = new Lamp();
@@ -104,6 +110,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void SetBothSameBrightness_WhenLampsBrightnessIsSetTo30_BrightnessIs30()
         {
+
             // Arrange
             Lamp lamp1 = new Lamp();
             Lamp lamp2 = new Lamp();
@@ -120,6 +127,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void SetOneEcoLampBrightnessToEco_WhenFirstLampIsEcoLamp_BrightnessIs50()
         {
+
             // Arrange
             EcoLamp ecoLamp1 = new EcoLamp("Stefano's EcoLamp");
             Lamp lamp2 = new Lamp();
@@ -136,6 +144,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void SetOneEcoLampBrightnessToEco_WhenSecondLampIsEcoLamp_BrightnessIs50()
         {
+
             // Arrange
             Lamp lamp1 = new Lamp();
             EcoLamp ecoLamp2 = new EcoLamp("Stefano's EcoLamp");
@@ -152,9 +161,10 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void SetBothEcoLampsBrightnessToEco_WhenBothLampAreEcoLamp_BrightnessIs50()
         {
+
             // Arrange
-            EcoLamp ecoLamp1 = new EcoLamp("Stefano's EcoLamp");
-            EcoLamp ecoLamp2 = new EcoLamp("Stefano's EcoLamp");
+            EcoLamp ecoLamp1 = new EcoLamp("Stefano's EcoLamp1");
+            EcoLamp ecoLamp2 = new EcoLamp("Stefano's EcoLamp2");
             TwoLampDevice twoLampDevice = new TwoLampDevice(ecoLamp1, ecoLamp2);
 
             // Act

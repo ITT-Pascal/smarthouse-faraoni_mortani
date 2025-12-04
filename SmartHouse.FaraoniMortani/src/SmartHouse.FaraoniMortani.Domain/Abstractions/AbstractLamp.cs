@@ -51,8 +51,10 @@ namespace SmartHouse.FaraoniMortani.Domain
 
             if (amount < 1)
                 throw new ArgumentOutOfRangeException(nameof(amount), "Invalid Amount");
-
-            BrightnessLevel = Math.Min(MaxBrightnessLevel, BrightnessLevel + amount);
+            else if (BrightnessLevel + amount > MaxBrightnessLevel)
+                BrightnessLevel = MaxBrightnessLevel;
+            else BrightnessLevel += amount;
+                
 
         }
 

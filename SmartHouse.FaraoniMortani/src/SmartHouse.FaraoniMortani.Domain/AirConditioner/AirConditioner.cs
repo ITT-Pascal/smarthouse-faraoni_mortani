@@ -14,7 +14,6 @@ namespace SmartHouse.FaraoniMortani.Domain
         public const int MaxTemperature = 40; 
 
         // Properties
-        public int CurrentTemperature { get; set; }
         public int TargetTemperature { get; set; }
 
         // Constructors
@@ -49,6 +48,9 @@ namespace SmartHouse.FaraoniMortani.Domain
         }
 
         
+        /// <summary>
+        /// Increases the target temperature by one
+        /// </summary>
         public void HeatUp()
         {
             if (TargetTemperature < MaxTemperature)
@@ -56,6 +58,9 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         }
 
+        /// <summary>
+        /// Decreases the target temerature by one
+        /// </summary>
         public void CoolDown()
         {
             if (TargetTemperature > MinTemperature)

@@ -85,9 +85,16 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (currentLamp is EcoLamp ecoLamp1)
                 {
-                    ecoLamp1.SetEcoModeBrightness();
-
-                }
+                    ecoLamp1.Switch();
+					ecoLamp1.SetEcoModeBrightness();
+				}
+                    
+                else if(currentLamp is EcoLamp ecoLamp2)
+                {
+                    ecoLamp2.Switch();
+					ecoLamp2.SetEcoModeBrightness();
+				}
+                    
             }
         }
 
@@ -95,10 +102,12 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if (Lamp1 is EcoLamp ecoLamp1)
             {
+                ecoLamp1.Switch();
                 ecoLamp1.SetEcoModeBrightness();
             }
             if (Lamp2 is EcoLamp ecoLamp2)
             {
+                ecoLamp2.Switch();
                 ecoLamp2.SetEcoModeBrightness();
             }
         }
