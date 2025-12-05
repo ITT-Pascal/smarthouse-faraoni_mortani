@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public abstract class AbstractLamp : AbstractDevice
+    public abstract class AbstractLamp: AbstractDevice
     {
         // Properties
         public int BrightnessLevel { get; protected set; }

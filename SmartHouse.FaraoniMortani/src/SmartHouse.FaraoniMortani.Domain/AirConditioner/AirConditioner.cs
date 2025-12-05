@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public class AirConditioner : AbstractDevice
+    public class AirConditioner: AbstractDevice
     {
         // Constants
         public const int MinTemperature = 5;

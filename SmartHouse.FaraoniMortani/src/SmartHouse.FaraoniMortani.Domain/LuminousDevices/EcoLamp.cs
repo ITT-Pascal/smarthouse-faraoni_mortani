@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public class EcoLamp : AbstractLamp
+    public class EcoLamp: AbstractLamp
     {
         // Constants
         public const int DefaultAutoOffMinutes = 60;

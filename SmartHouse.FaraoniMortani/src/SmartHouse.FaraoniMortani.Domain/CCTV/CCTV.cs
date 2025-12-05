@@ -7,7 +7,7 @@ using SmartHouse.FaraoniMortani.Domain;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public class CCTV : AbstractDevice
+    public class CCTV: AbstractDevice
     {
         // Properties
         public CctvMode Mode { get; set; }
@@ -18,6 +18,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         public const int MaxInclination = 90;
         public const int MinInclination = -90;
         public const double MaxZoom = 10.0;
+
 
         // Constructor
         public CCTV(string name): base(name) 
@@ -43,7 +44,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if (newTiltDegrees > MaxInclination || newTiltDegrees < MinInclination)
                 throw new ArgumentOutOfRangeException($"The inclination must be between {MaxInclination} and {MinInclination} degrees");
-            else CurrentInclination = newTiltDegrees;
+            else 
+                CurrentInclination = newTiltDegrees;
         }
 
         /// <summary>
@@ -53,7 +55,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if(CurrentInclination + 5 < MaxInclination)
                 CurrentInclination += 5;
-            else CurrentInclination = MaxInclination;
+            else 
+                CurrentInclination = MaxInclination;
         }
 
         /// <summary>
@@ -63,7 +66,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if(CurrentInclination - 5 > MinInclination)
                 CurrentInclination -= 5;
-            else CurrentInclination = MinInclination;
+            else 
+                CurrentInclination = MinInclination;
         }
 
         /// <summary>
@@ -75,7 +79,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if (newZoom > MaxZoom || newZoom < 1)
                 throw new ArgumentOutOfRangeException($"New zoom value must be between 1 and {MaxZoom}");
-            else CurrentZoom = newZoom;
+            else 
+                CurrentZoom = newZoom;
         }
     }
 }

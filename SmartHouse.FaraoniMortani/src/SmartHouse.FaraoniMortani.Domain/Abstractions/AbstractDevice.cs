@@ -52,8 +52,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             if (Status == DeviceStatus.On)
             {
                 throw new InvalidOperationException("Device is already turned on");
-            }
-                
+            } 
             else
             {
                 Status = DeviceStatus.On;
