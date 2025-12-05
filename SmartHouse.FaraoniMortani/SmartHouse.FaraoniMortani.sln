@@ -11,8 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BB6623DA-A
 	ProjectSection(SolutionItems) = preProject
 		docs\Review 1 -.txt = docs\Review 1 -.txt
 		docs\Review 2 - 05.12.25.txt = docs\Review 2 - 05.12.25.txt
-		docs\SmartHouseDocumentation.docx = docs\SmartHouseDocumentation.docx
-		..\..\..\..\Downloads\UMLSmartHouse.png = ..\..\..\..\Downloads\UMLSmartHouse.png
+		..\..\..\..\Downloads\SmartHouseDocumentazione.docx.pdf = ..\..\..\..\Downloads\SmartHouseDocumentazione.docx.pdf
+		docs\UMLSmartHouse.png = docs\UMLSmartHouse.png
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Domain", "src\SmartHouse.FaraoniMortani.Domain\SmartHouse.FaraoniMortani.Domain.csproj", "{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36}"
