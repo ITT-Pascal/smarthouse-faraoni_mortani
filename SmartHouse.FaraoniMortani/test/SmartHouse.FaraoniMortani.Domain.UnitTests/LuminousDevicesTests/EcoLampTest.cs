@@ -52,7 +52,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             Assert.Equal(70, ecoLamp.BrightnessLevel);
         }
 
-        // TODO: fix this test
         [Fact]
         public void ChangeBrightness_WhenBrightnessLevelIsSetTo0LampGetsTurnedOff()
         {

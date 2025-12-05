@@ -27,7 +27,6 @@ namespace SmartHouse.FaraoniMortani.Domain
             CurrentZoom = 1;
         }
 
-
         // Methods
         public void ChangeMode(CctvMode newMode)
         {
@@ -78,6 +77,5 @@ namespace SmartHouse.FaraoniMortani.Domain
                 throw new ArgumentOutOfRangeException($"New zoom value must be between 1 and {MaxZoom}");
             else CurrentZoom = newZoom;
         }
-
     }
 }

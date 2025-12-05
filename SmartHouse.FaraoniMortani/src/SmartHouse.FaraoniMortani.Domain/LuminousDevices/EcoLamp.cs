@@ -8,16 +8,13 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class EcoLamp : AbstractLamp
     {
-        
         // Constants
         public const int DefaultAutoOffMinutes = 60;
         public const int EcoModeBrightnessValue = 50;
 
-        
         // Constructors
         public EcoLamp(Guid guid, string name) : base(guid, name) { }
         public EcoLamp(string name) : base(name) { }
-
 
         // Methods
 		public void SetOnTime(DateTime time)
@@ -42,7 +39,6 @@ namespace SmartHouse.FaraoniMortani.Domain
                     Switch();
                 }
             }
-
         }
     }
 }

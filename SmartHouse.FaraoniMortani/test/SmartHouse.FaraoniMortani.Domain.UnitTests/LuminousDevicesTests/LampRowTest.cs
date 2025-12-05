@@ -13,7 +13,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 		[Fact]
         public void AddLamp_WhenLampIsAddedInAnEmptyRow_RowHasOneLamp()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp();
             LampRow lampRow1 = new LampRow();
@@ -28,7 +27,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void AddLampInPosition_WhenInARowWith0Lamps_LampIsAddedInPosition2_RowHasOneLampAndLampIsInPosition2()
         {
-            
             // Arrange
             AbstractLamp lamp1 = new Lamp();
             LampRow lampRow1 = new LampRow();
@@ -44,7 +42,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void RemoveLamp_WhenLampWithNameXIsRemovedInARowWithOneLamp_RowIsEmpty()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp("Stefano's Lamp");
             LampRow lampRow1 = new LampRow();
@@ -60,7 +57,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void RemoveLamp_WhenLampWithGuidXIsRemovedInARowWithOneLamp_RowIsEmpty()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp(guid, "Stefano's Lamp");
             LampRow lampRow1 = new LampRow();
@@ -76,7 +72,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void RemoveLampInPosition_WhenInARowWithOneLamp_LampIsRemovedFromPosition2_RowHasZeroLamps()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp();
             LampRow lampRow1 = new LampRow();
@@ -92,7 +87,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void TurnOnSingleLamp_WhenLampWithGuidXInPosition0IsTurnedOn_LampIsOn()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp(guid, "Stefano's Lamp");
             LampRow lampRow1 = new LampRow();
@@ -108,7 +102,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void TurnOnSingleLamp_WhenLampWithNameXInPosition0IsTurnedOn_LampIsOn()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp(guid, "Stefano's Lamp");
             LampRow lampRow1 = new LampRow();
@@ -124,7 +117,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void TurnOnAllLamps_WhenAll2LampsAreTurnedOn_BothLampsAreOn()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp();
             AbstractLamp lamp2 = new Lamp();
@@ -143,7 +135,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void TurnOffSingleLamp_WhenLampWithGuidXInPosition0IsTurnedOff_LampIsOff()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp(guid, "Stefano's Lamp");
             LampRow lampRow1 = new LampRow();
@@ -160,7 +151,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void TurnOffSingleLamp_WhenLampWithNameXInPosition0IsTurnedOff_LampIsOff()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp(guid, "Stefano's Lamp");
             LampRow lampRow1 = new LampRow();
@@ -176,8 +166,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
         [Fact]
         public void TurnOffAllLamps_WhenAll2LampsAreTurnedOff_BothLampsAreOff()
-        {
-            
+        {    
             // Arrange
             AbstractLamp lamp1 = new Lamp();
             AbstractLamp lamp2 = new Lamp();
@@ -196,8 +185,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
         [Fact]
         public void SetBrightnessForLamp_WhenLampWithGuidXIsSetToBrightness50_BrightnessValueIs50()
-        {
-            
+        {    
             // Arrange
             AbstractLamp lamp1 = new Lamp(guid, "Stefano's Lamp");
             LampRow lampRow1 = new LampRow();
@@ -228,7 +216,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         [Fact]
         public void SetBrightnessForAllLamps_WhenAll2LampsAreSetToBrightness50_BothLampsBrightnessValueIs50()
         {
-
             // Arrange
             AbstractLamp lamp1 = new Lamp();
             AbstractLamp lamp2 = new Lamp();

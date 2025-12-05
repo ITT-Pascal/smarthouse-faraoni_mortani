@@ -8,12 +8,10 @@ using System.Xml.Schema;
 namespace SmartHouse.FaraoniMortani.Domain
 {
     public class TwoLampDevice
-    {
-        
+    {       
         // Properties
         public AbstractLamp Lamp1 { get; private set; }
         public AbstractLamp Lamp2 { get; private set; }
-
        
         // Constructors
         public TwoLampDevice(AbstractLamp lamp1, AbstractLamp lamp2)
@@ -21,7 +19,6 @@ namespace SmartHouse.FaraoniMortani.Domain
             Lamp1 = lamp1;
             Lamp2 = lamp2;
         }
-
 
         // Methods
         public void TurnOnOneLamp(AbstractLamp currentLamp)
@@ -34,6 +31,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 }
             }         
         }
+
         public void TurnOffOneLamp(AbstractLamp currentLamp)
         {
             if (currentLamp == Lamp1 || currentLamp == Lamp2)
@@ -63,8 +61,6 @@ namespace SmartHouse.FaraoniMortani.Domain
             }
         }
 
-
-
         public void SetBrightnessForSingleLamp(AbstractLamp currentLamp, int newBrightness)
         {
             if (currentLamp == Lamp1 || currentLamp == Lamp2)
@@ -75,8 +71,6 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             Lamp1.SetBrightness(newBrightness);
             Lamp2.SetBrightness(newBrightness);
-
-
         }
 
         public void SetOneEcoLampBrightnessToEco(AbstractLamp currentLamp)
@@ -122,6 +116,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 }
             }
         }
+
         public void TurnBothEcoLampsOffAfterTime()
         {
             if (Lamp1 is EcoLamp ecoLamp1)
@@ -133,6 +128,5 @@ namespace SmartHouse.FaraoniMortani.Domain
                 ecoLamp2.TurnOffAfterTime();
             }
         }
-
     }
 }

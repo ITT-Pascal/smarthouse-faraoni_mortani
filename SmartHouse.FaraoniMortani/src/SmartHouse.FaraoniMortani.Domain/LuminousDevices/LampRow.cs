@@ -10,7 +10,6 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class LampRow
     {
-
         // Attributes
         public List<AbstractLamp> lampRow {  get; set; }
 
@@ -19,8 +18,6 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             lampRow = new List<AbstractLamp>();
         }
-
-
 
         // Methods
         /// <summary>
@@ -45,7 +42,6 @@ namespace SmartHouse.FaraoniMortani.Domain
             }
             lampRow.Insert(position, lamp);
         }
-
 
         /// <summary>
         /// This method removes a lamp with a specified id from the row
@@ -258,8 +254,6 @@ namespace SmartHouse.FaraoniMortani.Domain
 				}
 			}
         }
-
-
 
         /// <summary>
         /// This method sets the bightness of a lamp with a specified name to a specified value

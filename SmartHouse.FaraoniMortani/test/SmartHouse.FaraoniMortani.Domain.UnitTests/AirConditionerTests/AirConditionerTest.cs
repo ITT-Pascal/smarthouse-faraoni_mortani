@@ -73,7 +73,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             airConditioner.HeatUp();
 
             Assert.Equal(21, airConditioner.TargetTemperature);
-
         }
 
         [Fact]

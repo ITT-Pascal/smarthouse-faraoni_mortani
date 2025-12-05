@@ -12,7 +12,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         [Fact]
         public void IncreaseTemperature_IfTemperatureIs15_AndTemperatureIsIncreasedWithDeviceTurnedOn_TemperatureIs15Dot5()
         {
-
             // Arrange
             Thermostat thermostat1 = new Thermostat("Stefano's Thermostat");
 
@@ -27,7 +26,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         [Fact]
         public void IncreaseTemperature_IfTemperatureIs15_AndTemperatureIsIncreasedWithDeviceTurnedOff_TemperatureCannotBeModified()
         {
-
             // Arrange
             Thermostat thermostat1 = new Thermostat("Stefano's Thermostat");
 
@@ -38,7 +36,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         [Fact]
         public void DecreaseTemperature_IfTemperatureIs15_AndTemperatureIsDecreasedWithDeviceTurnedOn_TemperatureIs14Dot5()
         {
-
             // Arrange
             Thermostat thermostat1 = new Thermostat("Stefano's Thermostat");
 
@@ -53,7 +50,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         [Fact]
         public void DecreaseTemperature_IfTemperatureIs15_AndTemperatureIsDecreasedWithDeviceTurnedOff_TemperatureCannotBeModified()
         {
-
             // Arrange
             Thermostat thermostat1 = new Thermostat("Stefano's Thermostat");
 
@@ -64,7 +60,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         [Fact]
         public void SetTemperature_IfTemperatureIs15_AndTemperatureIsSetTo16WithDeviceTurnedOn_TemperatureIs16()
         {
-
             // Arrange
             Thermostat thermostat1 = new Thermostat("Stefano's Thermostat");
 
@@ -79,7 +74,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         [Fact]
         public void SetTemperature_IfTemperatureIs15_AndTemperatureIsSetTo16WithDeviceTurnedOff_TemperatureCannotBeModified()
         {
-
             // Arrange
             Thermostat thermostat1 = new Thermostat("Stefano's Thermostat");
 

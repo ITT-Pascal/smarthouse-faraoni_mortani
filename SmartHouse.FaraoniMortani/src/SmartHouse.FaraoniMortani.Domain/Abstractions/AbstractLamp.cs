@@ -22,12 +22,10 @@ namespace SmartHouse.FaraoniMortani.Domain
         protected AbstractLamp(string name) : base(name)
         {
             BrightnessLevel = MaxBrightnessLevel;
-
         }
         public AbstractLamp(Guid guid, string name) : base(name, guid)
         {
             BrightnessLevel = MaxBrightnessLevel;
-
         }
 
 
@@ -41,7 +39,6 @@ namespace SmartHouse.FaraoniMortani.Domain
                 throw new ArgumentOutOfRangeException(nameof(amount), "Invalid Amount");
 
             BrightnessLevel = Math.Max(MinBrightnessLevel, BrightnessLevel - amount);
-
         }
 
         public virtual void Brighten(int amount)
@@ -54,8 +51,6 @@ namespace SmartHouse.FaraoniMortani.Domain
             else if (BrightnessLevel + amount > MaxBrightnessLevel)
                 BrightnessLevel = MaxBrightnessLevel;
             else BrightnessLevel += amount;
-                
-
         }
 
         public virtual void SetBrightness(int levelOfBrightness)
@@ -66,8 +61,6 @@ namespace SmartHouse.FaraoniMortani.Domain
                 Status = DeviceStatus.Off;
             else
                 BrightnessLevel = levelOfBrightness;
-            
-
         }
     }
 }

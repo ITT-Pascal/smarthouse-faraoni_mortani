@@ -22,7 +22,6 @@ namespace SmartHouse.FaraoniMortani.Domain
             TargetTemperature = DefaultTemperature;
         }
 
-
         // Methods
         public void SetTemperatureToMin()
         {
@@ -46,8 +45,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             else
                 TargetTemperature = customTemperature;
         }
-
-        
+      
         /// <summary>
         /// Increases the target temperature by one
         /// </summary>
@@ -55,7 +53,6 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if (TargetTemperature < MaxTemperature)
                 TargetTemperature += 1;
-
         }
 
         /// <summary>
@@ -65,9 +62,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if (TargetTemperature > MinTemperature)
                 TargetTemperature -= 1;
-
         }
-
     }
 }
 

@@ -201,7 +201,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             // Assert
             Assert.Equal(100, lamp.BrightnessLevel);
-
         }
 
         [Fact]
@@ -218,6 +217,5 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             // Assert
             Assert.Equal(70, lamp.BrightnessLevel);
         }
-
     }
 }

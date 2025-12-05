@@ -11,7 +11,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void OpenDoor_WhenDoorIsClosedAndUnlocked_DoorCanBeOpened()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -25,7 +24,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void OpenDoor_WhenDoorIsClosedAndLocked_DoorCannotBeOpened()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -39,7 +37,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void OpenDoor_WhenDoorIsOpen_DoorCannotBeOpened()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -53,7 +50,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void CloseDoor_WhenDoorIsOpen_DoorCanBeClosed()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -68,7 +64,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void CloseDoor_WhenDoorIsClosed_DoorCannotBeClosed()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -79,7 +74,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void LockDoor_WhenDoorIsUnlocked_DoorCanBeLocked()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -93,7 +87,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void LockDoor_WhenDoorIsLocked_DoorCannotBeLocked()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -107,7 +100,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void UnlockDoor_WhenDoorIsLockedAndPasswordIsCorrect_DoorCanBeUnlocked()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -122,7 +114,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void UnlockDoor_WhenDoorIsLockedAndPasswordIsNotCorrect_DoorCannotBeUnlocked()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -136,8 +127,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
 
         [Fact]
         public void UnlockDoor_WhenDoorIsUnlockedt_DoorCannotBeUnlocked()
-        {
-            
+        {    
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
                 
@@ -148,7 +138,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void SetNewDoorPassword_WhenOldPasswordIsCorrect_ChangePassword()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
 
@@ -160,7 +149,6 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
         [Fact]
         public void SetNewDoorPassword_WhenOldPasswordIsIncorrect_ThrowException()
         {
-
             // Arrange
             Door door1 = new Door("Stefano's Door", "1234");
             
