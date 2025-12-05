@@ -11,7 +11,7 @@ namespace SmartHouse.FaraoniMortani.Domain
     public class LampRow
     {
         // Attributes
-        public List<AbstractLamp> lampRow {  get; set; }
+        public List<AbstractLamp> lampRow {  get; private set; }
 
         // Constructors
         public LampRow()

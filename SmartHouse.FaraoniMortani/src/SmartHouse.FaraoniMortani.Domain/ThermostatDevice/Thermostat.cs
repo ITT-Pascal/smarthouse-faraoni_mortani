@@ -8,19 +8,35 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public class Thermostat: AbstractDevice
     {
+        // Properities
         public double Temperature { get; private set; }
-        public const double DefaultTemperature = 15.0;
 
+        // Constants
+        public const double DefaultTemperature = 15.0;
+        public const double MaxTemperature = 40;
+        public const double MinTemperature = 0;
+        public const double Step = 0.5;
+
+        // Constructor
         public Thermostat(string name): base(name)
         {
             Temperature = DefaultTemperature;
         }
 
+        // Methods
+
+        /// <summary>
+        /// Increases temperature value by 0.5
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public void IncreaseTemperature()
         {
             if(Status == DeviceStatus.On)
             {
-                Temperature += 0.5;
+                if (Temperature + Step > MaxTemperature)
+                    Temperature = MaxTemperature;
+                else
+                    Temperature += Step;
             }
             else
             {
@@ -28,23 +44,33 @@ namespace SmartHouse.FaraoniMortani.Domain
             }
         }
 
+        /// <summary>
+        /// Decreases temperature value by 0.5 
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public void DecreaseTemperature()
         {
             if (Status == DeviceStatus.On)
             {
-                Temperature -= 0.5;
-            }
+				if (Temperature - Step < MinTemperature)
+					Temperature = MinTemperature;
+				else
+					Temperature -= Step;
+			}
             else
             {
                 throw new Exception("Cannot change temperature because thermostat is turned off");
             }
         }
 
-        public void SetTemperature(double temperature)
+        public void SetCustomTemperature(double temperature)
         {
             if (Status == DeviceStatus.On)
             {
-                Temperature = temperature;
+                if (temperature < MinTemperature || temperature > MaxTemperature)
+                    throw new ArgumentOutOfRangeException($"New temperature must be between {MinTemperature} and {MaxTemperature}");
+                else 
+                    Temperature = temperature;
             }
             else
             {

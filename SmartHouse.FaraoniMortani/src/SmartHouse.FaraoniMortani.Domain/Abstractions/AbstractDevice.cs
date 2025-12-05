@@ -9,11 +9,11 @@ namespace SmartHouse.FaraoniMortani.Domain
     public abstract class AbstractDevice
     {
         // Properties
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public DeviceStatus Status { get; set; }
-        public DateTime CreationTime { get; set; }
-        public DateTime LastChangeTime { get; set; }
+        public Guid Id { get; protected set; }
+        public string Name { get; protected set; }
+        public DeviceStatus Status { get; protected set; }
+        public DateTime CreationTime { get; protected set; }
+        public DateTime LastChangeTime { get; protected set; }
 
 
         // Constructors

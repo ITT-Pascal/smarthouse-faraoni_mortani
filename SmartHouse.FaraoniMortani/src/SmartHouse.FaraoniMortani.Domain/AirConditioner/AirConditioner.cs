@@ -11,10 +11,11 @@ namespace SmartHouse.FaraoniMortani.Domain
         // Constants
         public const int MinTemperature = 5;
         public const int DefaultTemperature = 20;
-        public const int MaxTemperature = 40; 
+        public const int MaxTemperature = 40;
+        public const int Step = 1;
 
         // Properties
-        public int TargetTemperature { get; set; }
+        public int TargetTemperature { get; private set; }
 
         // Constructors
         public AirConditioner(string name): base(name)
@@ -52,7 +53,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         public void HeatUp()
         {
             if (TargetTemperature < MaxTemperature)
-                TargetTemperature += 1;
+                TargetTemperature += Step;
         }
 
         /// <summary>
@@ -61,7 +62,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         public void CoolDown()
         {
             if (TargetTemperature > MinTemperature)
-                TargetTemperature -= 1;
+                TargetTemperature -= Step;
         }
     }
 }

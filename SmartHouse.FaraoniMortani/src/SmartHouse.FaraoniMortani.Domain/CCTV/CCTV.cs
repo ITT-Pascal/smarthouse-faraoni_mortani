@@ -10,9 +10,9 @@ namespace SmartHouse.FaraoniMortani.Domain
     public class CCTV: AbstractDevice
     {
         // Properties
-        public CctvMode Mode { get; set; }
-        public int CurrentInclination { get; set; }
-        public double CurrentZoom { get; set; }
+        public CctvMode Mode { get; private set; }
+        public int CurrentInclination { get; private set; }
+        public double CurrentZoom { get; private set; }
         
         // Constants
         public const int MaxInclination = 90;
