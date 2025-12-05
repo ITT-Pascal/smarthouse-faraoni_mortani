@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1B2593F8-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BB6623DA-A694-4906-8A5F-C24442A6817C}"
 	ProjectSection(SolutionItems) = preProject
+		docs\Review 1 -.txt = docs\Review 1 -.txt
+		docs\Review 2 - 05.12.25.txt = docs\Review 2 - 05.12.25.txt
 		..\..\..\..\Downloads\SmartHouseDocumentazione.docx.pdf = ..\..\..\..\Downloads\SmartHouseDocumentazione.docx.pdf
 		docs\UMLSmartHouse.png = docs\UMLSmartHouse.png
 	EndProjectSection
