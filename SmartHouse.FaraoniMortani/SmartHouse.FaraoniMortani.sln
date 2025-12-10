@@ -9,15 +9,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1B2593F8-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BB6623DA-A694-4906-8A5F-C24442A6817C}"
 	ProjectSection(SolutionItems) = preProject
-		docs\Review 1 -.txt = docs\Review 1 -.txt
-		docs\Review 2 - 05.12.25.txt = docs\Review 2 - 05.12.25.txt
-		..\..\..\..\Downloads\SmartHouseDocumentazione.docx.pdf = ..\..\..\..\Downloads\SmartHouseDocumentazione.docx.pdf
-		docs\UMLSmartHouse.png = docs\UMLSmartHouse.png
+		docs\SmartHouseDocumentazione.docx = docs\SmartHouseDocumentazione.docx
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Domain", "src\SmartHouse.FaraoniMortani.Domain\SmartHouse.FaraoniMortani.Domain.csproj", "{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Domain.UnitTests", "test\SmartHouse.FaraoniMortani.Domain.UnitTests\SmartHouse.FaraoniMortani.Domain.UnitTests.csproj", "{02B958A5-7420-459D-BADD-832EC95D1136}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Reviews", "Code Reviews", "{902C42CB-4264-410C-A1A3-840850C05249}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Code Reviews\Review 1 -.txt = docs\Code Reviews\Review 1 -.txt
+		docs\Code Reviews\Review 2 - 05.12.25.txt = docs\Code Reviews\Review 2 - 05.12.25.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +43,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
 		{02B958A5-7420-459D-BADD-832EC95D1136} = {1B2593F8-D6BF-404D-88D7-AD5C8CCAA248}
+		{902C42CB-4264-410C-A1A3-840850C05249} = {BB6623DA-A694-4906-8A5F-C24442A6817C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48100FF3-B21B-4BAB-94E9-4976A1E0DB47}
