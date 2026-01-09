@@ -25,14 +25,15 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
         // Methods        
         public void AddLamp(AbstractLamp lamp)
         {
-            for(int i=0; i<RowLength; i++)
+            bool lampAdded = false;
+            for(int i=0; i<RowLength && lampAdded == false; i++)
             {
-                for(int l=0; l<ColumnLength; l++)
+                for(int l=0; l<ColumnLength && lampAdded == false; l++)
                 {
                     if (matrixLamp[i, l] == null)
                     {
                         matrixLamp[i, l] = lamp;
-                        break;
+                        lampAdded = true;
                     }
                 }
             }
