@@ -8,6 +8,9 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
 {
     public class MatrixLamp
     {
+        public int RowLength { get; private set; }
+        public int ColumnLength { get; private set; }
+
         // Attributes
         public AbstractLamp[,] matrixLamp { get; private set; }
 
@@ -15,12 +18,62 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
         public MatrixLamp(int rowLength, int columnLength)
         {
             matrixLamp = new AbstractLamp[rowLength, columnLength];
+            RowLength = rowLength;
+            ColumnLength = columnLength;
         }
 
         // Methods        
         public void AddLamp(AbstractLamp lamp)
         {
-            
+            for(int i=0; i<RowLength; i++)
+            {
+                for(int l=0; l<ColumnLength; l++)
+                {
+                    if (matrixLamp[i, l] == null)
+                    {
+                        matrixLamp[i, l] = lamp;
+                        break;
+                    }
+                }
+            }
+        }
+
+        public void AddLampInPosition(AbstractLamp lamp, int row, int column)
+        {
+            if(row > RowLength || column > ColumnLength)
+            {
+                throw new ArgumentException("Input row/column position is outside the matrix's bounds");
+            }
+            else
+            {
+                if (matrixLamp[row, column] == null)
+                {
+                    matrixLamp[row, column] = lamp;
+                }
+                else
+                {
+                    throw new ArgumentException("Input row/column position is already occupied by another lamp");
+                }
+            }
+        }
+
+        public void RemoveLamp(int row, int column)
+        {
+            if (row > RowLength || column > ColumnLength)
+            {
+                throw new ArgumentException("Input row/column position is outside the matrix's bounds");
+            }
+            else
+            {
+                if (matrixLamp[row, column] != null)
+                {
+                    matrixLamp[row, column] = null;
+                }
+                else
+                {
+                    throw new ArgumentException("Input row/column position is empty, therefore no lamp can be removed");
+                }
+            }
         }
     }
 }
