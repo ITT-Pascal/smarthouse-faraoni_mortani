@@ -76,5 +76,58 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
                 }
             }
         }
+
+        public void TurnOnLamp(int row, int column)
+        {
+            if (row > RowLength || column > ColumnLength)
+            {
+                throw new ArgumentException("Input row/column position is outside the matrix's bounds");
+            }
+            else
+            {
+                if (matrixLamp[row, column] != null)
+                {
+                    if (matrixLamp[row, column].Status == DeviceStatus.On)
+                    {
+                        matrixLamp[row, column].Switch();
+                    }
+                    else
+                    {
+                        throw new Exception("Lamp is already on");
+                    }
+                }
+                else
+                {
+                    throw new ArgumentException("Input row/column position is empty, therefore no lamp can be turned on");
+                }
+            }
+        }
+
+        public void TurnOffLamp(int row, int column)
+        {
+            if (row > RowLength || column > ColumnLength)
+            {
+                throw new ArgumentException("Input row/column position is outside the matrix's bounds");
+            }
+            else
+            {
+                if (matrixLamp[row, column] != null)
+                {
+                    if (matrixLamp[row, column].Status == DeviceStatus.On)
+                    {
+                        matrixLamp[row, column].Switch();
+                    }
+                    else
+                    {
+                        throw new Exception("Lamp is already off");
+                    }
+
+                }
+                else
+                {
+                    throw new ArgumentException("Input row/column position is empty, therefore no lamp can be turned on");
+                }
+            }
+        }
     }
 }
