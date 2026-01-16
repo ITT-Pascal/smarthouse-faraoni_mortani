@@ -12,12 +12,12 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
         public int ColumnLength { get; private set; }
 
         // Attributes
-        public AbstractLamp[,] matrixLamp { get; private set; }
+        public AbstractLamp[,] matrix { get; private set; }
 
         // Constructor
         public MatrixLamp(int rowLength, int columnLength)
         {
-            matrixLamp = new AbstractLamp[rowLength, columnLength];
+            matrix = new AbstractLamp[rowLength, columnLength];
             RowLength = rowLength;
             ColumnLength = columnLength;
         }
@@ -30,9 +30,9 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
             {
                 for(int l=0; l<ColumnLength && lampAdded == false; l++)
                 {
-                    if (matrixLamp[i, l] == null)
+                    if (matrix[i, l] == null)
                     {
-                        matrixLamp[i, l] = lamp;
+                        matrix[i, l] = lamp;
                         lampAdded = true;
                     }
                 }
@@ -47,9 +47,9 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
             }
             else
             {
-                if (matrixLamp[row, column] == null)
+                if (matrix[row, column] == null)
                 {
-                    matrixLamp[row, column] = lamp;
+                    matrix[row, column] = lamp;
                 }
                 else
                 {
@@ -66,9 +66,9 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
             }
             else
             {
-                if (matrixLamp[row, column] != null)
+                if (matrix[row, column] != null)
                 {
-                    matrixLamp[row, column] = null;
+                    matrix[row, column] = null;
                 }
                 else
                 {
@@ -85,9 +85,9 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
             }
             else
             {
-                if (matrixLamp[row, column] != null)
+                if (matrix[row, column] != null)
                 {
-                    if (matrixLamp[row, column].Status == DeviceStatus.On)
+                    if (matrix[row, column].Status == DeviceStatus.On)
                     {
                         matrixLamp[row, column].Toggle();
                     }
@@ -111,9 +111,9 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
             }
             else
             {
-                if (matrixLamp[row, column] != null)
+                if (matrix[row, column] != null)
                 {
-                    if (matrixLamp[row, column].Status == DeviceStatus.On)
+                    if (matrix[row, column].Status == DeviceStatus.On)
                     {
                         matrixLamp[row, column].Toggle();
                     }
@@ -121,7 +121,6 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
                     {
                         throw new Exception("Lamp is already off");
                     }
-
                 }
                 else
                 {
