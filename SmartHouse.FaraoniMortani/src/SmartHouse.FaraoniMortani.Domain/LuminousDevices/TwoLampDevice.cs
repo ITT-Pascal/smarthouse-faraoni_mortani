@@ -27,7 +27,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if(currentLamp.Status == DeviceStatus.Off)
                 {
-                    currentLamp.Switch();
+                    currentLamp.Toggle();
                 }
             }         
         }
@@ -38,7 +38,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if(currentLamp.Status == DeviceStatus.On)
                 {
-                    currentLamp.Switch();
+                    currentLamp.Toggle();
                 }
             }               
         }
@@ -47,8 +47,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if (Lamp1.Status == DeviceStatus.Off || Lamp2.Status == DeviceStatus.Off)
             {
-                Lamp1.Switch();
-                Lamp2.Switch();
+                Lamp1.Toggle();
+                Lamp2.Toggle();
             }
         }
 
@@ -56,8 +56,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if(Lamp1.Status == DeviceStatus.On || Lamp2.Status == DeviceStatus.On)
             {
-                Lamp1.Switch();
-                Lamp2.Switch();
+                Lamp1.Toggle();
+                Lamp2.Toggle();
             }
         }
 
@@ -79,13 +79,13 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (currentLamp is EcoLamp ecoLamp1)
                 {
-                    ecoLamp1.Switch();
+                    ecoLamp1.Toggle();
 					ecoLamp1.SetEcoModeBrightness();
 				}
                     
                 else if(currentLamp is EcoLamp ecoLamp2)
                 {
-                    ecoLamp2.Switch();
+                    ecoLamp2.Toggle();
 					ecoLamp2.SetEcoModeBrightness();
 				}
                     
@@ -96,12 +96,12 @@ namespace SmartHouse.FaraoniMortani.Domain
         {
             if (Lamp1 is EcoLamp ecoLamp1)
             {
-                ecoLamp1.Switch();
+                ecoLamp1.Toggle();
                 ecoLamp1.SetEcoModeBrightness();
             }
             if (Lamp2 is EcoLamp ecoLamp2)
             {
-                ecoLamp2.Switch();
+                ecoLamp2.Toggle();
                 ecoLamp2.SetEcoModeBrightness();
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public class AirConditioner: AbstractDevice
+    public class AirConditioner: AbstractDevice, IHeatDevice
     {
         // Constants
-        public const int MinTemperature = 5;
-        public const int DefaultTemperature = 20;
-        public const int MaxTemperature = 40;
-        public const int Step = 1;
+        public const double MinTemperature = 5;
+        public const double DefaultTemperature = 20;
+        public const double MaxTemperature = 40;
+        public const double Step = 1;
 
         // Properties
-        public int TargetTemperature { get; private set; }
+        public double TargetTemperature { get; private set; }
 
         // Constructors
         public AirConditioner(string name): base(name)
@@ -39,30 +40,55 @@ namespace SmartHouse.FaraoniMortani.Domain
             TargetTemperature = MaxTemperature;
         }
 
-        public void SetCustomTemperature(int customTemperature)
+        public void SetCustomTemperature(double customTemperature)
         {
-            if (customTemperature < MinTemperature || customTemperature > MaxTemperature)
-                throw new ArgumentOutOfRangeException($"Brightness level must be between {MinTemperature} and {MaxTemperature}.");
+            if (Status == DeviceStatus.On)
+            {
+                if (customTemperature < MinTemperature || customTemperature > MaxTemperature)
+                    throw new ArgumentOutOfRangeException($"New temperature must be between {MinTemperature} and {MaxTemperature}");
+                else
+                    TargetTemperature = customTemperature;
+            }
             else
-                TargetTemperature = customTemperature;
+            {
+                throw new Exception("Cannot change temperature because thermostat is turned off");
+            }
         }
-      
+
         /// <summary>
         /// Increases the target temperature by one
         /// </summary>
-        public void HeatUp()
+        public void IncreaseTemperature()
         {
-            if (TargetTemperature < MaxTemperature)
-                TargetTemperature += Step;
+            if (Status == DeviceStatus.On)
+            {
+                if (TargetTemperature + Step > MaxTemperature)
+                    TargetTemperature = MaxTemperature;
+                else
+                    TargetTemperature += Step;
+            }
+            else
+            {
+                throw new Exception("Cannot change temperature because thermostat is turned off");
+            }
         }
 
         /// <summary>
         /// Decreases the target temerature by one
         /// </summary>
-        public void CoolDown()
+        public void DecreaseTemperature()
         {
-            if (TargetTemperature > MinTemperature)
-                TargetTemperature -= Step;
+            if (Status == DeviceStatus.On)
+            {
+                if (TargetTemperature - Step < MinTemperature)
+                    TargetTemperature = MinTemperature;
+                else
+                    TargetTemperature -= Step;
+            }
+            else
+            {
+                throw new Exception("Cannot change temperature because thermostat is turned off");
+            }
         }
     }
 }

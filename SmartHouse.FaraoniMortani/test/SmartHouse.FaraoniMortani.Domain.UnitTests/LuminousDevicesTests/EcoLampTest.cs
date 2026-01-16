@@ -17,7 +17,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
 
             // Act
-            ecoLamp.Switch();
+            ecoLamp.Toggle();
 
             // Assert
             Assert.Equal(DeviceStatus.On, ecoLamp.Status);
@@ -30,8 +30,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
 
             // Act
-            ecoLamp.Switch();
-            ecoLamp.Switch();
+            ecoLamp.Toggle();
+            ecoLamp.Toggle();
 
             // Assert
             Assert.Equal(DeviceStatus.Off, ecoLamp.Status);
@@ -45,7 +45,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
 
             // Act
-            ecoLamp.Switch();
+            ecoLamp.Toggle();
             ecoLamp.SetBrightness(70);
 
             // Assert
@@ -59,7 +59,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
 
             // Act
-            ecoLamp.Switch();
+            ecoLamp.Toggle();
             ecoLamp.SetBrightness(0);
 
             // Assert
@@ -73,7 +73,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
             
             // Act
-            ecoLamp.Switch();
+            ecoLamp.Toggle();
 
             // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => ecoLamp.SetBrightness(-1));

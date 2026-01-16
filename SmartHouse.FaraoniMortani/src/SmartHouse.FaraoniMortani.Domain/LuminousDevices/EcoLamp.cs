@@ -36,7 +36,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             {
                 if (DateTime.Now - LastChangeTime > TimeSpan.FromMinutes(DefaultAutoOffMinutes))
                 {
-                    Switch();
+                    Toggle();
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public class Thermostat: AbstractDevice
+    public class Thermostat: AbstractDevice, IHeatDevice
     {
         // Properities
         public double Temperature { get; private set; }
@@ -63,19 +64,34 @@ namespace SmartHouse.FaraoniMortani.Domain
             }
         }
 
-        public void SetCustomTemperature(double temperature)
+        public void SetCustomTemperature(double customTemperature)
         {
             if (Status == DeviceStatus.On)
             {
-                if (temperature < MinTemperature || temperature > MaxTemperature)
+                if (customTemperature < MinTemperature || customTemperature > MaxTemperature)
                     throw new ArgumentOutOfRangeException($"New temperature must be between {MinTemperature} and {MaxTemperature}");
                 else 
-                    Temperature = temperature;
+                    Temperature = customTemperature;
             }
             else
             {
                 throw new Exception("Cannot change temperature because thermostat is turned off");
             }
+        }
+
+        public void SetTemperatureToMin()
+        {
+            Temperature = MinTemperature;
+        }
+
+        public void SetTemperatureToDefault()
+        {
+            Temperature = DefaultTemperature;
+        }
+
+        public void SetTemperatureToMax()
+        {
+            Temperature = MaxTemperature;
         }
     }
 }

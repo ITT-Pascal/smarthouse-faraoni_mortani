@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public abstract class AbstractDevice
+    public abstract class AbstractDevice: ISwitchable
     {
         // Properties
         public Guid Id { get; protected set; }
@@ -39,7 +40,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 
 
         // Methods
-        public virtual void Switch()
+        public virtual void Toggle()
         {
             if (Status == DeviceStatus.Off)
                 SwitchOn();
@@ -47,7 +48,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 SwitchOff();
         }
 
-        private void SwitchOn()
+        public void SwitchOn()
         {
             if (Status == DeviceStatus.On)
             {
@@ -60,7 +61,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             }
         }
 
-        private void SwitchOff()
+        public void SwitchOff()
         {
             if (Status == DeviceStatus.Off)
             {

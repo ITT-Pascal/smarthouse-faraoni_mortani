@@ -16,7 +16,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
 
             // Act
-            thermostat.Switch();
+            thermostat.Toggle();
             thermostat.IncreaseTemperature();
 
             // Assert
@@ -40,7 +40,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
 
             // Act
-            thermostat.Switch();
+            thermostat.Toggle();
             thermostat.SetCustomTemperature(39.9);
             thermostat.IncreaseTemperature();
 
@@ -55,7 +55,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
 
             // Act
-            thermostat.Switch();
+            thermostat.Toggle();
             thermostat.DecreaseTemperature();
 
             // Assert
@@ -79,7 +79,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
 
             // Act
-            thermostat.Switch();
+            thermostat.Toggle();
             thermostat.SetCustomTemperature(0.1);
             thermostat.DecreaseTemperature();
 
@@ -94,7 +94,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
 
             // Act
-            thermostat.Switch();
+            thermostat.Toggle();
             thermostat.SetCustomTemperature(16.0);
 
             // Assert
@@ -118,7 +118,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
 
             // Act
-            thermostat.Switch();
+            thermostat.Toggle();
 
             // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => thermostat.SetCustomTemperature(-0.1));
@@ -131,7 +131,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
 
             // Act
-            thermostat.Switch();
+            thermostat.Toggle();
 
             // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => thermostat.SetCustomTemperature(40.1));

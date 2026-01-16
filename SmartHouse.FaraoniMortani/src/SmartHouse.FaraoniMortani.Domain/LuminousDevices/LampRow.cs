@@ -104,7 +104,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 {
                     if (lampRow[i].Status == DeviceStatus.Off)
                     {
-                        lampRow[i].Switch();
+                        lampRow[i].Toggle();
                     }
                 }
                 else
@@ -130,7 +130,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 {
                     if(lampRow[i].Status == DeviceStatus.Off)
                     {
-                        lampRow[i].Switch();
+                        lampRow[i].Toggle();
                     }
                 }
                 else
@@ -151,7 +151,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             for(int i = 0; i<lampRow.Count; i++)
             {
                 if (lampRow[i].Status == DeviceStatus.Off)
-                lampRow[i].Switch();
+                lampRow[i].Toggle();
             }
         }
 
@@ -168,7 +168,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 {
                     if (lampRow[i].Status == DeviceStatus.On)
                     {
-                        lampRow[i].Switch();
+                        lampRow[i].Toggle();
                     }
                 }
                 else
@@ -194,7 +194,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 {
                     if (lampRow[i].Status == DeviceStatus.On)
                     {
-                        lampRow[i].Switch();
+                        lampRow[i].Toggle();
                     }
                 }
                 else
@@ -215,7 +215,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             for (int index = 0; index < lampRow.Count; index++)
             {
                 if (lampRow[index].Status == DeviceStatus.On)
-                    lampRow[index].Switch();
+                    lampRow[index].Toggle();
             }
         }
 
@@ -239,7 +239,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 							lampRow[i].SetBrightness(newBrightness);
 						else
 						{
-							lampRow[i].Switch();
+							lampRow[i].Toggle();
 							lampRow[i].SetBrightness(newBrightness);
 						}
 
@@ -275,7 +275,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 							lampRow[i].SetBrightness(newBrightness);
 						else
 						{
-							lampRow[i].Switch();
+							lampRow[i].Toggle();
 							lampRow[i].SetBrightness(newBrightness);
 						}
 
