@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse.FaraoniMortani.Domain.Abstractions
+namespace SmartHouse.FaraoniMortani.Domain.HeatDevice
 {
     public interface IHeatDevice
     {

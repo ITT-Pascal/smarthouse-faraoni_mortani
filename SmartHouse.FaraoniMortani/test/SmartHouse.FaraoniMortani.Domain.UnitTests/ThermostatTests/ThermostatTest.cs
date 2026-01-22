@@ -1,4 +1,4 @@
-﻿using SmartHouse.FaraoniMortani.Domain;
+﻿using SmartHouse.FaraoniMortani.Domain.HeatDevice.ThermostatDevice;
 using System;
 using System.Collections.Generic;
 using System.Linq;
