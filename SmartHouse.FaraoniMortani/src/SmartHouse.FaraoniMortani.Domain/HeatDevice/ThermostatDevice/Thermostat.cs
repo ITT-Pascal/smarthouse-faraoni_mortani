@@ -13,7 +13,7 @@ namespace SmartHouse.FaraoniMortani.Domain.HeatDevice.ThermostatDevice
         public double Temperature { get; private set; }
 
         // Constants
-        public const double DefaultTemperature = 15.0;
+        public const double DefaultTemperature = 20;
         public const double MaxTemperature = 40;
         public const double MinTemperature = 0;
         public const double Step = 0.5;

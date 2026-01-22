@@ -16,7 +16,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             airConditioner.SetTemperatureToMin();
 
-            Assert.Equal(5, airConditioner.TargetTemperature);
+            Assert.Equal(0, airConditioner.TargetTemperature);
         }
 
         [Fact]
@@ -51,7 +51,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void SetCostumTemperature_WhenCustomTemperatureIs0_ThrowsException()
+        public void SetCustomTemperature_WhenCustomTemperatureIs0_ThrowsException()
         {
             AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
 
@@ -59,7 +59,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void SetCostumTemperature_WhenCustomTemperatureIs41_ThrowsException()
+        public void SetCustomTemperature_WhenCustomTemperatureIs41_ThrowsException()
         {
             AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
 
@@ -67,17 +67,17 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void HeatUp_WhenTemperatureIs20_TemperatureBecome21()
+        public void IncreaseTemperature_WhenTemperatureIs20_TemperatureBecome21()
         {
             AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
 
-            airConditioner.HeatUp();
+            airConditioner.IncreaseTemperature();
 
             Assert.Equal(21, airConditioner.TargetTemperature);
         }
 
         [Fact]
-        public void HeatUp_WhenTemperatureIs40_DoesNotIncrease()
+        public void Increasetemperature_WhenTemperatureIs40_DoesNotIncrease()
         {
 
             // Arrange
@@ -85,36 +85,36 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Act
             airConditioner.SetTemperatureToMax();
-            airConditioner.HeatUp();
+            airConditioner.IncreaseTemperature();
 
             // Assert
             Assert.Equal(40, airConditioner.TargetTemperature);
         }
 
         [Fact]
-        public void CoolDown_WhenTemperatureIs20_TemperatureBecome19()
+        public void DecreaseTemperature_WhenTemperatureIs20_TemperatureBecome19()
         {
 
             // Arrange
             AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
 
             // Act
-            airConditioner.CoolDown();
+            airConditioner.DecreaseTemperature();
 
             // Assert
-            Assert.Equal(19, airConditioner.TargetTemperature);
+            Assert.Equal(19,5, airConditioner.TargetTemperature);
         }
 
         [Fact]
-        public void CoolDown_WhenTemperatureIs5_DoesNotDecrease()
+        public void DecreaseTemperature_WhenTemperatureIs5_DoesNotDecrease()
         {
 
             // Arrange
             AirConditioner airconditioner = new AirConditioner("Stefano's air conditioner");
 
             // Act
-            airconditioner.SetCustomTemperature(5);
-            airconditioner.CoolDown();
+            airconditioner.SetCustomTemperature(0);
+            airconditioner.DecreaseTemperature();
 
             // Assert
             Assert.Equal(5, airconditioner.TargetTemperature);

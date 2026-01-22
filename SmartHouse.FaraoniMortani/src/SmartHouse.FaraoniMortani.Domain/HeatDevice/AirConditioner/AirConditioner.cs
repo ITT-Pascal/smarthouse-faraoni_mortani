@@ -10,10 +10,10 @@ namespace SmartHouse.FaraoniMortani.Domain.HeatDevice.AirConditioner
     public class AirConditioner: AbstractDevice, IHeatDevice
     {
         // Constants
-        public const double MinTemperature = 5;
+        public const double MinTemperature = 0;
         public const double DefaultTemperature = 20;
         public const double MaxTemperature = 40;
-        public const double Step = 1;
+        public const double Step = 0.5;
 
         // Properties
         public double TargetTemperature { get; private set; }
@@ -56,7 +56,7 @@ namespace SmartHouse.FaraoniMortani.Domain.HeatDevice.AirConditioner
         }
 
         /// <summary>
-        /// Increases the target temperature by one
+        /// Increases the target temperature by 0.5
         /// </summary>
         public void IncreaseTemperature()
         {
@@ -74,7 +74,7 @@ namespace SmartHouse.FaraoniMortani.Domain.HeatDevice.AirConditioner
         }
 
         /// <summary>
-        /// Decreases the target temerature by one
+        /// Decreases the target temerature by 0.5
         /// </summary>
         public void DecreaseTemperature()
         {

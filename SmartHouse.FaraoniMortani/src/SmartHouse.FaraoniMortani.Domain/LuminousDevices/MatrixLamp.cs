@@ -89,7 +89,7 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
                 {
                     if (matrix[row, column].Status == DeviceStatus.On)
                     {
-                        matrixLamp[row, column].Toggle();
+                        matrix[row, column].Toggle();
                     }
                     else
                     {
@@ -115,7 +115,7 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
                 {
                     if (matrix[row, column].Status == DeviceStatus.On)
                     {
-                        matrixLamp[row, column].Toggle();
+                        matrix[row, column].Toggle();
                     }
                     else
                     {
