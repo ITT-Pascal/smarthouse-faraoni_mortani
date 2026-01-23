@@ -28,7 +28,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Act
-            door1.LockDoor();
+            door1.Lock();
 
             // Assert
             Assert.Throws<Exception>(() => door1.OpenDoor());
@@ -78,7 +78,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Act
-            door1.LockDoor();
+            door1.Lock();
 
             // Assert
             Assert.True(door1.IsLocked);
@@ -91,10 +91,10 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Act
-            door1.LockDoor();
+            door1.Lock();
 
             // Assert
-            Assert.Throws<Exception>(() => door1.LockDoor());
+            Assert.Throws<Exception>(() => door1.Lock());
         }
 
         [Fact]
@@ -104,8 +104,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Act
-            door1.LockDoor();
-            door1.UnlockDoor("1234");
+            door1.Lock();
+            door1.Unlock("1234");
 
             // Assert
             Assert.False(door1.IsLocked);
@@ -118,10 +118,10 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Act
-            door1.LockDoor();
+            door1.Lock();
 
             // Assert
-            Assert.Throws<ArgumentException>(() => door1.UnlockDoor("1235"));
+            Assert.Throws<ArgumentException>(() => door1.Unlock("1235"));
             Assert.True(door1.IsLocked);
         }
 
@@ -132,7 +132,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
                 
             // Assert
-            Assert.Throws<Exception>(() => door1.UnlockDoor("1234"));
+            Assert.Throws<Exception>(() => door1.Unlock("1234"));
         }
 
         [Fact]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain
 {
-    public class Door: AbstractDevice
+    public class Door: AbstractDevice, ILockable
     {
         public bool IsLocked { get; private set; }
         public string Password { get; private set; }
@@ -45,7 +46,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             else throw new Exception("Door is already closed");
         }
 
-        public void LockDoor()
+        public void Lock()
         {
             if(IsLocked == false)
             {
@@ -54,7 +55,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             else throw new Exception("Door is already locked");
         }
 
-        public void UnlockDoor(string password)
+        public void Unlock(string password)
         {
             if (IsLocked == true)
             {

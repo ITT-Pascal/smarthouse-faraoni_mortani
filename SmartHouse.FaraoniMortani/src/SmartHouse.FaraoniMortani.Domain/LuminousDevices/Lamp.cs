@@ -1,6 +1,6 @@
 ﻿namespace SmartHouse.FaraoniMortani.Domain
 {
-    public class Lamp: AbstractLamp
+    public sealed class Lamp: AbstractLamp
     {
         // Constructors
         public Lamp() { }
