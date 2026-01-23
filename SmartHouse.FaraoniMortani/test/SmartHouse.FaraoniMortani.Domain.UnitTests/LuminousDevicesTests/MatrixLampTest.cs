@@ -48,7 +48,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             MatrixLamp matrixLamp = new MatrixLamp(5, 5);
             AbstractLamp lamp = new Lamp();
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.AddLampInPosition(lamp, 5, 4));
+            Assert.Throws<IndexOutOfRangeException>(() => matrixLamp.AddLampInPosition(lamp, 5, 4));
         }
 
         [Fact]
@@ -57,7 +57,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             MatrixLamp matrixLamp = new MatrixLamp(5, 5);
             AbstractLamp lamp = new Lamp();
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.AddLampInPosition(lamp, 4, 5));
+            Assert.Throws<IndexOutOfRangeException>(() => matrixLamp.AddLampInPosition(lamp, 4, 5));
         }
 
         [Fact]
@@ -88,7 +88,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         {
             MatrixLamp matrixLamp = new MatrixLamp(5, 5);
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.RemoveLamp(5, 4));
+            Assert.Throws<IndexOutOfRangeException>(() => matrixLamp.RemoveLamp(5, 4));
         }
 
 
@@ -97,7 +97,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         {
             MatrixLamp matrixLamp = new MatrixLamp(5, 5);
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.RemoveLamp(4, 5));
+            Assert.Throws<IndexOutOfRangeException>(() => matrixLamp.RemoveLamp(4, 5));
         }
 
         [Fact]
@@ -128,7 +128,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             matrixLamp.AddLamp(lamp);
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.TurnOnLamp(5, 4));
+            Assert.Throws<IndexOutOfRangeException>(() => matrixLamp.TurnOnLamp(5, 4));
         }
 
         [Fact]
@@ -139,7 +139,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             matrixLamp.AddLamp(lamp);
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.TurnOnLamp(4, 5));
+            Assert.Throws<IndexOutOfRangeException>(() => matrixLamp.TurnOnLamp(4, 5));
         }
 
         [Fact]
@@ -151,7 +151,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             matrixLamp.AddLamp(lamp);
             matrixLamp.TurnOnLamp(0, 0);
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.TurnOnLamp(0, 0));
+            Assert.Throws<Exception>(() => matrixLamp.TurnOnLamp(0, 0));
         }
 
         [Fact]
@@ -186,7 +186,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             matrixLamp.AddLamp(lamp);
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.TurnOffLamp(5, 4));
+            Assert.Throws<IndexOutOfRangeException>(() => matrixLamp.TurnOffLamp(5, 4));
         }
 
         [Fact]
@@ -197,7 +197,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             matrixLamp.AddLamp(lamp);
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.TurnOffLamp(4, 5));
+            Assert.Throws<IndexOutOfRangeException>(() => matrixLamp.TurnOffLamp(4, 5));
         }
 
         [Fact]
@@ -210,7 +210,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             matrixLamp.TurnOnLamp(0, 0);
             matrixLamp.TurnOffLamp(0, 0);
 
-            Assert.Throws<ArgumentException>(() => matrixLamp.TurnOffLamp(0, 0));
+            Assert.Throws<Exception>(() => matrixLamp.TurnOffLamp(0, 0));
         }
 
         [Fact]

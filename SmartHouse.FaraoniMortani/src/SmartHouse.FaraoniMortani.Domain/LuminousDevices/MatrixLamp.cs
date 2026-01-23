@@ -43,7 +43,7 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
         {
             if(row > RowLength || column > ColumnLength)
             {
-                throw new ArgumentException("Input row/column position is outside the matrix's bounds");
+                throw new IndexOutOfRangeException("Input row/column position is outside the matrix's bounds");
             }
             else
             {
@@ -62,7 +62,7 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
         {
             if (row > RowLength || column > ColumnLength)
             {
-                throw new ArgumentException("Input row/column position is outside the matrix's bounds");
+                throw new IndexOutOfRangeException("Input row/column position is outside the matrix's bounds");
             }
             else
             {
@@ -81,13 +81,13 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
         {
             if (row > RowLength || column > ColumnLength)
             {
-                throw new ArgumentException("Input row/column position is outside the matrix's bounds");
+                throw new IndexOutOfRangeException("Input row/column position is outside the matrix's bounds");
             }
             else
             {
                 if (matrix[row, column] != null)
                 {
-                    if (matrix[row, column].Status == DeviceStatus.On)
+                    if (matrix[row, column].Status == DeviceStatus.Off)
                     {
                         matrix[row, column].Toggle();
                     }
@@ -107,7 +107,7 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
         {
             if (row > RowLength || column > ColumnLength)
             {
-                throw new ArgumentException("Input row/column position is outside the matrix's bounds");
+                throw new IndexOutOfRangeException("Input row/column position is outside the matrix's bounds");
             }
             else
             {
