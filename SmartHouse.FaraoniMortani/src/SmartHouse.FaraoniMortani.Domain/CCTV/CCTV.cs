@@ -4,28 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SmartHouse.FaraoniMortani.Domain;
+using SmartHouse.FaraoniMortani.Domain.CCTV;
 
-namespace SmartHouse.FaraoniMortani.Domain
+namespace SmartHouse.FaraoniMortani.Domain.CCTV
 {
     public class CCTV: AbstractDevice
     {
         // Properties
         public CctvMode Mode { get; private set; }
-        public int CurrentInclination { get; private set; }
+        public Inclination CurrentInclination { get; private set; }
         public double CurrentZoom { get; private set; }
         
         // Constants
         public const int MaxInclination = 90;
         public const int MinInclination = -90;
         public const double MaxZoom = 10.0;
+        public const double MinZoom = 1.0;
 
 
         // Constructor
         public CCTV(string name): base(name) 
         {
             Mode = CctvMode.Infrared;
-            CurrentInclination = 0;
-            CurrentZoom = 1;
+            CurrentZoom = 1.0;
         }
 
         // Methods
@@ -34,6 +35,8 @@ namespace SmartHouse.FaraoniMortani.Domain
             if (Mode != newMode)
                 Mode = newMode;
         }
+
+        //TODO: Fix methods
 
         /// <summary>
         /// Changes inclination of a certain number choosed by the user
@@ -53,8 +56,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// </summary>
         public void IncreaseInclination() 
         {
-            if(CurrentInclination + 5 < MaxInclination)
-                CurrentInclination += 5;
+            if(CurrentInclination + CurrentInclination.MinInclination < MaxInclination)
+                CurrentInclination += 1;
             else 
                 CurrentInclination = MaxInclination;
         }
@@ -64,8 +67,8 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// </summary>
         public void DecreaseInclination()
         {
-            if(CurrentInclination - 5 > MinInclination)
-                CurrentInclination -= 5;
+            if(CurrentInclination - MinInclination > MinInclination)
+                CurrentInclination -= 1;
             else 
                 CurrentInclination = MinInclination;
         }
@@ -77,7 +80,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void ChangeZoom(double newZoom)
         {
-            if (newZoom > MaxZoom || newZoom < 1)
+            if (newZoom > MaxZoom || newZoom < MinZoom)
                 throw new ArgumentOutOfRangeException($"New zoom value must be between 1 and {MaxZoom}");
             else 
                 CurrentZoom = newZoom;
