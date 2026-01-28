@@ -20,9 +20,25 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
 
         public static Brightness operator +(Brightness b, int amount)
         {
+            if (b.Value + amount > Max)
+                return new(Max);
+
             return new(b.Value + amount);
         }
-        
-        // TODO: Finish Brightness record
+
+        public static Brightness operator -(Brightness b, int amount)
+        {
+            if (b.Value - amount < Min)
+                return new(Min);
+
+            return new(b.Value - amount);
+        }
+
+        public override string ToString()
+        {
+            return $"{Value}%";
+        }
+
+
     }
 }

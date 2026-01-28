@@ -9,6 +9,8 @@ namespace SmartHouse.FaraoniMortani.Domain
 {
     public abstract class AbstractLamp: AbstractDevice, ILuminousDevice
     {
+        //TODO: implement Brightness record 
+
         // Properties
         public int BrightnessLevel { get; protected set; }
 
