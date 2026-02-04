@@ -16,8 +16,6 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         public double CurrentZoom { get; private set; }
         
         // Constants
-        public const int MaxInclination = 90;
-        public const int MinInclination = -90;
         public const double MaxZoom = 10.0;
         public const double MinZoom = 1.0;
 
@@ -27,6 +25,7 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         {
             Mode = CctvMode.Infrared;
             CurrentZoom = 1.0;
+            CurrentInclination = new Inclination(0);
         }
 
         // Methods
@@ -45,10 +44,10 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void ChangeInclination(int newTiltDegrees)
         {
-            if (newTiltDegrees > MaxInclination || newTiltDegrees < MinInclination)
-                throw new ArgumentOutOfRangeException($"The inclination must be between {MaxInclination} and {MinInclination} degrees");
+            if (newTiltDegrees > Inclination.MaximumInclination || newTiltDegrees < Inclination.MinimumInclination)
+                throw new ArgumentOutOfRangeException($"The inclination must be between {Inclination.MaximumInclination} and {Inclination.MinimumInclination} degrees");
             else 
-                CurrentInclination = newTiltDegrees;
+                CurrentInclination.CurrentInclination = newTiltDegrees;
         }
 
         /// <summary>
@@ -56,10 +55,10 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         /// </summary>
         public void IncreaseInclination() 
         {
-            if(CurrentInclination + CurrentInclination.MinInclination < MaxInclination)
+            if((CurrentInclination.CurrentInclination + Inclination.MaximumInclination) < Inclination.MaximumInclination)
                 CurrentInclination += 1;
             else 
-                CurrentInclination = MaxInclination;
+                CurrentInclination.CurrentInclination = Inclination.MaximumInclination;
         }
 
         /// <summary>
@@ -67,10 +66,10 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         /// </summary>
         public void DecreaseInclination()
         {
-            if(CurrentInclination - MinInclination > MinInclination)
+            if(CurrentInclination.CurrentInclination - Inclination.MinimumInclination > Inclination.MinimumInclination)
                 CurrentInclination -= 1;
             else 
-                CurrentInclination = MinInclination;
+                CurrentInclination.CurrentInclination = Inclination.MinimumInclination;
         }
 
         /// <summary>

@@ -11,7 +11,7 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         public const int MinimumInclination = -90;
         public const int MaximumInclination = 90;
 
-        public int CurrentInclination { get; private set; }
+        public int CurrentInclination { get; set; }
 
         public Inclination(int value)
         {
