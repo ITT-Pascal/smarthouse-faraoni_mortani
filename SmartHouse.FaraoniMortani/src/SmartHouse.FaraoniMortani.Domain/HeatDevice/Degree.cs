@@ -9,18 +9,22 @@ namespace SmartHouse.FaraoniMortani.Domain.HeatDevice
 {
     public record Degree
     {
-        public double Value { get; }
 
+        // Properties
+        public double Value { get; set; }
+
+        // Constants
         public const double Max = 40;
         public const double Min = 0;
         public const double Default = 20;
 
-
+        // Constructor
         public Degree(double value)
         {
             Value = Default;
         }
 
+        // Method
         public static Degree operator +(Degree d, double amount)
         {
             if (d.Value + amount > Max)

@@ -8,7 +8,7 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
 {
     public record Brightness
     {
-        public int Value { get; }
+        public int Value { get; set; }
 
         public const int Min = 0;
         public const int Max = 100;

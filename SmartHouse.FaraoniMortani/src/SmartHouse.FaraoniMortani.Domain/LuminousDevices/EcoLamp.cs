@@ -24,9 +24,9 @@ namespace SmartHouse.FaraoniMortani.Domain
 
 		public void SetEcoModeBrightness()
         {
-            if (Status == DeviceStatus.On && BrightnessLevel > EcoModeBrightnessValue)
+            if (Status == DeviceStatus.On && BrightnessLevel.Value > EcoModeBrightnessValue)
             {
-                BrightnessLevel = EcoModeBrightnessValue;
+                BrightnessLevel.Value = EcoModeBrightnessValue;
             }
         }
 

@@ -12,7 +12,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         //TODO: implement Brightness record 
 
         // Properties
-        public int BrightnessLevel { get; protected set; }
+        public Brightness BrightnessLevel { get; protected set; }
 
         // Constants
         public const int MaxBrightnessLevel = 100;
@@ -21,14 +21,13 @@ namespace SmartHouse.FaraoniMortani.Domain
 
         // Constructors
         protected AbstractLamp() { }
-
         protected AbstractLamp(string name) : base(name)
         {
-            BrightnessLevel = MaxBrightnessLevel;
+            BrightnessLevel.Value = MaxBrightnessLevel;
         }
-        public AbstractLamp(Guid guid, string name) : base(name, guid)
+        protected AbstractLamp(Guid guid, string name) : base(name, guid)
         {
-            BrightnessLevel = MaxBrightnessLevel;
+            BrightnessLevel.Value = MaxBrightnessLevel;
         }
 
 
@@ -40,8 +39,9 @@ namespace SmartHouse.FaraoniMortani.Domain
 
             if (amount < 1)
                 throw new ArgumentOutOfRangeException(nameof(amount), "Invalid Amount");
-
-            BrightnessLevel = Math.Max(MinBrightnessLevel, BrightnessLevel - amount);
+            else if (BrightnessLevel.Value - amount < MinBrightnessLevel)
+                BrightnessLevel.Value = MinBrightnessLevel;
+            else BrightnessLevel.Value -= amount;
         }
 
         public virtual void Brighten(int amount)
@@ -51,9 +51,9 @@ namespace SmartHouse.FaraoniMortani.Domain
 
             if (amount < 1)
                 throw new ArgumentOutOfRangeException(nameof(amount), "Invalid Amount");
-            else if (BrightnessLevel + amount > MaxBrightnessLevel)
-                BrightnessLevel = MaxBrightnessLevel;
-            else BrightnessLevel += amount;
+            else if (BrightnessLevel.Value + amount > MaxBrightnessLevel)
+                BrightnessLevel.Value = MaxBrightnessLevel;
+            else BrightnessLevel.Value += amount;
         }
 
         public virtual void SetBrightness(int levelOfBrightness)
@@ -63,7 +63,7 @@ namespace SmartHouse.FaraoniMortani.Domain
             else if (levelOfBrightness == 0)
                 Status = DeviceStatus.Off;
             else
-                BrightnessLevel = levelOfBrightness;
+                BrightnessLevel.Value = levelOfBrightness;
         }
     }
 }
