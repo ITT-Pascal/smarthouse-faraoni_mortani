@@ -49,7 +49,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             ecoLamp.SetBrightness(70);
 
             // Assert
-            Assert.Equal(70, ecoLamp.BrightnessLevel);
+            Assert.Equal(70, ecoLamp.BrightnessLevel.Value);
         }
 
         [Fact]

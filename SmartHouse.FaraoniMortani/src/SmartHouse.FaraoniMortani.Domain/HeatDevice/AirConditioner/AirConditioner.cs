@@ -65,7 +65,7 @@ namespace SmartHouse.FaraoniMortani.Domain.HeatDevice.AirConditioner
                 if (TargetTemperature.Value + Step > MaxTemperature)
                     TargetTemperature.Value = MaxTemperature;
                 else
-                    TargetTemperature += Step;
+                    TargetTemperature.Value += Step;
             }
             else
             {

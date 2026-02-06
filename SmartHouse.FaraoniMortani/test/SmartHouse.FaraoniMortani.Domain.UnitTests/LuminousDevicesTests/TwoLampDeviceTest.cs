@@ -79,10 +79,11 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
+            twoLampDevice.TurnOnOneLamp(lamp1);
             twoLampDevice.SetBrightnessForSingleLamp(lamp1, 30);
 
             // Assert
-            Assert.Equal(30, lamp1.BrightnessLevel);
+            Assert.Equal(30, lamp1.BrightnessLevel.Value);
         }
 
         [Fact]
@@ -97,7 +98,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             twoLampDevice.SetBrightnessForSingleLamp(lamp2, 30);
 
             // Assert
-            Assert.Equal(30, lamp2.BrightnessLevel);
+            Assert.Equal(30, lamp2.BrightnessLevel.Value);
         }
 
         [Fact]
@@ -112,8 +113,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             twoLampDevice.SetBrightnessForBothLamps(30);
 
             // Assert
-            Assert.Equal(30, lamp1.BrightnessLevel);
-            Assert.Equal(30, lamp2.BrightnessLevel);
+            Assert.Equal(30, lamp1.BrightnessLevel.Value);
+            Assert.Equal(30, lamp2.BrightnessLevel.Value);
         }
 
         [Fact]
@@ -128,7 +129,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             twoLampDevice.SetOneEcoLampBrightnessToEco(ecoLamp1);
 
             // Assert
-            Assert.Equal(50, ecoLamp1.BrightnessLevel);
+            Assert.Equal(50, ecoLamp1.BrightnessLevel.Value);
         }
 
         [Fact]
@@ -143,7 +144,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             twoLampDevice.SetOneEcoLampBrightnessToEco(ecoLamp2);
 
             // Assert
-            Assert.Equal(50, ecoLamp2.BrightnessLevel);
+            Assert.Equal(50, ecoLamp2.BrightnessLevel.Value);
         }
 
         [Fact]
@@ -158,8 +159,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             twoLampDevice.SetBothEcoLampsBrightnessToEco();
 
             // Assert
-            Assert.Equal(50, ecoLamp1.BrightnessLevel);
-            Assert.Equal(50, ecoLamp2.BrightnessLevel);
+            Assert.Equal(50, ecoLamp1.BrightnessLevel.Value);
+            Assert.Equal(50, ecoLamp2.BrightnessLevel.Value);
         }
     }
 }

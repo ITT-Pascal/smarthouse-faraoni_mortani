@@ -56,14 +56,14 @@ namespace SmartHouse.FaraoniMortani.Domain
             else BrightnessLevel.Value += amount;
         }
 
-        public virtual void SetBrightness(int levelOfBrightness)
+        public virtual void SetBrightness(Brightness levelOfBrightness)
         {
-            if (levelOfBrightness < MinBrightnessLevel || levelOfBrightness > MaxBrightnessLevel)
+            if (levelOfBrightness.Value < MinBrightnessLevel || levelOfBrightness.Value > MaxBrightnessLevel)
                 throw new ArgumentOutOfRangeException($"Brightness level must be between {MinBrightnessLevel} and {MaxBrightnessLevel}.");
-            else if (levelOfBrightness == 0)
+            else if (levelOfBrightness.Value == 0)
                 Status = DeviceStatus.Off;
             else
-                BrightnessLevel.Value = levelOfBrightness;
+                BrightnessLevel.Value = levelOfBrightness.Value;
         }
     }
 }

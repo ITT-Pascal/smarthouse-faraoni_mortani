@@ -71,7 +71,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             lamp.SetBrightness(100);
 
             // Assert
-            Assert.Equal(100, lamp.BrightnessLevel);
+            Assert.Equal(100, lamp.BrightnessLevel.Value);
         }
 
         [Fact]
@@ -148,7 +148,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             lamp.Dimmer(30);
 
             // Assert
-            Assert.Equal(70, lamp.BrightnessLevel);
+            Assert.Equal(70, lamp.BrightnessLevel.Value);
         }
 
         [Fact]
@@ -162,7 +162,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             lamp.Dimmer(120);
 
             // Assert
-            Assert.Equal(0, lamp.BrightnessLevel);
+            Assert.Equal(0, lamp.BrightnessLevel.Value);
         }
 
         [Fact]
@@ -200,7 +200,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             lamp.Brighten(30);
 
             // Assert
-            Assert.Equal(100, lamp.BrightnessLevel);
+            Assert.Equal(100, lamp.BrightnessLevel.Value);
         }
 
         [Fact]
@@ -215,7 +215,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             lamp.Brighten(30);
 
             // Assert
-            Assert.Equal(70, lamp.BrightnessLevel);
+            Assert.Equal(70, lamp.BrightnessLevel.Value);
         }
     }
 }

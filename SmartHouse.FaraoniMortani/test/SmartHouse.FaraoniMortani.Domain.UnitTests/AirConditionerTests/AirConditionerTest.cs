@@ -16,7 +16,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             airConditioner.SetTemperatureToMin();
 
-            Assert.Equal(0, airConditioner.TargetTemperature);
+            Assert.Equal(0, airConditioner.TargetTemperature.Value);
         }
 
         [Fact]
@@ -28,7 +28,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             airConditioner.SetCustomTemperature(25);
             airConditioner.SetTemperatureToDefault();
 
-            Assert.Equal(20, airConditioner.TargetTemperature);
+            Assert.Equal(20, airConditioner.TargetTemperature.Value);
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             airConditioner.SetTemperatureToMax();
 
-            Assert.Equal(40, airConditioner.TargetTemperature);
+            Assert.Equal(40, airConditioner.TargetTemperature.Value);
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             airConditioner.Toggle();
             airConditioner.SetCustomTemperature(30);
 
-            Assert.Equal(30, airConditioner.TargetTemperature);
+            Assert.Equal(30, airConditioner.TargetTemperature.Value);
         }
 
         [Fact]
@@ -71,14 +71,14 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void IncreaseTemperature_WhenTemperatureIs20_TemperatureBecomes21()
+        public void IncreaseTemperature_WhenTemperatureIs20_TemperatureBecomes20Dot5()
         {
             AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
 
             airConditioner.Toggle();
             airConditioner.IncreaseTemperature();
 
-            Assert.Equal(20.5, airConditioner.TargetTemperature);
+            Assert.Equal(20.5, airConditioner.TargetTemperature.Value);
         }
 
         [Fact]
@@ -94,7 +94,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             airConditioner.IncreaseTemperature();
 
             // Assert
-            Assert.Equal(40, airConditioner.TargetTemperature);
+            Assert.Equal(40, airConditioner.TargetTemperature.Value);
         }
 
         [Fact]
@@ -109,7 +109,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             airConditioner.DecreaseTemperature();
 
             // Assert
-            Assert.Equal(19,5, airConditioner.TargetTemperature);
+            Assert.Equal(19,5, airConditioner.TargetTemperature.Value);
         }
 
         [Fact]
@@ -125,7 +125,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             airconditioner.DecreaseTemperature();
 
             // Assert
-            Assert.Equal(0, airconditioner.TargetTemperature);
+            Assert.Equal(0, airconditioner.TargetTemperature.Value);
         }
     }
 }

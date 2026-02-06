@@ -20,7 +20,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             thermostat.IncreaseTemperature();
 
             // Assert
-            Assert.Equal(20.5, thermostat.Temperature);
+            Assert.Equal(20.5, thermostat.Temperature.Value);
         }
 
         [Fact]
@@ -45,7 +45,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             thermostat.IncreaseTemperature();
 
             // Assert
-            Assert.Equal(40, thermostat.Temperature);
+            Assert.Equal(40, thermostat.Temperature.Value);
         }
 
         [Fact]
@@ -59,7 +59,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             thermostat.DecreaseTemperature();
 
             // Assert
-            Assert.Equal(19.5, thermostat.Temperature);
+            Assert.Equal(19.5, thermostat.Temperature.Value);
         }
 
         [Fact]
@@ -84,7 +84,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             thermostat.DecreaseTemperature();
 
             // Assert
-            Assert.Equal(0, thermostat.Temperature);
+            Assert.Equal(0, thermostat.Temperature.Value);
         }
 
         [Fact]
@@ -98,7 +98,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             thermostat.SetCustomTemperature(16.0);
 
             // Assert
-            Assert.Equal(16.0, thermostat.Temperature);
+            Assert.Equal(16.0, thermostat.Temperature.Value);
         }
 
         [Fact]
