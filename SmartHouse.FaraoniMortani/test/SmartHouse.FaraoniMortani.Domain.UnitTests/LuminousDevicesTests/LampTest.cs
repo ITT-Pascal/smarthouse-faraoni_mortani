@@ -1,3 +1,4 @@
+using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
 using System.Security.Cryptography.X509Certificates;
 
 namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
@@ -68,7 +69,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             // Act
             lamp.Toggle();
-            lamp.SetBrightness(100);
+            lamp.SetBrightness(new Brightness(100));
 
             // Assert
             Assert.Equal(100, lamp.BrightnessLevel.Value);
@@ -82,7 +83,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             // Act
             lamp.Toggle();
-            lamp.SetBrightness(0);
+            lamp.SetBrightness(new Brightness(0));
 
             // Assert
             Assert.Equal(DeviceStatus.Off, lamp.Status);
@@ -98,7 +99,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             lamp.Toggle();
 
             // Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => lamp.SetBrightness(-1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => lamp.SetBrightness(new Brightness(-1)));
         }
 
         [Fact]
@@ -111,7 +112,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             lamp.Toggle();
 
             // Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => lamp.SetBrightness(101));
+            Assert.Throws<ArgumentOutOfRangeException>(() => lamp.SetBrightness(new Brightness(101)));
         }
 
         [Fact]
@@ -196,7 +197,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             // Act
             lamp.Toggle();
-            lamp.SetBrightness(80);
+            lamp.SetBrightness(new Brightness(80));
             lamp.Brighten(30);
 
             // Assert
@@ -211,7 +212,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             // Act
             lamp.Toggle();
-            lamp.SetBrightness(40);
+            lamp.SetBrightness(new Brightness(40));
             lamp.Brighten(30);
 
             // Assert

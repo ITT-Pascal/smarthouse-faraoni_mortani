@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -46,7 +47,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Act
             ecoLamp.Toggle();
-            ecoLamp.SetBrightness(70);
+            ecoLamp.SetBrightness(new Brightness(70));
 
             // Assert
             Assert.Equal(70, ecoLamp.BrightnessLevel.Value);
@@ -60,7 +61,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
 
             // Act
             ecoLamp.Toggle();
-            ecoLamp.SetBrightness(0);
+            ecoLamp.SetBrightness(new Brightness(0));
 
             // Assert
             Assert.Equal(DeviceStatus.Off, ecoLamp.Status);
@@ -76,7 +77,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
             ecoLamp.Toggle();
 
             // Assert
-            Assert.Throws<ArgumentOutOfRangeException>(() => ecoLamp.SetBrightness(-1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => ecoLamp.SetBrightness(new Brightness(-1)));
         }
 
         [Fact]

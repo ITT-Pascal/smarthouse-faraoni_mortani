@@ -12,4 +12,8 @@
     <None Remove="Interfaces\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="LuminousDevices\Inte\" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -80,7 +81,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             // Act
             twoLampDevice.TurnOnOneLamp(lamp1);
-            twoLampDevice.SetBrightnessForSingleLamp(lamp1, 30);
+            twoLampDevice.SetBrightnessForSingleLamp(lamp1, new Brightness(30));
 
             // Assert
             Assert.Equal(30, lamp1.BrightnessLevel.Value);
@@ -95,7 +96,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.SetBrightnessForSingleLamp(lamp2, 30);
+            twoLampDevice.SetBrightnessForSingleLamp(lamp2, new Brightness(30));
 
             // Assert
             Assert.Equal(30, lamp2.BrightnessLevel.Value);
@@ -110,7 +111,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             TwoLampDevice twoLampDevice = new TwoLampDevice(lamp1, lamp2);
 
             // Act
-            twoLampDevice.SetBrightnessForBothLamps(30);
+            twoLampDevice.SetBrightnessForBothLamps(new Brightness(30));
 
             // Assert
             Assert.Equal(30, lamp1.BrightnessLevel.Value);

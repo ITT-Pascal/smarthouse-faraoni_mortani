@@ -10,6 +10,6 @@ namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
     {
         void Dimmer(int amount);
         void Brighten(int amount);
-        void SetBrightness(int newBrightness);
+        void SetBrightness(Brightness newBrightness);
     }
 }

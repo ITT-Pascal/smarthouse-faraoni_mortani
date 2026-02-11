@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,13 +62,13 @@ namespace SmartHouse.FaraoniMortani.Domain
             }
         }
 
-        public void SetBrightnessForSingleLamp(AbstractLamp currentLamp, int newBrightness)
+        public void SetBrightnessForSingleLamp(AbstractLamp currentLamp, Brightness newBrightness)
         {
             if (currentLamp == Lamp1 || currentLamp == Lamp2)
                 currentLamp.SetBrightness(newBrightness);
         }
 
-        public void SetBrightnessForBothLamps(int newBrightness)
+        public void SetBrightnessForBothLamps(Brightness newBrightness)
         {
             Lamp1.SetBrightness(newBrightness);
             Lamp2.SetBrightness(newBrightness);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -192,7 +193,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             // Act
             lampRow1.AddLamp(lamp1);
-            lampRow1.SetBrightnessForLamp(guid, 50);
+            lampRow1.SetBrightnessForLamp(guid, new Brightness(50));
 
             // Assert
             Assert.Equal(50, lamp1.BrightnessLevel.Value);
@@ -207,7 +208,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
 
             // Act
             lampRow1.AddLamp(lamp1);
-            lampRow1.SetBrightnessForLamp("Stefano's Lamp", 50);
+            lampRow1.SetBrightnessForLamp("Stefano's Lamp", new Brightness(50));
 
             // Assert
             Assert.Equal(50, lamp1.BrightnessLevel.Value);
@@ -224,7 +225,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             // Act
             lampRow1.AddLamp(lamp1);
             lampRow1.AddLamp(lamp2);
-            lampRow1.SetBrightnessForAllLamps(50);
+            lampRow1.SetBrightnessForAllLamps(new Brightness(50));
 
             // Assert
             Assert.Equal(50, lamp1.BrightnessLevel.Value);

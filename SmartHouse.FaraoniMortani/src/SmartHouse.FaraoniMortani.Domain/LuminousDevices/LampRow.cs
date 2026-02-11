@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -225,9 +226,9 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <param name="id"></param>
         /// <param name="newBrightness"></param>
         /// <exception cref="ArgumentException"></exception>
-        public void SetBrightnessForLamp(Guid id, int newBrightness)
+        public void SetBrightnessForLamp(Guid id, Brightness newBrightness)
         {
-            if (newBrightness < 0 || newBrightness > 100)
+            if (newBrightness.Value < 0 || newBrightness.Value > 100)
                 throw new ArgumentOutOfRangeException("New brightness must be between 0 and 100");
             else
             {
@@ -261,9 +262,9 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// <param name="name"></param>
         /// <param name="newBrightness"></param>
         /// <exception cref="ArgumentException"></exception>
-        public void SetBrightnessForLamp(string name, int newBrightness)
+        public void SetBrightnessForLamp(string name, Brightness newBrightness)
         {
-			if (newBrightness < 0 || newBrightness > 100)
+			if (newBrightness.Value < 0 || newBrightness.Value > 100)
 				throw new ArgumentOutOfRangeException("New brightness must be between 0 and 100");
 			else
 			{
@@ -295,7 +296,7 @@ namespace SmartHouse.FaraoniMortani.Domain
         /// This method sets the brightness of all lamps to a specified value
         /// </summary>
         /// <param name="newBrightness"></param>
-        public void SetBrightnessForAllLamps(int newBrightness)
+        public void SetBrightnessForAllLamps(Brightness newBrightness)
         {
             for (int i = 0; i < lampRow.Count; i++)
             {
