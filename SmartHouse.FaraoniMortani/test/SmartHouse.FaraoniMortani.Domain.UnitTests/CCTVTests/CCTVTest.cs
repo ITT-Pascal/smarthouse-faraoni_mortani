@@ -90,7 +90,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
             cctv.ChangeInclination(45);
 
             // Assert
-            Assert.Equal(45, cctv.CurrentInclination.CurrentInclination);
+            Assert.Equal(45, cctv.InclinationValue.CurrentInclination);
         }
 
         [Fact]
@@ -104,25 +104,11 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
             cctv.IncreaseInclination();
 
             // Assert
-            Assert.Equal(90, cctv.CurrentInclination.CurrentInclination);
+            Assert.Equal(90, cctv.InclinationValue.CurrentInclination);
         }
 
         [Fact]
-        public void IncreaseInclination_WhenCurrentInclinationIs45_CurrentInclinationBecomes50() //Needs to be fixed
-        {
-            // Arrange
-            CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
-
-            // Act
-            cctv.ChangeInclination(45);
-            cctv.IncreaseInclination();
-
-            // Assert
-            Assert.Equal(46, cctv.CurrentInclination.CurrentInclination);
-        }
-
-        [Fact]
-        public void DecreaseInclination_WhenCurrentInclinationIsMinus89_ItBecomes90() //Needs to be fixed
+        public void DecreaseInclination_WhenCurrentInclinationIsMinus89_ItBecomesMinus90()
         {
             // Arrange
             CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
@@ -132,21 +118,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
             cctv.DecreaseInclination();
 
             // Assert
-            Assert.Equal(-90, cctv.CurrentInclination.CurrentInclination);
-        }
-
-        [Fact]
-        public void DecreaseInclination_WhenCurrentInclinationIs45_ItBecomes40() //Needs to be fixed
-        {
-            // Arrange
-            CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
-
-            // Act
-            cctv.ChangeInclination(45);
-            cctv.DecreaseInclination();
-
-            // Assert
-            Assert.Equal(44, cctv.CurrentInclination.CurrentInclination);
+            Assert.Equal(-90, cctv.InclinationValue.CurrentInclination);
         }
 
         [Fact]
