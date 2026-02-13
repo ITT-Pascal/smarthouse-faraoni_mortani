@@ -12,7 +12,7 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
     {
         // Properties
         public CctvMode Mode { get; private set; }
-        public Inclination CurrentInclination { get; private set; }
+        public Inclination InclinationValue { get; private set; }
         public double CurrentZoom { get; private set; }
         
         // Constants
@@ -25,7 +25,7 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         {
             Mode = CctvMode.Infrared;
             CurrentZoom = 1.0;
-            CurrentInclination = new Inclination(0);
+            InclinationValue = new Inclination(0);
         }
 
         // Methods
@@ -47,7 +47,7 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
             if (newTiltDegrees > Inclination.MaximumInclination || newTiltDegrees < Inclination.MinimumInclination)
                 throw new ArgumentOutOfRangeException($"The inclination must be between {Inclination.MaximumInclination} and {Inclination.MinimumInclination} degrees");
             else 
-                CurrentInclination.CurrentInclination = newTiltDegrees;
+                InclinationValue.CurrentInclination = newTiltDegrees;
         }
 
         /// <summary>
@@ -55,10 +55,10 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         /// </summary>
         public void IncreaseInclination() 
         {
-            if((CurrentInclination.CurrentInclination + Inclination.MaximumInclination) < Inclination.MaximumInclination)
-                CurrentInclination += 1;
+            if((InclinationValue.CurrentInclination + 1) < Inclination.MaximumInclination)
+                InclinationValue += 1;
             else 
-                CurrentInclination.CurrentInclination = Inclination.MaximumInclination;
+                InclinationValue.CurrentInclination = Inclination.MaximumInclination;
         }
 
         /// <summary>
@@ -66,14 +66,14 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         /// </summary>
         public void DecreaseInclination()
         {
-            if(CurrentInclination.CurrentInclination - Inclination.MinimumInclination > Inclination.MinimumInclination)
-                CurrentInclination -= 1;
+            if((InclinationValue.CurrentInclination - 1) > Inclination.MinimumInclination)
+                InclinationValue -= 1;
             else 
-                CurrentInclination.CurrentInclination = Inclination.MinimumInclination;
+                InclinationValue.CurrentInclination = Inclination.MinimumInclination;
         }
 
         /// <summary>
-        /// Changes the zoom of a certain number choosed by the user
+        /// Changes the zoom to a certain value chosen by the user
         /// </summary>
         /// <param name="newZoom"></param>
         /// <exception cref="ArgumentOutOfRangeException"></exception>

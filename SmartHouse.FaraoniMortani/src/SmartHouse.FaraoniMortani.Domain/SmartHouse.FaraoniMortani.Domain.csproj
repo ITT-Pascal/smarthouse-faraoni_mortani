@@ -8,12 +8,11 @@
 
   <ItemGroup>
     <Compile Remove="Interfaces\**" />
+    <Compile Remove="LuminousDevices\Inte\**" />
     <EmbeddedResource Remove="Interfaces\**" />
+    <EmbeddedResource Remove="LuminousDevices\Inte\**" />
     <None Remove="Interfaces\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="LuminousDevices\Inte\" />
+    <None Remove="LuminousDevices\Inte\**" />
   </ItemGroup>
 
 </Project>
