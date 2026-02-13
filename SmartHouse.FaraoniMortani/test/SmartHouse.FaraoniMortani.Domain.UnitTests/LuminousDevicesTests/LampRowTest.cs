@@ -67,7 +67,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
             lampRow1.RemoveLamp(guid);
 
             // Assert
-            Assert.Empty(lampRow1.lampRow);
+            Assert.Equal(0, lampRow1.lampRow.Count());
         }
 
         [Fact]
