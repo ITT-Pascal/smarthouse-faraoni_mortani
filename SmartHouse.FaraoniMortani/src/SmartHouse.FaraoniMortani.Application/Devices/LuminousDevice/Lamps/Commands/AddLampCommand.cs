@@ -1,5 +1,5 @@
 ﻿using SmartHouse.FaraoniMortani.Domain;
-using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
+using SmartHouse.FaraoniMortani.Domain.LuminousDevices.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -18,11 +18,12 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Com
             _lampRepository = lampRepository;
         }
 
-        public void Execute(string lampName, string deviceImage)
+        public void Execute(string lampName)
         {
-            
+            _lampRepository.Add(new Lamp(lampName));
         }
     }
+
 }
 
 

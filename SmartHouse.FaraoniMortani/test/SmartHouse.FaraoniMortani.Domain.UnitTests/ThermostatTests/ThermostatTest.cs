@@ -10,7 +10,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
    public class ThermostatTest
     {
         [Fact]
-        public void IncreaseTemperature_IfTemperatureIs15_AndTemperatureIsIncreasedWithDeviceTurnedOn_TemperatureIs15Dot5()
+        public void IncreaseTemperature_IfTemperatureIs20_AndTemperatureIsIncreasedWithDeviceTurnedOn_TemperatureIs20Dot5()
         {
             // Arrange
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
@@ -24,7 +24,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         }
 
         [Fact]
-        public void IncreaseTemperature_IfTemperatureIs15_AndTemperatureIsIncreasedWithDeviceTurnedOff_TemperatureCannotBeModified()
+        public void IncreaseTemperature_IfTemperatureIs20_AndTemperatureIsIncreasedWithDeviceTurnedOff_TemperatureCannotBeModified()
         {
             // Arrange
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
