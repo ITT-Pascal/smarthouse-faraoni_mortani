@@ -1,12 +1,11 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.Devices.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SmartHouse.FaraoniMortani.Domain;
-using SmartHouse.FaraoniMortani.Domain.CCTV;
 
-namespace SmartHouse.FaraoniMortani.Domain.CCTV
+namespace SmartHouse.FaraoniMortani.Domain.Devices.CCTV
 {
     public class CCTV: AbstractDevice
     {
@@ -55,7 +54,7 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         /// </summary>
         public void IncreaseInclination() 
         {
-            if((InclinationValue.CurrentInclination + 1) < Inclination.MaximumInclination)
+            if(InclinationValue.CurrentInclination + 1 < Inclination.MaximumInclination)
                 InclinationValue += 1;
             else 
                 InclinationValue.CurrentInclination = Inclination.MaximumInclination;
@@ -66,7 +65,7 @@ namespace SmartHouse.FaraoniMortani.Domain.CCTV
         /// </summary>
         public void DecreaseInclination()
         {
-            if((InclinationValue.CurrentInclination - 1) > Inclination.MinimumInclination)
+            if(InclinationValue.CurrentInclination - 1 > Inclination.MinimumInclination)
                 InclinationValue -= 1;
             else 
                 InclinationValue.CurrentInclination = Inclination.MinimumInclination;

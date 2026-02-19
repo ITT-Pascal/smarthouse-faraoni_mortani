@@ -1,11 +1,11 @@
-﻿using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
+﻿using SmartHouse.FaraoniMortani.Domain.Devices.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse.FaraoniMortani.Domain
+namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
 {
     public abstract class AbstractLamp: AbstractDevice, ILuminousDevice
     {

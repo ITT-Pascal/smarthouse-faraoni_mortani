@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices
+namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
 {
     public interface ILuminousDevice
     {

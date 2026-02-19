@@ -1,4 +1,4 @@
-﻿using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
+﻿using SmartHouse.FaraoniMortani.Domain.Devices.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 
-namespace SmartHouse.FaraoniMortani.Domain
+namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
 {
     public class TwoLampDevice
     {       

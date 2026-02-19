@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse.FaraoniMortani.Domain.HeatDevice
+namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice
 {
     public record Degree
     {

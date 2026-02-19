@@ -1,4 +1,4 @@
-﻿namespace SmartHouse.FaraoniMortani.Domain
+﻿namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
 {
     public sealed class Lamp: AbstractLamp
     {

@@ -1,4 +1,4 @@
-﻿using SmartHouse.FaraoniMortani.Domain.HeatDevice.AirConditioner;
+﻿using SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.AirConditioner;
 using System;
 using System.Collections.Generic;
 using System.Linq;

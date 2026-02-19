@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SmartHouse.FaraoniMortani.Domain;
-using SmartHouse.FaraoniMortani.Domain.LuminousDevices.Repositories;
+using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
+using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices.Repositories;
 
 namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Commands
 {

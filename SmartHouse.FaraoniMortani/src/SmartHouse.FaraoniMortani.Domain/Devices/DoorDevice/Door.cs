@@ -1,4 +1,4 @@
-﻿using SmartHouse.FaraoniMortani.Domain.Abstractions;
+﻿using SmartHouse.FaraoniMortani.Domain.Devices.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse.FaraoniMortani.Domain
+namespace SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice
 {
     public class Door: AbstractDevice, ILockable
     {

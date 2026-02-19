@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.Devices.Abstractions;
+using SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse.FaraoniMortani.Domain.LuminousDevices.Repositories
+namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices.Repositories
 {
     public interface ILampRepository
     {

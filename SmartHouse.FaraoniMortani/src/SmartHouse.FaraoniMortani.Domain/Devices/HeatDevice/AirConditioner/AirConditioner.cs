@@ -1,11 +1,12 @@
-﻿using SmartHouse.FaraoniMortani.Domain.HeatDevice;
+﻿using SmartHouse.FaraoniMortani.Domain.Devices.Abstractions;
+using SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartHouse.FaraoniMortani.Domain.HeatDevice.AirConditioner
+namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.AirConditioner
 {
     public class AirConditioner: AbstractDevice, IHeatDevice
     {

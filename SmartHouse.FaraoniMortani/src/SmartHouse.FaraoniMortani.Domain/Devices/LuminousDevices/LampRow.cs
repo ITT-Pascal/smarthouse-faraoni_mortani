@@ -1,4 +1,4 @@
-﻿using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
+﻿using SmartHouse.FaraoniMortani.Domain.Devices.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace SmartHouse.FaraoniMortani.Domain
+namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
 {
     public class LampRow
     {
@@ -110,7 +110,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 }
                 else
                 {
-                    if (i == (lampRow.Count() - 1))
+                    if (i == lampRow.Count() - 1)
                     {
                         throw new ArgumentException("No lamp with given id was found");
                     }
@@ -136,7 +136,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 }
                 else
                 {
-                    if(i == (lampRow.Count() - 1))
+                    if(i == lampRow.Count() - 1)
                     {
                         throw new ArgumentException("No lamp with given name was found");
                     }
@@ -174,7 +174,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 }
                 else
                 {
-                    if (i == (lampRow.Count() - 1))
+                    if (i == lampRow.Count() - 1)
                     {
                         throw new ArgumentException("No lamp with given id was found");
                     }
@@ -200,7 +200,7 @@ namespace SmartHouse.FaraoniMortani.Domain
                 }
                 else
                 {
-                    if (i == (lampRow.Count() - 1))
+                    if (i == lampRow.Count() - 1)
                     {
                         throw new ArgumentException("No lamp with given name was found");
                     }
@@ -247,7 +247,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 					}
 					else
 					{
-						if (i == (lampRow.Count() - 1))
+						if (i == lampRow.Count() - 1)
 						{
 							throw new ArgumentException("No lamp with given id was found");
 						}
@@ -283,7 +283,7 @@ namespace SmartHouse.FaraoniMortani.Domain
 					}
 					else
 					{
-						if (i == (lampRow.Count() - 1))
+						if (i == lampRow.Count() - 1)
 						{
 							throw new ArgumentException("No lamp with given id was found");
 						}
