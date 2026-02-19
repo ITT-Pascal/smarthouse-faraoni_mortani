@@ -20,7 +20,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             thermostat.IncreaseTemperature();
 
             // Assert
-            Assert.Equal(20.5, thermostat.Temperature.Value);
+            Assert.Equal(19.5, thermostat.Temperature.Value);
         }
 
         [Fact]

@@ -21,7 +21,7 @@ namespace SmartHouse.FaraoniMortani.Domain.HeatDevice.ThermostatDevice
         // Constructor
         public Thermostat(string name): base(name)
         {
-            Temperature.Value = DefaultTemperature;
+            Temperature = new Degree(DefaultTemperature);
         }
 
         // Methods

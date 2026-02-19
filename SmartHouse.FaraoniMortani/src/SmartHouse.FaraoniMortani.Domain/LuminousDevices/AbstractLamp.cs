@@ -23,11 +23,11 @@ namespace SmartHouse.FaraoniMortani.Domain
         protected AbstractLamp() { }
         protected AbstractLamp(string name) : base(name)
         {
-            BrightnessLevel.Value = MaxBrightnessLevel;
+            BrightnessLevel = new Brightness(MaxBrightnessLevel);
         }
         protected AbstractLamp(Guid guid, string name) : base(name, guid)
         {
-            BrightnessLevel.Value = MaxBrightnessLevel;
+            BrightnessLevel = new Brightness(MaxBrightnessLevel);
         }
 
 
