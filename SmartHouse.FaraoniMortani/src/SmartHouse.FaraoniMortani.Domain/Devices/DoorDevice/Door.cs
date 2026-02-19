@@ -24,7 +24,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice
             Password = password;
         }
 
-        public void OpenDoor()
+        public void Open()
         {
             if (Status == DeviceStatus.Closed)
             {
@@ -37,7 +37,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice
             else throw new Exception("Door is already open");
         }
 
-        public void CloseDoor()
+        public void Close()
         {
             if(Status == DeviceStatus.Open)
             {
@@ -68,7 +68,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice
             else throw new Exception("Door is already unlocked");
         }
 
-        public void SetNewDoorPassword(string currentPassword, string newPassword)
+        public void SetNewPassword(string currentPassword, string newPassword)
         {
             if(Password == currentPassword)
             {

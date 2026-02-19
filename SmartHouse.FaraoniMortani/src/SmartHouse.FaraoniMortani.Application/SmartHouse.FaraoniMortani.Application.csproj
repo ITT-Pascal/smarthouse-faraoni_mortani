@@ -10,4 +10,8 @@
     <ProjectReference Include="..\SmartHouse.FaraoniMortani.Domain\SmartHouse.FaraoniMortani.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Devices\Door\Queries\" />
+  </ItemGroup>
+
 </Project>

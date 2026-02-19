@@ -1,6 +1,5 @@
 ﻿using SmartHouse.FaraoniMortani.Domain.Devices.Abstractions;
 using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
-using SmartHouse.FaraoniMortani.Domain.LuminousDevices;
 using System;
 using System.Collections.Generic;
 using System.Linq;

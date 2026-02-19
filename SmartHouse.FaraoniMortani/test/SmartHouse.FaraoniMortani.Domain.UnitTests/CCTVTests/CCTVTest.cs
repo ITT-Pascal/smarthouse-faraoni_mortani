@@ -13,7 +13,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeMode_WhenNewModeIsInfrared_ItRemainsInfrared()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
             cctv.ChangeMode(CctvMode.Infrared);
@@ -26,7 +26,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeMode_WhenNewModeIsNightVision_ModeBecomesNightVision()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
             cctv.ChangeMode(CctvMode.NightVision);
@@ -39,7 +39,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeMode_WhenNewModeIsThermal_ModeBecomesThermal()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
             cctv.ChangeMode(CctvMode.Thermal);
@@ -52,7 +52,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeMode_WhenNewModeIsRecording_ModeBecomesRecording()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
             cctv.ChangeMode(CctvMode.Recording);
@@ -65,7 +65,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeInclination_WhenNewTiltDegreesIsOverMaxTiltDegrees_ThrowsException()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => cctv.ChangeInclination(91));            
@@ -75,7 +75,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeInclination_WhenNewTiltDegreesIsBelowMinTiltDegrees_ThrowsException()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => cctv.ChangeInclination(-91));
@@ -85,7 +85,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeInclination_WhenNewTiltIs45_InclinationBecomes45()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
             cctv.ChangeInclination(45);
@@ -98,7 +98,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void IncreaseInclination_WhenCurrentInclinationIs89_CurrentInclinationBecomes90()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
             cctv.ChangeInclination(89);
@@ -112,7 +112,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void DecreaseInclination_WhenCurrentInclinationIsMinus89_ItBecomesMinus90()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
             cctv.ChangeInclination(-89);
@@ -126,7 +126,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeZoom_WhenNewZoomIsHigherThanMaxZoom_ThrowsException()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => cctv.ChangeZoom(10.1));     
@@ -136,7 +136,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeZoom_WhenNewZoomIsLessThan1_ThrowsException()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Assert
             Assert.Throws<ArgumentOutOfRangeException>(() => cctv.ChangeZoom(0.9));
@@ -146,7 +146,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
         public void ChangeZoom_WhenNewZoomIs7_CurrentZoomBecomes7()
         {
             // Arrange
-            Devices.CCTV.CCTV cctv = new CCTV.CCTV("Stefano's CCTV");
+            Devices.CCTV.CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
             cctv.ChangeZoom(7);

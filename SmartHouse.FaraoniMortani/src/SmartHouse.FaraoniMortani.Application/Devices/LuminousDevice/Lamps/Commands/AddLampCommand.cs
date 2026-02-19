@@ -1,4 +1,5 @@
 ﻿using SmartHouse.FaraoniMortani.Domain;
+using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
 using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices.Repositories;
 using System;
 using System.Collections.Generic;

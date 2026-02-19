@@ -17,7 +17,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Act
-            door1.OpenDoor();
+            door1.Open();
 
             // Assert
             Assert.Equal(DeviceStatus.Open, door1.Status);
@@ -33,7 +33,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             door1.Lock();
 
             // Assert
-            Assert.Throws<Exception>(() => door1.OpenDoor());
+            Assert.Throws<Exception>(() => door1.Open());
         }
 
         [Fact]
@@ -43,10 +43,10 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Act
-            door1.OpenDoor();
+            door1.Open();
 
             // Assert
-            Assert.Throws<Exception>(() => door1.OpenDoor());
+            Assert.Throws<Exception>(() => door1.Open());
         }
 
         [Fact]
@@ -56,8 +56,8 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Act
-            door1.OpenDoor();
-            door1.CloseDoor();
+            door1.Open();
+            door1.Close();
 
             // Assert
             Assert.Equal(DeviceStatus.Closed, door1.Status);
@@ -70,7 +70,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Assert
-            Assert.Throws<Exception>(() => door1.CloseDoor());
+            Assert.Throws<Exception>(() => door1.Close());
         }
 
         [Fact]
@@ -144,7 +144,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
 
             // Assert
-            door1.SetNewDoorPassword("1234", "1050");
+            door1.SetNewPassword("1234", "1050");
             Assert.Equal("1050", door1.Password);
         }
 
@@ -155,7 +155,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.DoorTests
             Door door1 = new Door("Stefano's Door", "1234");
             
             // Assert
-            Assert.Throws<ArgumentException>(() => door1.SetNewDoorPassword("1235", "1050"));
+            Assert.Throws<ArgumentException>(() => door1.SetNewPassword("1235", "1050"));
         }
     }
 }
