@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Devices\LuminousDevice\Lamps\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SmartHouse.FaraoniMortani.Domain\SmartHouse.FaraoniMortani.Domain.csproj" />
   </ItemGroup>
 
