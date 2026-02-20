@@ -34,8 +34,6 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.CCTV
                 Mode = newMode;
         }
 
-        //TODO: Fix methods
-
         /// <summary>
         /// Changes inclination of a certain number choosed by the user
         /// </summary>
@@ -43,10 +41,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.CCTV
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public void ChangeInclination(int newTiltDegrees)
         {
-            if (newTiltDegrees > Inclination.MaximumInclination || newTiltDegrees < Inclination.MinimumInclination)
-                throw new ArgumentOutOfRangeException($"The inclination must be between {Inclination.MaximumInclination} and {Inclination.MinimumInclination} degrees");
-            else 
-                InclinationValue.CurrentInclination = newTiltDegrees;
+            InclinationValue = new Inclination(newTiltDegrees);
         }
 
         /// <summary>
@@ -54,10 +49,10 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.CCTV
         /// </summary>
         public void IncreaseInclination() 
         {
-            if(InclinationValue.CurrentInclination + 1 < Inclination.MaximumInclination)
-                InclinationValue += 1;
+            if(InclinationValue.CurrentInclination + Inclination.Step < Inclination.Max)
+                InclinationValue += Inclination.Step;
             else 
-                InclinationValue.CurrentInclination = Inclination.MaximumInclination;
+                InclinationValue.CurrentInclination = Inclination.Max;
         }
 
         /// <summary>
@@ -65,10 +60,10 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.CCTV
         /// </summary>
         public void DecreaseInclination()
         {
-            if(InclinationValue.CurrentInclination - 1 > Inclination.MinimumInclination)
-                InclinationValue -= 1;
+            if(InclinationValue.CurrentInclination - Inclination.Step > Inclination.Min)
+                InclinationValue -= Inclination.Step;
             else 
-                InclinationValue.CurrentInclination = Inclination.MinimumInclination;
+                InclinationValue.CurrentInclination = Inclination.Min;
         }
 
         /// <summary>

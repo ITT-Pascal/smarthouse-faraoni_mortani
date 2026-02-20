@@ -13,32 +13,21 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.ThermostatDevice
         // Properities
         public Degree Temperature { get; private set; }
 
-        // Constants
-        public const double DefaultTemperature = 20;
-        public const double MaxTemperature = 40;
-        public const double MinTemperature = 0;
-        public const double Step = 0.5;
-
         // Constructor
         public Thermostat(string name): base(name)
         {
-            Temperature = new Degree(DefaultTemperature);
+            Temperature = new Degree(Degree.Default);
         }
 
         // Methods
-
-        /// <summary>
-        /// Increases temperature value by 0.5
-        /// </summary>
-        /// <exception cref="Exception"></exception>
         public void IncreaseTemperature()
         {
             if(Status == DeviceStatus.On)
             {
-                if (Temperature.Value + Step > MaxTemperature)
-                    Temperature.Value = MaxTemperature;
+                if (Temperature.Value + Degree.Step > Degree.Max)
+                    Temperature.Value = Degree.Max;
                 else
-                    Temperature += Step;
+                    Temperature += Degree.Step;
             }
             else
             {
@@ -46,18 +35,14 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.ThermostatDevice
             }
         }
 
-        /// <summary>
-        /// Decreases temperature value by 0.5 
-        /// </summary>
-        /// <exception cref="Exception"></exception>
         public void DecreaseTemperature()
         {
             if (Status == DeviceStatus.On)
             {
-				if (Temperature.Value - Step < MinTemperature)
-					Temperature.Value = MinTemperature;
+				if (Temperature.Value - Degree.Step < Degree.Min)
+					Temperature.Value = Degree.Min;
 				else
-					Temperature -= Step;
+					Temperature -= Degree.Step;
 			}
             else
             {
@@ -69,10 +54,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.ThermostatDevice
         {
             if (Status == DeviceStatus.On)
             {
-                if (customTemperature < MinTemperature || customTemperature > MaxTemperature)
-                    throw new ArgumentOutOfRangeException($"New temperature must be between {MinTemperature} and {MaxTemperature}");
-                else 
-                    Temperature.Value = customTemperature;
+                Temperature = new Degree(customTemperature);
             }
             else
             {
@@ -82,17 +64,17 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.ThermostatDevice
 
         public void SetTemperatureToMin()
         {
-            Temperature.Value = MinTemperature;
+            Temperature.Value = Degree.Min;
         }
 
         public void SetTemperatureToDefault()
         {
-            Temperature.Value = DefaultTemperature;
+            Temperature.Value = Degree.Default;
         }
 
         public void SetTemperatureToMax()
         {
-            Temperature.Value = MaxTemperature;
+            Temperature.Value = Degree.Max;
         }
     }
 }

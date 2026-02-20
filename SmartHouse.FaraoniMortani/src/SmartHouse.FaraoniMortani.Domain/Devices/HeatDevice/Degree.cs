@@ -9,7 +9,6 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice
 {
     public record Degree
     {
-
         // Properties
         public double Value { get; set; }
 
@@ -17,11 +16,15 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice
         public const double Max = 40;
         public const double Min = 0;
         public const double Default = 20;
+        public const double Step = 0.5;
 
         // Constructor
         public Degree(double value)
         {
-            Value = Default;
+            if (value < Min || value > Max)
+                throw new ArgumentOutOfRangeException($"New temperature must be between {Min} and {Max}");
+
+            Value = value;
         }
 
         // Method

@@ -15,6 +15,9 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
 
         public Brightness(int value)
         {
+            if (value < Min || value > Max)
+                throw new ArgumentOutOfRangeException($"Brightness level must be between {Min} and {Max}.");
+
             Value = Math.Clamp(value, Min, Max);
         }
 
@@ -38,7 +41,5 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
         {
             return $"{Value}%";
         }
-
-
     }
 }

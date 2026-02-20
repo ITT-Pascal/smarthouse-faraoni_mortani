@@ -10,7 +10,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
     public class AirConditionerTest
     {
         [Fact]
-        public void SetTemperatureToMin_WhenTemperatureIs20_TemperatureBecomes5()
+        public void SetTemperatureToMin_WhenTemperatureIs20_TemperatureBecomes0()
         {
             AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
 
@@ -53,7 +53,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void SetCustomTemperature_WhenCustomTemperatureIsMinus1_ThrowsException()
+        public void SetCustomTemperature_WhenCustomTemperatureIsMinus1_ThrowException()
         {
             AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
 
@@ -62,7 +62,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void SetCustomTemperature_WhenCustomTemperatureIs41_ThrowsException()
+        public void SetCustomTemperature_WhenCustomTemperatureIs41_ThrowException()
         {
             AirConditioner airConditioner = new AirConditioner("Stefano's air conditioner");
 
@@ -98,7 +98,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void DecreaseTemperature_WhenTemperatureIs20_TemperatureBecomes19()
+        public void DecreaseTemperature_WhenTemperatureIs20_TemperatureBecomes19Dot5()
         {
 
             // Arrange

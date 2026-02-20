@@ -9,7 +9,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         Guid id = new Guid();
 
         [Fact]
-        public void Switch_WhenSwitchIsUsedAndLampIsTurnedOff_LampIsOn()
+        public void Toggle_WhenToggleIsUsedAndLampIsTurnedOff_LampIsTurnedOn()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -22,7 +22,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void Switch_WhenSwitchIsUsedAndLampIsTurnedOn_LampIsOff()
+        public void Toggle_WhenToggleIsUsedAndLampIsTurnedOn_LampIsTurnedOff()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -36,34 +36,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void Switch_WhenSwitchOnIsUsed_LampIsOn()
-        {
-            // Arrange
-            Lamp lamp = new Lamp(id, "Stefano's lamp");
-
-            // Act
-            lamp.Toggle();
-
-            // Assert
-            Assert.Equal(DeviceStatus.On, lamp.Status);
-        }
-
-        [Fact]
-        public void Switch_WhenSwitchOffIsUsed_LampIsOff()
-        {
-            // Arrange
-            Lamp lamp = new Lamp(id, "Stefano's lamp");
-
-            // Act
-            lamp.Toggle();
-            lamp.Toggle();
-
-            // Assert
-            Assert.Equal(DeviceStatus.Off, lamp.Status);
-        }
-
-        [Fact]
-        public void ChangeBrightness_WhenBrightnessLevelIsSetTo100AssignBrightnessValue()
+        public void ChangeBrightness_WhenBrightnessLevelIsSetTo100BrightnessBecomes100()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -91,7 +64,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void SetBrightness_WhenBrightnessLevelIsSetToANegativeNumberThrowArgument()
+        public void SetBrightness_WhenBrightnessLevelIsSetToANegativeNumberThrowException()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -104,7 +77,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void SetBrightness_WhenBrightnessLevelIsSetToANumberGreaterThanMaximumLimitThrowArgument()
+        public void SetBrightness_WhenBrightnessLevelIsSetToANumberGreaterThanMaxBrightnessThrowException()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -117,7 +90,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void Dimmer_IfDeviceStatusIsOff_ThrowsException()
+        public void Dimmer_IfLampIsOff_ThrowsException()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -140,7 +113,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void Dimmer_IfDeviceStatusIsOnAndAmountIs30_BrightnessIs70()
+        public void Dimmer_IfLampIsOnAndAmountIs30_BrightnessIs70()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -154,7 +127,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void Dimmer_IfDeviceStatusIsOnAndAmountIs120_BrightnessIs0()
+        public void Dimmer_IfLampIsOnAndAmountIs120_BrightnessIs0()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -168,7 +141,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void Brighten_IfDeviceStatusIsOff_ThrowsException()
+        public void Brighten_IfLampIsOff_ThrowException()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -178,7 +151,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void Brighten_IfAmountIsLowerThanOne_ThrowsException()
+        public void Brighten_IfAmountIsLowerThanOne_ThrowException()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -191,7 +164,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void Brighten_WhenBrightessLevelIs80AndAmountIs30_BrightnessBecome100()
+        public void Brighten_WhenBrightessLevelIs80AndAmountIs30_BrightnessBecomes100()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");
@@ -206,7 +179,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
-        public void Brighten_IfDeviceStatusIsOnAndBrightnessLevelIs40AndAmountIs30_BrightnessIs70()
+        public void Brighten_IfLampIsOnAndBrightnessLevelIs40AndAmountIs30_BrightnessIs70()
         {
             // Arrange
             Lamp lamp = new Lamp(id, "Stefano's lamp");

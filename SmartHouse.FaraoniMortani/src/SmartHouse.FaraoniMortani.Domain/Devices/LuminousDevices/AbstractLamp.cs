@@ -9,25 +9,18 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
 {
     public abstract class AbstractLamp: AbstractDevice, ILuminousDevice
     {
-        //TODO: implement Brightness record 
-
         // Properties
         public Brightness BrightnessLevel { get; protected set; }
-
-        // Constants
-        public const int MaxBrightnessLevel = 100;
-        public const int MinBrightnessLevel = 0;
-
 
         // Constructors
         protected AbstractLamp() { }
         protected AbstractLamp(string name) : base(name)
         {
-            BrightnessLevel = new Brightness(MaxBrightnessLevel);
+            BrightnessLevel = new Brightness(Brightness.Max);
         }
         protected AbstractLamp(Guid guid, string name) : base(name, guid)
         {
-            BrightnessLevel = new Brightness(MaxBrightnessLevel);
+            BrightnessLevel = new Brightness(Brightness.Max);
         }
 
 
@@ -39,8 +32,8 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
 
             if (amount < 1)
                 throw new ArgumentOutOfRangeException(nameof(amount), "Invalid Amount");
-            else if (BrightnessLevel.Value - amount < MinBrightnessLevel)
-                BrightnessLevel.Value = MinBrightnessLevel;
+            else if (BrightnessLevel.Value - amount < Brightness.Min)
+                BrightnessLevel.Value = Brightness.Min;
             else BrightnessLevel.Value -= amount;
         }
 
@@ -51,19 +44,17 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
 
             if (amount < 1)
                 throw new ArgumentOutOfRangeException(nameof(amount), "Invalid Amount");
-            else if (BrightnessLevel.Value + amount > MaxBrightnessLevel)
-                BrightnessLevel.Value = MaxBrightnessLevel;
+            else if (BrightnessLevel.Value + amount > Brightness.Max)
+                BrightnessLevel.Value = Brightness.Max;
             else BrightnessLevel.Value += amount;
         }
 
         public virtual void SetBrightness(Brightness levelOfBrightness)
         {
-            if (levelOfBrightness.Value < MinBrightnessLevel || levelOfBrightness.Value > MaxBrightnessLevel)
-                throw new ArgumentOutOfRangeException($"Brightness level must be between {MinBrightnessLevel} and {MaxBrightnessLevel}.");
-            else if (levelOfBrightness.Value == 0)
+            if (levelOfBrightness.Value == 0)
                 Status = DeviceStatus.Off;
             else
-                BrightnessLevel.Value = levelOfBrightness.Value;
+                BrightnessLevel = levelOfBrightness;
         }
     }
 }

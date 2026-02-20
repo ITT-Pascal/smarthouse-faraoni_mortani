@@ -10,45 +10,36 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.AirConditioner
 {
     public class AirConditioner: AbstractDevice, IHeatDevice
     {
-        // Constants
-        public const double MinTemperature = 0;
-        public const double DefaultTemperature = 20;
-        public const double MaxTemperature = 40;
-        public const double Step = 0.5;
-
         // Properties
         public Degree TargetTemperature { get; private set; }
 
         // Constructors
         public AirConditioner(string name): base(name)
         {
-            TargetTemperature = new Degree(DefaultTemperature);
+            TargetTemperature = new Degree(Degree.Default);
         }
 
         // Methods
         public void SetTemperatureToMin()
         {
-            TargetTemperature.Value = MinTemperature;
+            TargetTemperature.Value = Degree.Min;
         }
 
         public void SetTemperatureToDefault()
         {
-            TargetTemperature.Value = DefaultTemperature;
+            TargetTemperature.Value = Degree.Default;
         }
 
         public void SetTemperatureToMax()
         {
-            TargetTemperature.Value = MaxTemperature;
+            TargetTemperature.Value = Degree.Max;
         }
 
         public void SetCustomTemperature(double customTemperature)
         { 
             if (Status == DeviceStatus.On)
             {
-                if (customTemperature < MinTemperature || customTemperature > MaxTemperature)
-                    throw new ArgumentOutOfRangeException($"New temperature must be between {MinTemperature} and {MaxTemperature}");
-                else
-                    TargetTemperature.Value = customTemperature;
+                TargetTemperature = new Degree(customTemperature);
             }
             else
             {
@@ -56,17 +47,14 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.AirConditioner
             }
         }
 
-        /// <summary>
-        /// Increases the target temperature by 0.5
-        /// </summary>
         public void IncreaseTemperature()
         {
             if (Status == DeviceStatus.On)
             {
-                if (TargetTemperature.Value + Step > MaxTemperature)
-                    TargetTemperature.Value = MaxTemperature;
+                if (TargetTemperature.Value + Degree.Step > Degree.Max)
+                    TargetTemperature.Value = Degree.Max;
                 else
-                    TargetTemperature.Value += Step;
+                    TargetTemperature.Value += Degree.Step;
             }
             else
             {
@@ -74,17 +62,14 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.AirConditioner
             }
         }
 
-        /// <summary>
-        /// Decreases the target temerature by 0.5
-        /// </summary>
         public void DecreaseTemperature()
         {
             if (Status == DeviceStatus.On)
             {
-                if (TargetTemperature.Value - Step < MinTemperature)
-                    TargetTemperature.Value = MinTemperature;
+                if (TargetTemperature.Value - Degree.Step < Degree.Min)
+                    TargetTemperature.Value = Degree.Min;
                 else
-                    TargetTemperature -= Step;
+                    TargetTemperature -= Degree.Step;
             }
             else
             {

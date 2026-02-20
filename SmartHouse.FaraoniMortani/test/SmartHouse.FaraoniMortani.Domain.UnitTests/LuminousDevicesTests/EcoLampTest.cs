@@ -13,7 +13,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
     public class EcoLampTest
     {
         [Fact]
-        public void Switch_WhenSwitchIsUsedAndLampIsTurnedOff_IsOnIsTrue()
+        public void Toggle_WhenToggleIsUsedAndLampIsTurnedOff_LampIsTurnedOn()
         {
             // Arrange
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
@@ -26,7 +26,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void Switch_WhenSwitchIsUsedAndLampIsTurnedOn_IsOnIsFalse()
+        public void Toggle_WhenToggleIsUsedAndLampIsTurnedOn_LampIsTurnedOff()
         {
             // Arrange
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
@@ -41,7 +41,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void ChangeBrightness_WhenBrightnessLevelIsSetTo70AssignBrightnessValue()
+        public void ChangeBrightness_WhenBrightnessLevelIsSetTo70BrightnessValueBecomes70()
         {
             // Arrange
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
@@ -69,7 +69,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void ChangeBrightness_WhenBrightnessLevelIsSetToANegativeNumberSelectionIsNotChanged()
+        public void ChangeBrightness_WhenBrightnessLevelIsSetToANegativeNumberThrowException()
         {
             // Arrange
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");
@@ -82,7 +82,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests
         }
 
         [Fact]
-        public void TurnOffAfterTime_IfTheLampIsOff_ItDoesNotSwitch()
+        public void TurnOffAfterTime_IfTheLampIsOff_LampIsNotSwitchedOn()
         {
             // Arrange
             EcoLamp ecoLamp = new EcoLamp("Stefano's EcoLamp");

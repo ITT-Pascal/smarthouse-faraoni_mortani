@@ -20,7 +20,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
             thermostat.IncreaseTemperature();
 
             // Assert
-            Assert.Equal(19.5, thermostat.Temperature.Value);
+            Assert.Equal(20.5, thermostat.Temperature.Value);
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         }
 
         [Fact]
-        public void IncreaseTemperature_WhenTemperatureIs39Dot9_TemperatureBecome40()
+        public void IncreaseTemperature_WhenTemperatureIs39Dot5_TemperatureBecome40()
         {
             // Arrange
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
@@ -49,7 +49,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         }
 
         [Fact]
-        public void DecreaseTemperature_IfTemperatureIs15_AndTemperatureIsDecreasedWithDeviceTurnedOn_TemperatureIs14Dot5()
+        public void DecreaseTemperature_IfTemperatureIs20_AndTemperatureIsDecreasedWithDeviceTurnedOn_TemperatureIs19Dot5()
         {
             // Arrange
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
@@ -63,7 +63,7 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.ThermostatTests
         }
 
         [Fact]
-        public void DecreaseTemperature_IfTemperatureIs15_AndTemperatureIsDecreasedWithDeviceTurnedOff_TemperatureCannotBeModified()
+        public void DecreaseTemperature_IfTemperatureIs20_AndTemperatureIsDecreasedWithDeviceTurnedOff_TemperatureCannotBeModified()
         {
             // Arrange
             Thermostat thermostat = new Thermostat("Stefano's Thermostat");
