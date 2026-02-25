@@ -12,8 +12,8 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO
         public string Name { get; set; }
         public string Status { get; set; }
         public int Brightness { get; set; }
-        public DateTime CreatedAtUtc { get; set; }
-        public DateTime LastModifiedAtUtc { get; set; }
+        public DateTime CreationTime { get; set; }
+        public DateTime LastChangeTime { get; set; }
 
         public override string ToString()
         {
@@ -22,8 +22,8 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO
                 $"Name: {Name}\n" +
                 $"Status: {Status}\n" +
                 $"Brightness: {Brightness}\n" +
-                $"Created: {CreatedAtUtc}\n" +
-                $"Last update: {LastModifiedAtUtc}\n";
+                $"Created: {CreationTime}\n" +
+                $"Last update: {LastChangeTime}\n";
 
         }
     }

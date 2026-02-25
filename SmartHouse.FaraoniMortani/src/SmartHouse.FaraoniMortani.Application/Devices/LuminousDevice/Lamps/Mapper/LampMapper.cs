@@ -16,10 +16,22 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Map
             {
                 Id = lamp.Id,
                 Name = lamp.Name,
-                Brightness = lamp.Brightness.Value,
-                CreatedAtUtc = lamp.CreatedAtUtc,
-                LastModifiedAtUtc = lamp.LastModifiedAtUtc,
+                Status = lamp.Status.string,
+                Brightness = lamp.BrightnessLevel.Value,
+                CreationTime = lamp.CreationTime,
+                LastChangeTime = lamp.LastChangeTime,
             };
+        }
+
+        public static Lamp ToDomain(LampDto dto)
+        {
+            return new Lamp(
+                dto.Id,
+                dto.Name,
+                dto.Brightness,
+                dto.CreationTime,
+                dto.LastChangeTime
+                );
         }
     }
 }

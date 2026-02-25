@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Reviews", "Code Review
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Application", "src\SmartHouse.FaraoniMortani.Application\SmartHouse.FaraoniMortani.Application.csproj", "{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Infrastructure", "SmartHouse.FaraoniMortani.Infrastructure\SmartHouse.FaraoniMortani.Infrastructure.csproj", "{DAC771B7-05E6-4F9A-B0F8-28C59969BEF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC771B7-05E6-4F9A-B0F8-28C59969BEF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC771B7-05E6-4F9A-B0F8-28C59969BEF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC771B7-05E6-4F9A-B0F8-28C59969BEF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC771B7-05E6-4F9A-B0F8-28C59969BEF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{02B958A5-7420-459D-BADD-832EC95D1136} = {1B2593F8-D6BF-404D-88D7-AD5C8CCAA248}
 		{902C42CB-4264-410C-A1A3-840850C05249} = {BB6623DA-A694-4906-8A5F-C24442A6817C}
 		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{DAC771B7-05E6-4F9A-B0F8-28C59969BEF8} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48100FF3-B21B-4BAB-94E9-4976A1E0DB47}
