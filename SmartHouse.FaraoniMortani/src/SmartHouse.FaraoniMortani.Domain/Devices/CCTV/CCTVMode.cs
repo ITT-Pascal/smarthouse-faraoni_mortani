@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Domain.Devices.CCTV
 {
-    public enum CctvMode
+    public enum CCTVMode
     {
         Infrared, // Normal status
         NightVision, // For seeing during night

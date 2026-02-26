@@ -16,10 +16,10 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
             CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
-            cctv.ChangeMode(CctvMode.Infrared);
+            cctv.ChangeMode(CCTVMode.Infrared);
 
             // Assert
-            Assert.Equal(CctvMode.Infrared, cctv.Mode);
+            Assert.Equal(CCTVMode.Infrared, cctv.Mode);
         }
 
         [Fact]
@@ -29,10 +29,10 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
             CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
-            cctv.ChangeMode(CctvMode.NightVision);
+            cctv.ChangeMode(CCTVMode.NightVision);
 
             // Assert
-            Assert.Equal(CctvMode.NightVision, cctv.Mode);
+            Assert.Equal(CCTVMode.NightVision, cctv.Mode);
         }
 
         [Fact]
@@ -42,10 +42,10 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
             CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
-            cctv.ChangeMode(CctvMode.Thermal);
+            cctv.ChangeMode(CCTVMode.Thermal);
 
             // Assert
-            Assert.Equal(CctvMode.Thermal, cctv.Mode);
+            Assert.Equal(CCTVMode.Thermal, cctv.Mode);
         }
 
         [Fact]
@@ -55,10 +55,10 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.CCTVTests
             CCTV cctv = new CCTV("Stefano's CCTV");
 
             // Act
-            cctv.ChangeMode(CctvMode.Recording);
+            cctv.ChangeMode(CCTVMode.Recording);
 
             // Assert
-            Assert.Equal(CctvMode.Recording, cctv.Mode);
+            Assert.Equal(CCTVMode.Recording, cctv.Mode);
         }
 
         [Fact]
