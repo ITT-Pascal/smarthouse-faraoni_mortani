@@ -22,7 +22,6 @@ namespace SmartHouse.FaraoniMortani.Infrastructure.Repositories.Devices.Luminous
             };
         }
 
-
         public void Add(Lamp newLamp)
         {
             throw new NotImplementedException();
