@@ -16,6 +16,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.Mapper
             {
                 Id = door.Id,
                 Name = door.Name,
+                Status = door.Status,
                 Password = door.Password,
                 IsLocked = door.IsLocked,
                 CreatedAtUtc = door.CreationTime,

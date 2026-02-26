@@ -10,7 +10,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.CCTV
     public class CCTV: AbstractDevice
     {
         // Properties
-        public CctvMode Mode { get; private set; }
+        public CCTVMode Mode { get; private set; }
         public Inclination InclinationValue { get; private set; }
         public double CurrentZoom { get; private set; }
         
@@ -22,13 +22,13 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.CCTV
         // Constructor
         public CCTV(string name): base(name) 
         {
-            Mode = CctvMode.Infrared;
+            Mode = CCTVMode.Infrared;
             CurrentZoom = 1.0;
             InclinationValue = new Inclination(0);
         }
 
         // Methods
-        public void ChangeMode(CctvMode newMode)
+        public void ChangeMode(CCTVMode newMode)
         {
             if (Mode != newMode)
                 Mode = newMode;
