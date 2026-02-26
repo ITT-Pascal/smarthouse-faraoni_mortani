@@ -13,6 +13,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.Abstractions
         StandBy,
         Error,
         Open,
-        Closed
+        Closed,
+        Unknown
     }
 }

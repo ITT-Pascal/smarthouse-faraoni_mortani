@@ -10,6 +10,10 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.ThermostatDevice
 {
     public class Thermostat: AbstractDevice, IHeatDevice
     {
+        private DeviceStatus deviceStatus;
+        private double temperature;
+        private DateTime lastUpdateTime;
+
         // Properities
         public Degree Temperature { get; private set; }
 
@@ -17,6 +21,16 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.ThermostatDevice
         public Thermostat(string name): base(name)
         {
             Temperature = new Degree(Degree.Default);
+        }
+
+        public Thermostat(Guid id, string name, DeviceStatus deviceStatus, double temperature, DateTime creationTime, DateTime lastUpdateTime)
+        {
+            Id = id;
+            Name = name;
+            this.deviceStatus = deviceStatus;
+            this.temperature = temperature;
+            CreationTime = creationTime;
+            this.lastUpdateTime = lastUpdateTime;
         }
 
         // Methods
