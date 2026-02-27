@@ -28,3 +28,4 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO
         }
     }
 }
+

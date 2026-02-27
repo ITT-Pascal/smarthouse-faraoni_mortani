@@ -10,7 +10,7 @@ namespace SmartHouse.FaraoniMortani.Infrastructure.Repositories.Devices.Luminous
 {
     public class InMemoryLampRepository : ILampRepository
     {
-        public readonly List<Lamp> _lamps;
+        private readonly List<Lamp> _lamps;
 
         public InMemoryLampRepository()
         {
@@ -22,34 +22,40 @@ namespace SmartHouse.FaraoniMortani.Infrastructure.Repositories.Devices.Luminous
             };
         }
 
-        public void Add(Lamp newLamp)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Create(Lamp newLamp)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Lamp newLamp)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Lamp> GetAll()
         {
-            throw new NotImplementedException();
+            return _lamps;
         }
 
-        public Lamp GetById(Guid id)
+        public Lamp? GetById(Guid id)
         {
-            throw new NotImplementedException();
+            Lamp? result = null;
+
+            foreach (Lamp l in _lamps)
+                if (l.Id == id)
+                    result = l;
+
+            return result;
+        }
+
+        public void Add(Lamp lamp)
+        {
+            if (lamp != null)
+                _lamps.Add(lamp);
+            else
+                throw new ArgumentException("Lamp cannot be null");
+        }
+
+        public void Delete(Lamp lamp)
+        {
+            if (lamp != null)
+                _lamps.Remove(lamp);
         }
 
         public void Update(Lamp newLamp)
         {
-            throw new NotImplementedException();
+            // Not to do                           
         }
+
     }
 }
