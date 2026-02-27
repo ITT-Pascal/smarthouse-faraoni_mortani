@@ -16,7 +16,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Map
             {
                 Id = lamp.Id,
                 Name = lamp.Name,
-                Status = lamp.Status.string,
+                Status = lamp.Status.ToString(),
                 Brightness = lamp.BrightnessLevel.Value,
                 CreationTime = lamp.CreationTime,
                 LastChangeTime = lamp.LastChangeTime,
@@ -31,7 +31,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Map
                 dto.Brightness,
                 dto.CreationTime,
                 dto.LastChangeTime
-                );
+             );
         }
     }
 }

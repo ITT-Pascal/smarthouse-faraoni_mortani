@@ -33,7 +33,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.HeatDevice.Thermostats.M
                 dto.Temperature,
                 dto.CreationTime,
                 dto.LastUpdateTime
-                );
+            );
         }
     }
 }

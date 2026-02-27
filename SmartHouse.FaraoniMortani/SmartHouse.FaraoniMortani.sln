@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smarthouse.FaraoniMortani.Infrastructure", "src\Smarthouse.FaraoniMortani.Infrastructure\Smarthouse.FaraoniMortani.Infrastructure.csproj", "{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Console", "src\SmartHouse.FaraoniMortani.Console\SmartHouse.FaraoniMortani.Console.csproj", "{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,10 @@ Global
 		{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{902C42CB-4264-410C-A1A3-840850C05249} = {BB6623DA-A694-4906-8A5F-C24442A6817C}
 		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
 		{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48100FF3-B21B-4BAB-94E9-4976A1E0DB47}
