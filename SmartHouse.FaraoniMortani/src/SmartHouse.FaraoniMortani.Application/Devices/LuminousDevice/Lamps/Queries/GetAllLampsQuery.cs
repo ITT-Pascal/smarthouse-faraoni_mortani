@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Queries
 {
-    public class GetAllLampsByQuery
+    public class GetAllLampsQuery
     {
         public ILampRepository _lampRepository;
 
-        public GetAllLampsByQuery(ILampRepository lampRepository)
+        public GetAllLampsQuery(ILampRepository lampRepository)
         {
             _lampRepository = lampRepository;
         }
