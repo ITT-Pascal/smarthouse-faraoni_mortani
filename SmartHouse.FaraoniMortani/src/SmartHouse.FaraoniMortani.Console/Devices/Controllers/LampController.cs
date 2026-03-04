@@ -21,117 +21,117 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
 
         public void AddLamp()
         {
-            Console.Write("Lamp Id: ");
-            string id = Console.ReadLine();
+            System.Console.Write("Lamp Id: ");
+            string id = System.Console.ReadLine();
 
             if(string.IsNullOrWhiteSpace(id))
             {
-                Console.WriteLine("Invalid name");
+                System.Console.WriteLine("Invalid name");
                 return;
             }
 
             new AddLampCommand(_repository).Execute(id);
-            Console.WriteLine("Lamp added");
+            System.Console.WriteLine("Lamp added");
         }
 
         public void RemoveLamp()
         {
-            Console.Write("Lamp Id: ");
-            string id = Console.ReadLine();
+            System.Console.Write("Lamp Id: ");
+            string id = System.Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(id))
             {
-                Console.WriteLine("Invalid Id");
+                System.Console.WriteLine("Invalid Id");
                 return;
             }
 
             new RemoveLampCommand(_repository).Execute(new Guid(id));
-            Console.WriteLine("Lamp removed");
+            System.Console.WriteLine("Lamp removed");
         }
 
         public void Brighten()
         {
-            Console.Write("Lamp Id: ");
-            string id = Console.ReadLine();
+            System.Console.Write("Lamp Id: ");
+            string id = System.Console.ReadLine();
 
-            Console.Write("Insert amount: ");
-            int amount = Console.ReadLine();
+            System.Console.Write("Insert amount: ");
+            int amount = System.Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(id))
             {
-                Console.WriteLine("Invalid Id");
+                System.Console.WriteLine("Invalid Id");
                 return;
             }
 
             new BrightenLampCommand(_repository).Execute(new Guid(id), amount);
-            Console.WriteLine("Lamp brightness increased");
+            System.Console.WriteLine("Lamp brightness increased");
         }
 
         public void Dimmer()
         {
-            Console.Write("Lamp Id: ");
-            string id = Console.ReadLine();
+            System.Console.Write("Lamp Id: ");
+            string id = System.Console.ReadLine();
 
-            Console.Write("Insert amount: ");
-            int amount = Console.ReadLine();
+            System.Console.Write("Insert amount: ");
+            int amount = System.Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(id))
             {
-                Console.WriteLine("Invalid Id");
+                System.Console.WriteLine("Invalid Id");
                 return;
             }
 
             new DimmerLampCommand(_repository).Execute(new Guid(id), amount);
-            Console.WriteLine("Lamp brightness decreased");
+            System.Console.WriteLine("Lamp brightness decreased");
         }
 
         public void SwitchOn()
         {
-            Console.Write("Lamp Id: ");
-            string id = Console.ReadLine();
+            System.Console.Write("Lamp Id: ");
+            string id = System.Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(id))
             {
-                Console.WriteLine("Invalid Id");
+                System.Console.WriteLine("Invalid Id");
                 return;
             }
 
             new SwitchLampOnCommand(_repository).Execute(new Guid(id));
-            Console.WriteLine("Lamp has turned on");
+            System.Console.WriteLine("Lamp has turned on");
         }
 
         public void SwitchOff()
         {
-            Console.Write("Lamp Id: ");
-            string id = Console.ReadLine();
+            System.Console.Write("Lamp Id: ");
+            string id = System.Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(id))
             {
-                Console.WriteLine("Invalid Id");
+                System.Console.WriteLine("Invalid Id");
                 return;
             }
 
             new SwitchLampOffCommand(_repository).Execute(new Guid(id));
-            Console.WriteLine("Lamp has turned off");
+            System.Console.WriteLine("Lamp has turned off");
         }
 
         public void ShowLamps()
         {
             var lamps = new GetAllLampsQuery(_repository).Execute();
 
-            Console.WriteLine("Lamps:");
-            Console.WriteLine("---------------------------------");
+            System.Console.WriteLine("Lamps:");
+            System.Console.WriteLine("---------------------------------");
 
             if (lamps.Count == 0)
             {
-                Console.WriteLine("No lamps available");
+                System.Console.WriteLine("No lamps available");
                 return;
             }
 
             for (int i = 0; i < lamps.Count; i++)
             {
                 var l = lamps[i];
-                Console.WriteLine($"{i + 1}. {l.Name}\n{l}");
+                System.Console.WriteLine($"{i + 1}. {l.Name}\n{l}");
             }
         }
     }
