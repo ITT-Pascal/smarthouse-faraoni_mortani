@@ -55,7 +55,7 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             string id = System.Console.ReadLine();
 
             System.Console.Write("Insert amount: ");
-            int amount = System.Console.ReadLine();
+            int amount = Convert.ToInt16(System.Console.ReadLine());
 
             if (string.IsNullOrWhiteSpace(id))
             {
@@ -73,7 +73,7 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             string id = System.Console.ReadLine();
 
             System.Console.Write("Insert amount: ");
-            int amount = System.Console.ReadLine();
+            int amount = Convert.ToInt16(System.Console.ReadLine());
 
             if (string.IsNullOrWhiteSpace(id))
             {
