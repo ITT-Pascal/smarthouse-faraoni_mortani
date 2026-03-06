@@ -51,7 +51,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.Abstractions
         {
             if (Status == DeviceStatus.On)
             {
-                throw new InvalidOperationException("Device is already turned on");
+                throw new Exception("Device is already turned on");
             } 
             else
             {
@@ -64,7 +64,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.Abstractions
         {
             if (Status == DeviceStatus.Off)
             {
-                throw new InvalidOperationException("Device is already turned off");
+                throw new Exception("Device is already turned off");
             }
             else
             {

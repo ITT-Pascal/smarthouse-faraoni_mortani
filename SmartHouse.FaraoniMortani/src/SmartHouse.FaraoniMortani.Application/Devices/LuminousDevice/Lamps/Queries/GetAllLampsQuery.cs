@@ -1,4 +1,6 @@
-﻿using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
+﻿using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO;
+using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Mapper;
+using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
 using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices.Repositories;
 using System;
 using System.Collections.Generic;
@@ -17,9 +19,16 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Que
             _lampRepository = lampRepository;
         }
 
-        public List<Lamp> Execute()
+        public List<LampDto> Execute()
         {
-            return _lampRepository.GetAll();
+            var result = new List<LampDto>();
+
+            foreach(var l in _lampRepository.GetAll())
+            {
+                result.Add(LampMapper.ToDto(l));
+            }
+
+            return result;
         }
     }
 }

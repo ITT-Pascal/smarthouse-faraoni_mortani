@@ -28,7 +28,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Map
             return new Lamp(
                 dto.Id,
                 dto.Name,
-                dto.Brightness,
+                new Brightness(dto.Brightness),
                 dto.CreationTime,
                 dto.LastChangeTime
              );
