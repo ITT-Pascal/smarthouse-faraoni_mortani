@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace SmartHouse.FaraoniMortani.Application.Devices.HeatDevice.Thermostats.Queries
 {
-    public class GetByIdQuery
+    public class ThermostatGetBIdQuery
     {
         private readonly IThermostatRepository _thermostatRepository;
 
-        public GetByIdQuery(IThermostatRepository thermostatRepository)
+        public ThermostatGetBIdQuery(IThermostatRepository thermostatRepository)
         {
             _thermostatRepository = thermostatRepository;
         }

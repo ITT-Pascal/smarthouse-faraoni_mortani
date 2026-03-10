@@ -19,6 +19,14 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.HeatDevice.AirConditioner
             TargetTemperature = new Degree(Degree.Default);
         }
 
+        public AirConditioner(Guid id, string name, DeviceStatus deviceStatus, double targetTemperature, DateTime creationTime, DateTime lastUpdateTime)
+        {
+            Id = id;
+            Name = name;
+            CreationTime = creationTime;
+            TargetTemperature = new Degree(targetTemperature);
+        }
+
         // Methods
         public void SetTemperatureToMin()
         {

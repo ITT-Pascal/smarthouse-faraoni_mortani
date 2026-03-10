@@ -14,12 +14,7 @@ namespace SmartHouse.FaraoniMortani.Infrastructure.Repositories.Devices.Luminous
 
         public InMemoryLampRepository()
         {
-            _lamps = new List<Lamp>
-            {
-                new Lamp("Stefano"),
-                new Lamp("Fede"),
-                new Lamp("Piazza")
-            };
+            _lamps = new List<Lamp>();
         }
 
         public List<Lamp> GetAll()
