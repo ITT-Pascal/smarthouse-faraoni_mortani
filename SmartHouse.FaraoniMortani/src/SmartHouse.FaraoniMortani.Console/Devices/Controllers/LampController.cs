@@ -21,68 +21,77 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
 
         public void AddLamp()
         {
-            System.Console.Write("Lamp Id: ");
-            string id = System.Console.ReadLine();
+            System.Console.Write("Lamp Name: ");
+            string name = System.Console.ReadLine();
 
-            if(string.IsNullOrWhiteSpace(id))
+            if(string.IsNullOrWhiteSpace(name))
             {
                 System.Console.WriteLine("Invalid name");
                 return;
             }
 
-            new AddLampCommand(_repository).Execute(id);
+            new AddLampCommand(_repository).Execute(name);
             System.Console.WriteLine("Lamp added");
         }
 
         public void RemoveLamp()
         {
-            System.Console.Write("Lamp Id: ");      
-            string id = System.Console.ReadLine();
+            var lamp = SelectLamp();
 
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                System.Console.WriteLine("Invalid Id");
+            if (lamp == null)
                 return;
-            }
 
-            new RemoveLampCommand(_repository).Execute(new Guid(id));
+            new RemoveLampCommand(_repository).Execute(lamp.Id);
             System.Console.WriteLine("Lamp removed");
         }
 
         public void Brighten()
         {
-            System.Console.Write("Lamp Id: ");
-            string id = System.Console.ReadLine();
-
-            System.Console.Write("Insert amount: ");
-            int amount = Convert.ToInt16(System.Console.ReadLine());
-
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                System.Console.WriteLine("Invalid Id");
+            var lamp = SelectLamp();
+            if (lamp == null) 
                 return;
+
+            try
+            {
+                System.Console.Write("Insert amount: ");
+                int amount = Convert.ToInt16(System.Console.ReadLine());
+
+                new BrightenLampCommand(_repository).Execute(lamp.Id, amount);
+                System.Console.WriteLine("Lamp brightness increased");
+            }
+            catch (InvalidOperationException ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
             }
 
-            new BrightenLampCommand(_repository).Execute(new Guid(id), amount);
-            System.Console.WriteLine("Lamp brightness increased");
         }
 
         public void Dimmer()
         {
-            System.Console.Write("Lamp Id: ");
-            string id = System.Console.ReadLine();
-
-            System.Console.Write("Insert amount: ");
-            int amount = Convert.ToInt16(System.Console.ReadLine());
-
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                System.Console.WriteLine("Invalid Id");
+            var lamp = SelectLamp();
+            if (lamp == null)
                 return;
-            }
 
-            new DimmerLampCommand(_repository).Execute(new Guid(id), amount);
-            System.Console.WriteLine("Lamp brightness decreased");
+            try
+            {
+                System.Console.Write("Insert amount: ");
+                int amount = Convert.ToInt16(System.Console.ReadLine());
+
+                new DimmerLampCommand(_repository).Execute(lamp.Id, amount);
+                System.Console.WriteLine("Lamp brightness decreased");
+            }
+            catch (InvalidOperationException ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
         }
         public void ChangeBrightness()
         {
@@ -90,8 +99,8 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             if (lamp == null) return;
 
             System.Console.Write("New brightness (0-100): ");
-
             int intensity;
+
             if (!int.TryParse(System.Console.ReadLine(), out intensity))
             {
                 System.Console.WriteLine("Invalid value");
@@ -101,7 +110,7 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             try
             {
                 new SetCustomBrightnessCommand(_repository).Execute(lamp.Id, intensity);
-                System.Console.WriteLine("Intensity updated");
+                System.Console.WriteLine("Brightness updated");
             }
             catch (InvalidOperationException ex)
             {
@@ -115,33 +124,41 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
 
         public void SwitchOn()
         {
-            System.Console.Write("Lamp Id: ");
-            string id = System.Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(id))
+            var lamp = SelectLamp();
+            if (lamp == null) return;
+            try
             {
-                System.Console.WriteLine("Invalid Id");
-                return;
+                new SwitchLampOnCommand(_repository).Execute(lamp.Id);
+                System.Console.WriteLine("Lamp is now on");
             }
-
-            new SwitchLampOnCommand(_repository).Execute(new Guid(id));
-            System.Console.WriteLine("Lamp has turned on");
+            catch (InvalidOperationException ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
 
         }
 
         public void SwitchOff()
         {
-            System.Console.Write("Lamp Id: ");
-            string id = System.Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(id))
+            var lamp = SelectLamp();
+            if (lamp == null) return;
+            try
             {
-                System.Console.WriteLine("Invalid Id");
-                return;
+                new SwitchLampOffCommand(_repository).Execute(lamp.Id);
+                System.Console.WriteLine("Turned lamp off!");
             }
-
-            new SwitchLampOffCommand(_repository).Execute(new Guid(id));
-            System.Console.WriteLine("Lamp has turned off");
+            catch (InvalidOperationException ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
         }
 
         public void ShowLamps()
@@ -190,10 +207,9 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             }
 
             System.Console.Write("Lamp number: ");
-            string strIndex = System.Console.ReadLine();
 
             int index;
-            if (!int.TryParse(strIndex, out index))
+            if (!int.TryParse(System.Console.ReadLine(), out index))
             {
                 System.Console.WriteLine("Invalid number");
                 return null;
