@@ -149,7 +149,7 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             try
             {
                 new SwitchLampOffCommand(_repository).Execute(lamp.Id);
-                System.Console.WriteLine("Turned lamp off!");
+                System.Console.WriteLine("Lamp is now off");
             }
             catch (InvalidOperationException ex)
             {

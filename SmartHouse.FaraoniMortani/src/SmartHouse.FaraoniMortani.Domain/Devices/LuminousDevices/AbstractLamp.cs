@@ -35,6 +35,11 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices
             else if (BrightnessLevel.Value - amount < Brightness.Min)
                 BrightnessLevel.Value = Brightness.Min;
             else BrightnessLevel.Value -= amount;
+
+            if(BrightnessLevel.Value == 0)
+            {
+                Status = DeviceStatus.Off;
+            }
         }
 
         public virtual void Brighten(int amount)

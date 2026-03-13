@@ -141,6 +141,32 @@ namespace SmartHouse.FaraoniMortani.Domain.UnitTests.LuminousDevicesTests
         }
 
         [Fact]
+        public void Dimmer_IfLampIsOnWithBrightness100_AndBrightnessIsDimmeredBy100_BrightnessLevelIs0AndLampIsOff()
+        {
+            Lamp lamp = new Lamp();
+
+            lamp.Toggle();
+            lamp.SetBrightness(new Brightness(100));
+            lamp.Dimmer(100);
+
+            Assert.Equal(0, lamp.BrightnessLevel.Value);
+            Assert.Equal(DeviceStatus.Off, lamp.Status);
+        }
+
+        [Fact]
+        public void Dimmer_IfLampIsOnWithBrightness100_AndBrightnessIsDimmeredBy120_BrightnessLevelIs0AndLampIsOff()
+        {
+            Lamp lamp = new Lamp();
+
+            lamp.Toggle();
+            lamp.SetBrightness(new Brightness(100));
+            lamp.Dimmer(120);
+
+            Assert.Equal(0, lamp.BrightnessLevel.Value);
+            Assert.Equal(DeviceStatus.Off, lamp.Status);
+        }
+
+        [Fact]
         public void Brighten_IfLampIsOff_ThrowException()
         {
             // Arrange
