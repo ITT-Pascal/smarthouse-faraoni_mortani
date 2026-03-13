@@ -1,5 +1,9 @@
 ﻿using SmartHouse.FaraoniMortani.Application.Devices.Door.Commands;
 using SmartHouse.FaraoniMortani.Application.Devices.Door.Queries;
+using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.DTO;
+using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Commands;
+using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO;
+using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Queries;
 using SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice.Repositories;
 using System;
 using System.Collections.Generic;
@@ -18,6 +22,21 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             _repository = repository;
         }
 
+        public void AddDoor()
+        {
+            System.Console.Write("Lamp Name: ");
+            string name = System.Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                System.Console.WriteLine("Invalid name");
+                return;
+            }
+
+            new AddDoorCommand(_repository).Execute(name);
+            System.Console.WriteLine("Lamp added");
+        }
+
         public void OpenDoor()
         {
             System.Console.Write("Door Id: ");
@@ -28,7 +47,7 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
                 System.Console.WriteLine("Invalid name");
                 return;
             }
-
+            
             new OpenDoorCommand(_repository).Execute(new Guid(id));
             System.Console.WriteLine("Door opened");
         }
@@ -138,6 +157,34 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
                 var l = doors[i];
                 System.Console.WriteLine($"{i + 1}. {l.Name}\n{l}");
             }
+        }
+
+        private DoorDto SelectDoor()
+        {
+            var doors = new GetAllDoorsQuery(_repository).Execute();
+
+            if (doors.Count == 0)
+            {
+                System.Console.WriteLine("No doors available");
+                return null;
+            }
+
+            System.Console.Write("Door number: ");
+
+            int index;
+            if (!int.TryParse(System.Console.ReadLine(), out index))
+            {
+                System.Console.WriteLine("Invalid number");
+                return null;
+            }
+
+            if (index < 1 || index > doors.Count)
+            {
+                System.Console.WriteLine("Door not found");
+                return null;
+            }
+
+            return doors[index - 1];
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice.Repositories;
+﻿using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.DTO;
+using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.Mapper;
+using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO;
+using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Mapper;
+using SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice.Repositories;
 using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
 using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices.Repositories;
 using System;
@@ -18,9 +22,16 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.Door.Queries
             _doorRepository = doorRepository;
         }
 
-        public List<Domain.Devices.DoorDevice.Door> Execute()
+        public List<DoorDto> Execute()
         {
-            return _doorRepository.GetAll();
+            var list = new List<DoorDto>();
+
+            foreach (var door in _doorRepository.GetAll())
+            {
+                list.Add(DoorMapper.ToDto(door));
+            }
+
+            return list;
         }
     }
 }
