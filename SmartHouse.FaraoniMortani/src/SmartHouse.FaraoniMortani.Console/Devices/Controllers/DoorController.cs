@@ -1,5 +1,6 @@
 ﻿using SmartHouse.FaraoniMortani.Application.Devices.Door.Commands;
 using SmartHouse.FaraoniMortani.Application.Devices.Door.Queries;
+using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.Commands;
 using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.DTO;
 using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Commands;
 using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO;
@@ -24,7 +25,7 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
 
         public void AddDoor()
         {
-            System.Console.Write("Lamp Name: ");
+            System.Console.Write("Door name: ");
             string name = System.Console.ReadLine();
 
             if (string.IsNullOrWhiteSpace(name))
@@ -33,8 +34,16 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
                 return;
             }
 
-            new AddDoorCommand(_repository).Execute(name);
-            System.Console.WriteLine("Lamp added");
+            System.Console.Write("New Pin: ");
+            if (!int.TryParse(System.Console.ReadLine(), out int pin))
+            {
+                System.Console.WriteLine("Invalid Pin");
+                return;
+            }
+
+            new AddDoorCommand(_repository).Execute(name, pin);
+            System.Console.WriteLine("Door added!");
+
         }
 
         public void OpenDoor()

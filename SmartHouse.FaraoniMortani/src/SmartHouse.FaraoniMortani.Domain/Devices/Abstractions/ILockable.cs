@@ -9,6 +9,6 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.Abstractions
     public interface ILockable
     {
         public void Lock();
-        public void Unlock(string password);
+        public void Unlock(int password);
     }
 }

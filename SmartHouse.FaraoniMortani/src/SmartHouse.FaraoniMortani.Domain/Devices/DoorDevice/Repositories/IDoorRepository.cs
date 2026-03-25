@@ -10,7 +10,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice.Repositories
     public interface IDoorRepository
     {
         void Add(Door newDoor);
-        void Delete(Door newDoor),
+        void Delete(Door newDoor);
         void Update(Door newDoor);
         void Open();
         void Close();
