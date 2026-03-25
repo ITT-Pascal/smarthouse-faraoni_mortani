@@ -12,7 +12,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.CCTV.DTO
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public DeviceStatus Status { get; set; }
+        public string Status { get; set; }
         public CCTVMode Mode { get; set; }
         public Inclination Inclination { get; set; }
         public double Zoom { get; set; }

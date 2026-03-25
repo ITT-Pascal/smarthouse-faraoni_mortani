@@ -11,7 +11,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.DTO
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public DeviceStatus Status { get; set; }
+        public string Status { get; set; }
         public string Password { get; set; }
         public bool IsLocked { get; set; }
         public DateTime CreatedAtUtc { get; set; }

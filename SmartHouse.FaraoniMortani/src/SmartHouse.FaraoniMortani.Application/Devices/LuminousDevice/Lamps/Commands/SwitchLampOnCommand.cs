@@ -24,7 +24,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Com
             if (lamp == null) throw new Exception("There is no lamp at this id");
             else
             {
-                lamp.SwitchOff();
+                lamp.SwitchOn();
                 _lampRepository.Update(lamp);
             }
         }

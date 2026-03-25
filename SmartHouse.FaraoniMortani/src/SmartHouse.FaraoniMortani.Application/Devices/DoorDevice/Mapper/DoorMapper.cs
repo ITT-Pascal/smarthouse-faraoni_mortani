@@ -1,4 +1,6 @@
-﻿using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.DTO;
+﻿using SmartHouse.FaraoniMortani.Application.Devices.Abstractions.Mapper;
+using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.DTO;
+using SmartHouse.FaraoniMortani.Domain.Devices.CCTV;
 using SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.Mapper
             {
                 Id = door.Id,
                 Name = door.Name,
-                Status = door.Status,
+                Status = DeviceStatusMapper.ToDto(door.Status),
                 Password = door.Password,
                 IsLocked = door.IsLocked,
                 CreatedAtUtc = door.CreationTime,

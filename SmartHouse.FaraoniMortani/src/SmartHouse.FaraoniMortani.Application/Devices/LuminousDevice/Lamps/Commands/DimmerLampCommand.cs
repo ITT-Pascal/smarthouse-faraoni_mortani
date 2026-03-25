@@ -28,8 +28,5 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Com
                 _lampRepository.Update(lamp);
             }
         }
-        
-
-
     }
 }

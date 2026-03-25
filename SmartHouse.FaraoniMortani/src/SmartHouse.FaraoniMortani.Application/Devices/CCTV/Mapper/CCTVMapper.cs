@@ -1,4 +1,6 @@
-﻿using SmartHouse.FaraoniMortani.Application.Devices.CCTV.DTO;
+﻿using SmartHouse.FaraoniMortani.Application.Devices.Abstractions.Mapper;
+using SmartHouse.FaraoniMortani.Application.Devices.CCTV.DTO;
+using SmartHouse.FaraoniMortani.Domain.Devices.Abstractions;
 using SmartHouse.FaraoniMortani.Domain.Devices.CCTV;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.CCTV.Mapper
             {
                 Id = cctv.Id,
                 Name = cctv.Name,
-                Status = cctv.Status,
+                Status = DeviceStatusMapper.ToDto(cctv.Status),
                 Mode = cctv.Mode,
                 Inclination = cctv.InclinationValue,
                 Zoom = cctv.CurrentZoom,
