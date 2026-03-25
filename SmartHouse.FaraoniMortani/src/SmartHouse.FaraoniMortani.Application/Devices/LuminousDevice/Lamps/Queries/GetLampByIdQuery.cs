@@ -24,7 +24,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Que
         {
             Lamp lamp = _lampRepository.GetById(id);
 
-            if (lamp == null) throw new Exception("There is no lamp at this id");
+            if (lamp == null) throw new Exception("No lamp with specified id found");
 
             return LampMapper.ToDto(lamp);
         }

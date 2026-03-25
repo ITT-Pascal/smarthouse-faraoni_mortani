@@ -11,9 +11,9 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice
     public class Door: AbstractDevice, ILockable
     {
         public bool IsLocked { get; private set; }
-        public int Password { get; private set; }
+        public string Password { get; private set; }
 
-        public Door(string name, int password)
+        public Door(string name, string password)
         {
             Id = new Guid();
             Name = name;
@@ -55,7 +55,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice
             else throw new Exception("Door is already locked");
         }
 
-        public void Unlock(int password)
+        public void Unlock(string password)
         {
             if (IsLocked == true)
             {
@@ -68,7 +68,7 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice
             else throw new Exception("Door is already unlocked");
         }
 
-        public void SetNewPassword(int currentPassword, int newPassword)
+        public void SetNewPassword(string currentPassword, string newPassword)
         {
             if(Password == currentPassword)
             {

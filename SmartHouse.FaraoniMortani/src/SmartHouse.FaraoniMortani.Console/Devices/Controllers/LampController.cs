@@ -67,7 +67,6 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             {
                 System.Console.WriteLine($"ERROR: {ex.Message}");
             }
-
         }
 
         public void Dimmer()
@@ -139,7 +138,6 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             {
                 System.Console.WriteLine($"ERROR: {ex.Message}");
             }
-
         }
 
         public void SwitchOff()
@@ -192,9 +190,8 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
             System.Console.WriteLine("6 - Change Brightness");
             System.Console.WriteLine("7 - Brighten");
             System.Console.WriteLine("8 - Dimmer");
-
-
-
+            System.Console.WriteLine("-----------------------------------");
+            System.Console.WriteLine("Press 0 to exit program");
         }
         private LampDto SelectLamp()
         {

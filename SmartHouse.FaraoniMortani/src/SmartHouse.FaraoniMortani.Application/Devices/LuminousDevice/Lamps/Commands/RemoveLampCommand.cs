@@ -21,7 +21,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Com
         {
             Lamp lamp = _lampRepository.GetById(lampId);
 
-            if (lamp == null) throw new Exception("There is no lamp at this id");
+            if (lamp == null) throw new Exception("No lamp with specified id found");
             else
             {
                 _lampRepository.Delete(lamp);

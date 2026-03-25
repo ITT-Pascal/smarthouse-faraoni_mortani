@@ -12,11 +12,6 @@ namespace SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice.Repositories
         void Add(Door newDoor);
         void Delete(Door newDoor);
         void Update(Door newDoor);
-        void Open();
-        void Close();
-        void Lock();
-        void Unlock(string password);
-        void SetPassword(string currentPassword, string newPassword);
         Door GetById(Guid id);
         List<Door> GetAll();
     }

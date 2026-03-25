@@ -1,7 +1,9 @@
 ﻿using SmartHouse.FaraoniMortani.Application.Devices.Abstractions.Mapper;
 using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.DTO;
+using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO;
 using SmartHouse.FaraoniMortani.Domain.Devices.CCTV;
 using SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice;
+using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,14 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.Mapper
                 CreatedAtUtc = door.CreationTime,
                 LastModifiedAtUtc = door.LastChangeTime,
             };
+        }
+
+        public static Domain.Devices.DoorDevice.Door ToDomain(DoorDto dto)
+        {
+            return new Domain.Devices.DoorDevice.Door(
+                dto.Name,
+                dto.Password
+             );
         }
     }
 }

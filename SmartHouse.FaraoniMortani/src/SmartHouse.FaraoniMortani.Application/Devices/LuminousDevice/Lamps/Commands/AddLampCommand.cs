@@ -24,7 +24,6 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Com
             _lampRepository.Add(new Lamp(lampName));
         }
     }
-
 }
 
 

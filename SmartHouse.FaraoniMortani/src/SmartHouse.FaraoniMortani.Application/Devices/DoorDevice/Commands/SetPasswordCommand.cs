@@ -20,7 +20,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.Door.Commands
         {
             Domain.Devices.DoorDevice.Door door = _doorRepository.GetById(doorId);
 
-            if (door == null) throw new Exception("There is no lamp at this id");
+            if (door == null) throw new Exception("No door with specified id found");
             else
             {
                 door.SetNewPassword(currentPassword, newPassword);

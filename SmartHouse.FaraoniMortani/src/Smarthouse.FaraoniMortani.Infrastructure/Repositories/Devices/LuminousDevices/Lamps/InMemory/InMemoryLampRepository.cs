@@ -51,6 +51,5 @@ namespace SmartHouse.FaraoniMortani.Infrastructure.Repositories.Devices.Luminous
         {
             // Not to do                           
         }
-
     }
 }

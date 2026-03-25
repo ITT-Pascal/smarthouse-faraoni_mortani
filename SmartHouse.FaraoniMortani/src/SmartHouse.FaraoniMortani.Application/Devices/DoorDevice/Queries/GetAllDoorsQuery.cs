@@ -1,10 +1,6 @@
 ﻿using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.DTO;
 using SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.Mapper;
-using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO;
-using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Mapper;
 using SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice.Repositories;
-using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
-using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -16,7 +16,7 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.DoorDevice.Commands
             _doorRepository = doorRepository;
         }
 
-        public void Execute(string doorName, int password)
+        public void Execute(string doorName, string password)
         {
             _doorRepository.Add(new Domain.Devices.DoorDevice.Door(doorName, password));
         }

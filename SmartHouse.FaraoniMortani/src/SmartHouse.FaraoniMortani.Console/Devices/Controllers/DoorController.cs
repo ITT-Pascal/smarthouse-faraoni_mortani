@@ -6,6 +6,7 @@ using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Command
 using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.DTO;
 using SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Queries;
 using SmartHouse.FaraoniMortani.Domain.Devices.DoorDevice.Repositories;
+using SmartHouse.FaraoniMortani.Domain.Devices.LuminousDevices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,118 +35,161 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
                 return;
             }
 
-            System.Console.Write("New Pin: ");
-            if (!int.TryParse(System.Console.ReadLine(), out int pin))
+            System.Console.Write("New Password: ");
+            string password = System.Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(password))
             {
-                System.Console.WriteLine("Invalid Pin");
+                System.Console.WriteLine("Invalid password");
                 return;
             }
 
-            new AddDoorCommand(_repository).Execute(name, pin);
-            System.Console.WriteLine("Door added!");
 
+            new AddDoorCommand(_repository).Execute(name, password);
+            System.Console.WriteLine("Door added");
+
+        }
+
+        public void RemoveDoor()
+        {
+            var lamp = SelectDoor();
+
+            if (lamp == null)
+                return;
+
+            new RemoveDoorCommand(_repository).Execute(lamp.Id);
+            System.Console.WriteLine("Door removed");
         }
 
         public void OpenDoor()
         {
-            System.Console.Write("Door Id: ");
-            string id = System.Console.ReadLine();
+            var door = SelectDoor();
 
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                System.Console.WriteLine("Invalid name");
+            if (door == null)
                 return;
+
+            try
+            {
+                new OpenDoorCommand(_repository).Execute(door.Id);
+                System.Console.WriteLine("Door Opened");
             }
-            
-            new OpenDoorCommand(_repository).Execute(new Guid(id));
-            System.Console.WriteLine("Door opened");
+            catch (InvalidOperationException ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
         }
 
         public void CloseDoor()
         {
-            System.Console.Write("Door Id: ");
-            string id = System.Console.ReadLine();
+            var door = SelectDoor();
 
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                System.Console.WriteLine("Invalid Id");
+            if (door == null)
                 return;
-            }
 
-            new CloseDoorCommand(_repository).Execute(new Guid(id));
-            System.Console.WriteLine("Door closed");
+            try
+            {
+                new CloseDoorCommand(_repository).Execute(door.Id);
+                System.Console.WriteLine("Door Closed");
+            }
+            catch (InvalidOperationException ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
         }
 
         public void LockDoor()
         {
-            System.Console.Write("Door Id: ");
-            string id = System.Console.ReadLine();
+            var door = SelectDoor();
 
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                System.Console.WriteLine("Invalid Id");
+            if (door == null)
                 return;
-            }
 
-            new LockDoorCommand(_repository).Execute(new Guid(id));
-            System.Console.WriteLine("Door locked");
+            try
+            {
+                new LockDoorCommand(_repository).Execute(door.Id);
+                System.Console.WriteLine("Door Locked");
+            }
+            catch (InvalidOperationException ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
         }
 
         public void UnlockDoor()
         {
-            System.Console.Write("Door Id: ");
-            string id = System.Console.ReadLine();
+            var door = SelectDoor();
 
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                System.Console.WriteLine("Invalid Id");
+            if (door == null)
                 return;
-            }
 
-            System.Console.Write("Door password: ");
-            string password = System.Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(password))
+            try
             {
-                System.Console.WriteLine("Invalid Password");
-                return;
-            }
+                System.Console.Write("Insert password: ");
+                string password = System.Console.ReadLine();
 
-            new UnlockDoorCommand(_repository).Execute(new Guid(id), password);
-            System.Console.WriteLine("Door unlocked");
+                new UnlockDoorCommand(_repository).Execute(door.Id, password);
+                System.Console.WriteLine("Door Locked");
+            }
+            catch (InvalidOperationException ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
         }
 
         public void SetPassword()
         {
-            System.Console.Write("Door Id: ");
-            string id = System.Console.ReadLine();
+            var door = SelectDoor();
 
-            if (string.IsNullOrWhiteSpace(id))
-            {
-                System.Console.WriteLine("Invalid Id");
+            if (door == null)
                 return;
-            }
 
-            System.Console.Write("Door's current password: ");
-            string password = System.Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(password))
+            try
             {
-                System.Console.WriteLine("Invalid Password");
-                return;
+                System.Console.Write("Door's current password: ");
+                string password = System.Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    System.Console.WriteLine("Invalid Password");
+                    return;
+                }
+
+                System.Console.Write("Door's new password: ");
+                string newPassword = System.Console.ReadLine();
+
+                if (string.IsNullOrWhiteSpace(newPassword))
+                {
+                    System.Console.WriteLine("Invalid Password");
+                    return;
+                }
+
+                new SetPasswordCommand(_repository).Execute(door.Id, password, newPassword);
+                System.Console.WriteLine("Password updated");
             }
-
-            System.Console.Write("Door's new password: ");
-            string newPassword = System.Console.ReadLine();
-
-            if (string.IsNullOrWhiteSpace(newPassword))
+            catch (InvalidOperationException ex)
             {
-                System.Console.WriteLine("Invalid Password");
-                return;
+                System.Console.WriteLine($"ERROR: {ex.Message}");
             }
-
-            new SetPasswordCommand(_repository).Execute(new Guid(id), password, newPassword);
-            System.Console.WriteLine("Password updated");
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"ERROR: {ex.Message}");
+            }
         }
 
         public void ShowDoors()
@@ -166,6 +210,21 @@ namespace SmartHouse.FaraoniMortani.Console.Devices.Controllers
                 var l = doors[i];
                 System.Console.WriteLine($"{i + 1}. {l.Name}\n{l}");
             }
+        }
+
+        public void ShowMenu()
+        {
+            System.Console.WriteLine();
+            System.Console.WriteLine("1 - Add Door");
+            System.Console.WriteLine("2 - Remove Door");
+            System.Console.WriteLine("3 - Show Doors");
+            System.Console.WriteLine("4 - Open Door");
+            System.Console.WriteLine("5 - Close Door");
+            System.Console.WriteLine("6 - Lock Door");
+            System.Console.WriteLine("7 - Unlock Door");
+            System.Console.WriteLine("8 - Set Password");
+            System.Console.WriteLine("-----------------------------------");
+            System.Console.WriteLine("Press 0 to exit program");
         }
 
         private DoorDto SelectDoor()
