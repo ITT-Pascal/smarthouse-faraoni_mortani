@@ -21,14 +21,14 @@ namespace SmartHouse.FaraoniMortani.Application.Devices.LuminousDevice.Lamps.Que
 
         public List<LampDto> Execute()
         {
-            var result = new List<LampDto>();
+            var list = new List<LampDto>();
 
-            foreach(var l in _lampRepository.GetAll())
+            foreach(var lamp in _lampRepository.GetAll())
             {
-                result.Add(LampMapper.ToDto(l));
+                list.Add(LampMapper.ToDto(lamp));
             }
 
-            return result;
+            return list;
         }
     }
 }
