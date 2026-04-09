@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36212.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C83A596-D32D-B35F-00DD-F0C99B673980}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1B2593F8-D6BF-404D-88D7-AD5C8CCAA248}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BB6623DA-A694-4906-8A5F-C24442A6817C}"
+	ProjectSection(SolutionItems) = preProject
+		docs\SmartHouseDocumentazione.docx = docs\SmartHouseDocumentazione.docx
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Domain", "src\SmartHouse.FaraoniMortani.Domain\SmartHouse.FaraoniMortani.Domain.csproj", "{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Domain.UnitTests", "test\SmartHouse.FaraoniMortani.Domain.UnitTests\SmartHouse.FaraoniMortani.Domain.UnitTests.csproj", "{02B958A5-7420-459D-BADD-832EC95D1136}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code Reviews", "Code Reviews", "{902C42CB-4264-410C-A1A3-840850C05249}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Code Reviews\Review 1 -.txt = docs\Code Reviews\Review 1 -.txt
+		docs\Code Reviews\Review 2 - 05.12.25.txt = docs\Code Reviews\Review 2 - 05.12.25.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Application", "src\SmartHouse.FaraoniMortani.Application\SmartHouse.FaraoniMortani.Application.csproj", "{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Smarthouse.FaraoniMortani.Infrastructure", "src\Smarthouse.FaraoniMortani.Infrastructure\Smarthouse.FaraoniMortani.Infrastructure.csproj", "{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.Console", "src\SmartHouse.FaraoniMortani.Console\SmartHouse.FaraoniMortani.Console.csproj", "{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHouse.FaraoniMortani.WPFUI", "src\SmartHouse.FaraoniMortani.WPFUI\SmartHouse.FaraoniMortani.WPFUI.csproj", "{2D1004B5-D319-43C5-A4A4-4E65A7783BEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B958A5-7420-459D-BADD-832EC95D1136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B958A5-7420-459D-BADD-832EC95D1136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B958A5-7420-459D-BADD-832EC95D1136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B958A5-7420-459D-BADD-832EC95D1136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1004B5-D319-43C5-A4A4-4E65A7783BEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1004B5-D319-43C5-A4A4-4E65A7783BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1004B5-D319-43C5-A4A4-4E65A7783BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1004B5-D319-43C5-A4A4-4E65A7783BEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C1EFD131-CD2F-47EA-9C50-EEFD03B0BF36} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{02B958A5-7420-459D-BADD-832EC95D1136} = {1B2593F8-D6BF-404D-88D7-AD5C8CCAA248}
+		{902C42CB-4264-410C-A1A3-840850C05249} = {BB6623DA-A694-4906-8A5F-C24442A6817C}
+		{1B9096FB-CA39-4AB6-BCC7-116E9B73AD54} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{A6E073A2-ABFD-4A50-B1E8-D318A2BA1D77} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{A9DFFBC9-520E-4C18-8AD6-5BA01EBD1767} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{2D1004B5-D319-43C5-A4A4-4E65A7783BEA} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48100FF3-B21B-4BAB-94E9-4976A1E0DB47}
+	EndGlobalSection
+EndGlobal

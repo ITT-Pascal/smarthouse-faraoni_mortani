@@ -1,0 +1,6 @@
+Code Review #2 - 05/12/2025
+- documentazione: inserire tabella intestazione
+- documentazione: inserire sezione testing
+- software: abstractLamp in cartella luminous
+- software: protected set nelle classi astratte, private set nelle classi concrete
+- software: no magic Numbers ma step const
