@@ -1,0 +1,25 @@
+﻿<Window x:Class="SmartHouse.FaraoniMortani.WPFUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SmartHouse.FaraoniMortani.WPFUI"
+        mc:Ignorable="d"
+        Title="SmartHouse" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Width="20" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" BorderThickness="0">
+                <Image Source="/assets/images/addbutton.png"/>
+            </Button>
+            <Button Width="20" Height="20" VerticalAlignment="Top" Background="Transparent" BorderThickness="0">
+                <Image Source="/assets/images/settingsgear.png"/>
+            </Button>
+            <Button Width="20" Height="20" VerticalAlignment="Top" Background="Transparent" BorderThickness="0">
+                <Image Source="/assets/images/removebutton.png"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
